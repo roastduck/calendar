@@ -1,8 +1,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QDate>
+#include <QWidget>
 #include <QMainWindow>
-#include "model.h"
 
 namespace Ui {
 class MainWindow;
@@ -16,9 +17,14 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    void clearGrid();
+
+    void initMonth(int year, int month);
+
+    QWidget *dayInMonth(QDate date, bool monthDisplayed);
+
 private:
     Ui::MainWindow *ui;
-    Model *mModel;
 };
 
 #endif // MAINWINDOW_H

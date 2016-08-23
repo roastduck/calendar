@@ -14,12 +14,10 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    monthmodel.cpp \
-    model.cpp
+    html.cpp
 
 HEADERS  += mainwindow.h \
-    monthmodel.h \
-    model.h
+    html.h
 
 FORMS    += mainwindow.ui
 
