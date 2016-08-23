@@ -28,11 +28,17 @@ protected:
     void mouseMoveEvent(QMouseEvent *event);
 
 private slots:
-    void on_quitButton_released();
-
     void on_comboBox_activated(int index);
+    void on_quitButton_clicked(bool checked);
+    void on_previousButton_clicked(bool checked);
+    void on_nextButton_clicked(bool checked);
+    void on_yearBox_valueChanged(int arg1);
+    void on_monthBox_valueChanged(int arg1);
+    void on_dayBox_valueChanged(int arg1);
 
 private:
+    void alterDisplayedDate(QDate date);
+
     void clearGrid();
 
     QWidget *newCell(QWidget *w, QColor c);

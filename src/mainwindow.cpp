@@ -1,6 +1,7 @@
 #include <QLabel>
 #include <QDebug>
 #include <QPalette>
+#include <QVBoxLayout>
 #include <QLayoutItem>
 #include "html.h"
 #include "mainwindow.h"
@@ -15,8 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     if (! chinese.load(":/translation/zh_cn.qm"))
         qDebug() << "failed to load zh_cn.qm";
 
-    displayedDate = QDate::currentDate();
-    initMonth();
+    alterDisplayedDate(QDate::currentDate());
 }
 
 MainWindow::~MainWindow()
@@ -29,11 +29,22 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
     QPoint windowPos = pos();
     QPoint mousePos = event->globalPos();
     dPos = mousePos - windowPos;
+    QMainWindow::mousePressEvent(event);
 }
 
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
     move(event->globalPos() - dPos);
+    QMainWindow::mouseMoveEvent(event);
+}
+
+void MainWindow::alterDisplayedDate(QDate date)
+{
+    ui->yearBox->setValue(date.year());
+    ui->monthBox->setValue(date.month());
+    ui->dayBox->setValue(date.day());
+    displayedDate = date;
+    initMonth();
 }
 
 void MainWindow::clearGrid()
@@ -46,6 +57,12 @@ void MainWindow::clearGrid()
 void MainWindow::initMonth()
 {
     clearGrid();
+
+    ui->yearBox->show();
+    ui->monthBox->show();
+    ui->dayBox->hide();
+    ui->yearMonthLabel->show();
+    ui->monthDayLabel->hide();
 
     int year = displayedDate.year();
     int month = displayedDate.month();
@@ -60,8 +77,9 @@ void MainWindow::initMonth()
     QDate iter(year, month, 1);
     while (iter.dayOfWeek() != 1) iter = iter.addDays(-1);
     int stWeek = iter.weekNumber();
-    for (; iter.month() == month || iter.dayOfWeek() != 1; iter = iter.addDays(1))
+    for (; iter < QDate(year, month, 1).addMonths(1) || iter.dayOfWeek() != 1; iter = iter.addDays(1))
     {
+        if (iter.weekNumber() < stWeek) stWeek = 0;
         int rowId = iter.weekNumber() - stWeek + 1;
         ui->grid->addWidget(dayInMonth(iter, iter.month() == month), rowId, iter.dayOfWeek());
         if (iter.dayOfWeek() == 1)
@@ -70,6 +88,13 @@ void MainWindow::initMonth()
                 QColor(0x42, 0x37, 0x32, 0xD0)
             ), rowId, 0);
     }
+
+    ui->grid->setRowStretch(0, 10);
+    for (int i = 1; i < ui->grid->rowCount(); i++)
+        ui->grid->setRowStretch(i, 20);
+    ui->grid->setColumnStretch(0, 10);
+    for (int i = 1; i < ui->grid->columnCount(); i++)
+        ui->grid->setColumnStretch(i, 20);
 }
 
 QWidget *MainWindow::newCell(QWidget *w, QColor c)
@@ -79,7 +104,11 @@ QWidget *MainWindow::newCell(QWidget *w, QColor c)
     palette.setColor(QPalette::Window, c);
     ret->setPalette(palette);
     ret->setAutoFillBackground(true);
-    w->setParent(ret);
+
+    QVBoxLayout *layout = new QVBoxLayout(ret);
+
+    w->setAttribute(Qt::WA_TransparentForMouseEvents);
+    layout->addWidget(w);
     return ret;
 }
 
@@ -88,16 +117,12 @@ QWidget *MainWindow::dayInMonth(QDate date, bool monthDisplayed)
     QString title = QString::number(date.day());
     if (! monthDisplayed) title = Html::gray(title);
     QLabel *label = new QLabel(Html::strong(title));
+    label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     QColor color(0xE0, 0xFF, 0x85, 0xD0);
     if (date == QDate::currentDate())
         color = QColor(0x00, 0x3D, 0x99, 0xD0);
     return newCell(label, color);
-}
-
-void MainWindow::on_quitButton_released()
-{
-    qApp->exit();
 }
 
 void MainWindow::on_comboBox_activated(int index)
@@ -110,4 +135,34 @@ void MainWindow::on_comboBox_activated(int index)
     ui->retranslateUi(this);
     initMonth();
     ui->comboBox->setCurrentIndex(index);
+}
+
+void MainWindow::on_quitButton_clicked(bool checked)
+{
+    qApp->exit();
+}
+
+void MainWindow::on_previousButton_clicked(bool checked)
+{
+    alterDisplayedDate(displayedDate.addMonths(-1));
+}
+
+void MainWindow::on_nextButton_clicked(bool checked)
+{
+    alterDisplayedDate(displayedDate.addMonths(1));
+}
+
+void MainWindow::on_yearBox_valueChanged(int)
+{
+    alterDisplayedDate(QDate(ui->yearBox->value(), ui->monthBox->value(), ui->dayBox->value()));
+}
+
+void MainWindow::on_monthBox_valueChanged(int arg1)
+{
+    alterDisplayedDate(QDate(ui->yearBox->value(), ui->monthBox->value(), ui->dayBox->value()));
+}
+
+void MainWindow::on_dayBox_valueChanged(int arg1)
+{
+    alterDisplayedDate(QDate(ui->yearBox->value(), ui->monthBox->value(), ui->dayBox->value()));
 }

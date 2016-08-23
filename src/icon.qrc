@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/icon">
         <file>../resource/close-button.ico</file>
+        <file>../resource/arrow-right.ico</file>
+        <file>../resource/arrow-left.ico</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>
