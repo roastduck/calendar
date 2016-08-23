@@ -5,6 +5,11 @@ QString Html::gray(QString str)
     return "<p style='color: gray'>" + str + "</p>";
 }
 
+QString Html::white(QString str)
+{
+    return "<p style='color: white'>" + str + "</p>";
+}
+
 QString Html::italic(QString str)
 {
     return "<i>" + str + "</i>";

@@ -22,3 +22,6 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui
 
 TRANSLATIONS += zh_cn.ts
+
+RESOURCES += \
+    icon.qrc
