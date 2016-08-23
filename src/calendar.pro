@@ -24,4 +24,5 @@ FORMS    += mainwindow.ui
 TRANSLATIONS += zh_cn.ts
 
 RESOURCES += \
-    icon.qrc
+    icon.qrc \
+    translation.qrc

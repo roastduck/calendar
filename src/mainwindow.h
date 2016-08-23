@@ -5,6 +5,7 @@
 #include <QColor>
 #include <QPoint>
 #include <QWidget>
+#include <QTranslator>
 #include <QMainWindow>
 #include <QMouseEvent>
 
@@ -20,7 +21,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    void initMonth(int year, int month);
+    void initMonth();
 
 protected:
     void mousePressEvent(QMouseEvent *event);
@@ -28,6 +29,8 @@ protected:
 
 private slots:
     void on_quitButton_released();
+
+    void on_comboBox_activated(int index);
 
 private:
     void clearGrid();
@@ -38,7 +41,11 @@ private:
 
     Ui::MainWindow *ui;
 
+    QDate displayedDate;
+
     QPoint dPos;
+
+    QTranslator chinese;
 };
 
 #endif // MAINWINDOW_H

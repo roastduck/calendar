@@ -1,4 +1,5 @@
 #include <QLabel>
+#include <QDebug>
 #include <QPalette>
 #include <QLayoutItem>
 #include "html.h"
@@ -11,7 +12,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    initMonth(2016, 8);
+    if (! chinese.load(":/translation/zh_cn.qm"))
+        qDebug() << "failed to load zh_cn.qm";
+
+    displayedDate = QDate::currentDate();
+    initMonth();
 }
 
 MainWindow::~MainWindow()
@@ -33,18 +38,22 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
 
 void MainWindow::clearGrid()
 {
-    for (QLayoutItem *child = ui->grid->takeAt(0); child;)
-        delete child;
+    QLayoutItem *child = 0;
+    while (child = ui->grid->takeAt(0))
+        delete child->widget();
 }
 
-void MainWindow::initMonth(int year, int month)
+void MainWindow::initMonth()
 {
     clearGrid();
 
-    const char *headerText[] = { "Week", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
+    int year = displayedDate.year();
+    int month = displayedDate.month();
+
+    QString headerText[] = { tr("Week"), tr("Mon"), tr("Tue"), tr("Wed"), tr("Thu"), tr("Fri"), tr("Sat"), tr("Sun") };
     for (int i = 0; i <= 7; i++)
         ui->grid->addWidget(newCell(
-            new QLabel(Html::white(Html::italic(tr(headerText[i])))),
+            new QLabel(Html::white(Html::italic(headerText[i]))),
             QColor(0x42, 0x37, 0x32, 0xD0)
         ), 0, i);
 
@@ -89,4 +98,16 @@ QWidget *MainWindow::dayInMonth(QDate date, bool monthDisplayed)
 void MainWindow::on_quitButton_released()
 {
     qApp->exit();
+}
+
+void MainWindow::on_comboBox_activated(int index)
+{
+    qDebug() << "language switched to " << index;
+    if (index == 1) // chinese
+        qApp->installTranslator(&chinese);
+    else
+        qApp->removeTranslator(&chinese);
+    ui->retranslateUi(this);
+    initMonth();
+    ui->comboBox->setCurrentIndex(index);
 }
