@@ -1,10 +1,13 @@
 #include <QLabel>
 #include <QDebug>
 #include <QPalette>
+#include <QComboBox>
 #include <QVBoxLayout>
 #include <QLayoutItem>
+#include <QSignalMapper>
 #include "tile.h"
 #include "html.h"
+#include "tilebar.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -102,8 +105,13 @@ QWidget *MainWindow::newCell(QWidget *w, QColor c, bool mouseBehavior)
 {
     QWidget *ret = 0;
     if (mouseBehavior)
+    {
         ret = new Tile();
-    else
+        QSignalMapper *mapper = new QSignalMapper(ret);
+        connect(ret, SIGNAL(onSelected()), mapper, SLOT(map()));
+        mapper->setMapping(ret, ret);
+        connect(mapper, SIGNAL(mapped(QWidget*)), this, SLOT(promptTileBar(QWidget*)));
+    } else
         ret = new QWidget();
     QPalette palette = ret->palette();
     palette.setColor(QPalette::Window, c);
@@ -114,6 +122,7 @@ QWidget *MainWindow::newCell(QWidget *w, QColor c, bool mouseBehavior)
 
     w->setAttribute(Qt::WA_TransparentForMouseEvents);
     layout->addWidget(w);
+
     return ret;
 }
 
@@ -128,6 +137,12 @@ QWidget *MainWindow::dayInMonth(QDate date, bool monthDisplayed)
     if (date == QDate::currentDate())
         color = QColor(0x00, 0x3D, 0x99, 0xD0);
     return newCell(label, color, true);
+}
+
+void MainWindow::promptTileBar(QWidget *tile)
+{    
+    qDebug() << "prmopt tile bar";
+    new TileBar(tile);
 }
 
 void MainWindow::on_comboBox_activated(int index)

@@ -1,11 +1,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QRect>
 #include <QDate>
 #include <QEvent>
 #include <QColor>
 #include <QPoint>
 #include <QWidget>
+#include <QLayout>
 #include <QTranslator>
 #include <QMainWindow>
 #include <QMouseEvent>
@@ -30,6 +32,8 @@ protected:
     void mouseMoveEvent(QMouseEvent *event);
 
 private slots:
+    void promptTileBar(QWidget *tile);
+
     void on_comboBox_activated(int index);
     void on_quitButton_clicked(bool checked);
     void on_previousButton_clicked(bool checked);

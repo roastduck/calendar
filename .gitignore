@@ -1,3 +1,4 @@
 build*/
 *.swp
 *~
+src/calendar.pro.user

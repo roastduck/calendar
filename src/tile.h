@@ -3,6 +3,7 @@
 
 #include <QEvent>
 #include <QWidget>
+#include <QMouseEvent>
 
 /// A QWidget with mouse event response
 class Tile : public QWidget
@@ -14,8 +15,11 @@ public:
 protected:
     void enterEvent(QEvent *event);
     void leaveEvent(QEvent *event);
+    void mouseDoubleClickEvent(QMouseEvent *event);
 
 signals:
+    /// Emitted when the tile is selected by double clicking
+    void onSelected();
 
 };
 

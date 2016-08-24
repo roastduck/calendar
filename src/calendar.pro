@@ -15,13 +15,18 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     html.cpp \
-    tile.cpp
+    tile.cpp \
+    tilebar.cpp \
+    sidebar.cpp
 
 HEADERS  += mainwindow.h \
     html.h \
-    tile.h
+    tile.h \
+    tilebar.h \
+    sidebar.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    tilebar.ui
 
 TRANSLATIONS += zh_cn.ts
 
