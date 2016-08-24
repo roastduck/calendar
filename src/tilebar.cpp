@@ -2,11 +2,11 @@
 #include "ui_tilebar.h"
 
 TileBar::TileBar(QWidget *anchor, QWidget *parent) :
-    SideBar(parent),
+    SideBar(anchor, parent),
     ui(new Ui::TileBar)
 {
     ui->setupUi(this);
-    init(anchor);
+    init();
 }
 
 TileBar::~TileBar()

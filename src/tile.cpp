@@ -6,7 +6,7 @@ Tile::Tile(QWidget *parent) : QWidget(parent) {}
 
 void Tile::enterEvent(QEvent *event)
 {
-    QGraphicsColorizeEffect *effect = new QGraphicsColorizeEffect();
+    QGraphicsColorizeEffect *effect = new QGraphicsColorizeEffect(this);
     setGraphicsEffect(effect);
     QWidget::enterEvent(event);
 }

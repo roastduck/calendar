@@ -7,9 +7,16 @@ class SideBar : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SideBar(QWidget *parent = 0);
+    explicit SideBar(QWidget *_anchor, QWidget *parent = 0);
+    ~SideBar();
 
-    void init(QWidget *anchor);
+    void init();
+
+protected:
+    void hideEvent(QHideEvent *event);
+
+private:
+    QWidget *anchor;
 };
 
 #endif // SIDEBAR_H
