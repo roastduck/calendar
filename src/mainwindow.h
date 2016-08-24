@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QDate>
+#include <QEvent>
 #include <QColor>
 #include <QPoint>
 #include <QWidget>
@@ -21,6 +22,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    /// Initialize a month display
     void initMonth();
 
 protected:
@@ -37,18 +39,25 @@ private slots:
     void on_dayBox_valueChanged(int arg1);
 
 private:
+    /// Display another date
     void alterDisplayedDate(QDate date);
 
+    /// Clear all cells in the grid
     void clearGrid();
 
-    QWidget *newCell(QWidget *w, QColor c);
+    /// Generates a new grid cell
+    /// @param mouseBehavior : true means response to mouse events
+    QWidget *newCell(QWidget *w, QColor c, bool mouseBehavior = false);
 
+    /// Generates a cell for a day in a month display
     QWidget *dayInMonth(QDate date, bool monthDisplayed);
 
     Ui::MainWindow *ui;
 
+    /// date displayed in the main window
     QDate displayedDate;
 
+    /// Original pos for moving the window
     QPoint dPos;
 
     QTranslator chinese;

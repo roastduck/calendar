@@ -3,6 +3,7 @@
 
 #include <QString>
 
+/// Add HTML flavor to a string
 class Html
 {
 public:

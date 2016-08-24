@@ -3,6 +3,7 @@
 #include <QPalette>
 #include <QVBoxLayout>
 #include <QLayoutItem>
+#include "tile.h"
 #include "html.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -97,9 +98,13 @@ void MainWindow::initMonth()
         ui->grid->setColumnStretch(i, 20);
 }
 
-QWidget *MainWindow::newCell(QWidget *w, QColor c)
+QWidget *MainWindow::newCell(QWidget *w, QColor c, bool mouseBehavior)
 {
-    QWidget *ret = new QWidget();
+    QWidget *ret = 0;
+    if (mouseBehavior)
+        ret = new Tile();
+    else
+        ret = new QWidget();
     QPalette palette = ret->palette();
     palette.setColor(QPalette::Window, c);
     ret->setPalette(palette);
@@ -122,7 +127,7 @@ QWidget *MainWindow::dayInMonth(QDate date, bool monthDisplayed)
     QColor color(0xE0, 0xFF, 0x85, 0xD0);
     if (date == QDate::currentDate())
         color = QColor(0x00, 0x3D, 0x99, 0xD0);
-    return newCell(label, color);
+    return newCell(label, color, true);
 }
 
 void MainWindow::on_comboBox_activated(int index)
@@ -137,17 +142,17 @@ void MainWindow::on_comboBox_activated(int index)
     ui->comboBox->setCurrentIndex(index);
 }
 
-void MainWindow::on_quitButton_clicked(bool checked)
+void MainWindow::on_quitButton_clicked(bool)
 {
     qApp->exit();
 }
 
-void MainWindow::on_previousButton_clicked(bool checked)
+void MainWindow::on_previousButton_clicked(bool)
 {
     alterDisplayedDate(displayedDate.addMonths(-1));
 }
 
-void MainWindow::on_nextButton_clicked(bool checked)
+void MainWindow::on_nextButton_clicked(bool)
 {
     alterDisplayedDate(displayedDate.addMonths(1));
 }
@@ -157,12 +162,12 @@ void MainWindow::on_yearBox_valueChanged(int)
     alterDisplayedDate(QDate(ui->yearBox->value(), ui->monthBox->value(), ui->dayBox->value()));
 }
 
-void MainWindow::on_monthBox_valueChanged(int arg1)
+void MainWindow::on_monthBox_valueChanged(int)
 {
     alterDisplayedDate(QDate(ui->yearBox->value(), ui->monthBox->value(), ui->dayBox->value()));
 }
 
-void MainWindow::on_dayBox_valueChanged(int arg1)
+void MainWindow::on_dayBox_valueChanged(int)
 {
     alterDisplayedDate(QDate(ui->yearBox->value(), ui->monthBox->value(), ui->dayBox->value()));
 }
