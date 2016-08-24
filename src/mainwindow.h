@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QMap>
 #include <QRect>
 #include <QDate>
 #include <QEvent>
@@ -11,6 +12,8 @@
 #include <QTranslator>
 #include <QMainWindow>
 #include <QMouseEvent>
+
+class Data;
 
 namespace Ui {
 class MainWindow;
@@ -24,8 +27,11 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
-    /// Initialize a month display
-    void initMonth();
+    /// Initialize or renew the main grid display
+    void init();
+
+    /// All data set by user
+    Data *calendarData;
 
 protected:
     void mousePressEvent(QMouseEvent *event);
@@ -43,6 +49,9 @@ private slots:
     void on_dayBox_valueChanged(int arg1);
 
 private:
+    /// Initialize a month display
+    void initMonth();
+
     /// Display another date
     void alterDisplayedDate(QDate date);
 
@@ -63,6 +72,9 @@ private:
 
     /// Original pos for moving the window
     QPoint dPos;
+
+    /// What wiget refers to what date
+    QMap<QWidget*, QDate> widgetToDate;
 
     QTranslator chinese;
 };

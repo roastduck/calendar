@@ -1,6 +1,7 @@
 #include <QDebug>
 #include <QGraphicsBlurEffect>
 #include "sidebar.h"
+#include "mainwindow.h"
 
 SideBar::SideBar(QWidget *_anchor, QWidget *parent)
     : QWidget(parent), anchor(_anchor)
@@ -13,6 +14,7 @@ SideBar::~SideBar()
 {
     qDebug() << "sidebar deleted";
     anchor->window()->setGraphicsEffect(0);
+    dynamic_cast<MainWindow*>(anchor->window())->init(); // NOTICE: this will destory anchor
 }
 
 void SideBar::init()
@@ -25,7 +27,7 @@ void SideBar::init()
     show();
 }
 
-void SideBar::hideEvent(QHideEvent *event)
+void SideBar::hideEvent(QHideEvent *)
 {
     deleteLater();
 }

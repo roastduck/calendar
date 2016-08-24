@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QLayoutItem>
 #include <QSignalMapper>
+#include "data.h"
 #include "tile.h"
 #include "html.h"
 #include "tilebar.h"
@@ -13,6 +14,7 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
+    calendarData(new Data(this)),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -26,6 +28,11 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::init()
+{
+    initMonth();
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
@@ -48,7 +55,7 @@ void MainWindow::alterDisplayedDate(QDate date)
     ui->monthBox->setValue(date.month());
     ui->dayBox->setValue(date.day());
     displayedDate = date;
-    initMonth();
+    init();
 }
 
 void MainWindow::clearGrid()
@@ -56,6 +63,7 @@ void MainWindow::clearGrid()
     QLayoutItem *child = 0;
     while (child = ui->grid->takeAt(0))
         delete child->widget();
+    widgetToDate.clear();
 }
 
 void MainWindow::initMonth()
@@ -133,16 +141,20 @@ QWidget *MainWindow::dayInMonth(QDate date, bool monthDisplayed)
     QLabel *label = new QLabel(Html::strong(title));
     label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
-    QColor color(0xE0, 0xFF, 0x85, 0xD0);
+    QColor color;
     if (date == QDate::currentDate())
         color = QColor(0x00, 0x3D, 0x99, 0xD0);
-    return newCell(label, color, true);
+    else
+        color = calendarData->getDayColor(date);
+    QWidget *ret = newCell(label, color, true);
+    widgetToDate[ret] = date;
+    return ret;
 }
 
 void MainWindow::promptTileBar(QWidget *tile)
 {    
     qDebug() << "prmopt tile bar";
-    new TileBar(tile);
+    new TileBar(tile, widgetToDate[tile]);
 }
 
 void MainWindow::on_comboBox_activated(int index)
@@ -153,7 +165,7 @@ void MainWindow::on_comboBox_activated(int index)
     else
         qApp->removeTranslator(&chinese);
     ui->retranslateUi(this);
-    initMonth();
+    init();
     ui->comboBox->setCurrentIndex(index);
 }
 

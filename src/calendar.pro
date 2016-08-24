@@ -17,13 +17,15 @@ SOURCES += main.cpp\
     html.cpp \
     tile.cpp \
     tilebar.cpp \
-    sidebar.cpp
+    sidebar.cpp \
+    data.cpp
 
 HEADERS  += mainwindow.h \
     html.h \
     tile.h \
     tilebar.h \
-    sidebar.h
+    sidebar.h \
+    data.h
 
 FORMS    += mainwindow.ui \
     tilebar.ui
