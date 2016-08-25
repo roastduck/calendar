@@ -14,6 +14,7 @@ Task::Task(QJsonValueRef json, QObject *parent) : QObject(parent)
     repeatType = (RepeatType)(obj["repeatType"].toInt());
     Q_ASSERT((int)repeatType >= 0 && (int)repeatType <= 3);
     repeatInterval = obj["repeatInterval"].toInt();
+    Q_ASSERT(repeatInterval >= 1);
     QJsonArray excludeArr = obj["exclude"].toArray();
     for (int i = 0; i < excludeArr.count(); i++)
         exclude.push_back(QDate::fromJulianDay(excludeArr[i].toInt()));
@@ -21,7 +22,7 @@ Task::Task(QJsonValueRef json, QObject *parent) : QObject(parent)
 
 Task::Task(const QDate &_baseDate, QObject *parent)
     : QObject(parent),
-      baseDate(_baseDate), content(tr("Double click to edit")), repeatType(NONE), repeatInterval(0)
+      baseDate(_baseDate), content(tr("Double click to edit")), repeatType(NONE), repeatInterval(1)
 {}
 
 QJsonValue Task::toJson() const
@@ -31,6 +32,7 @@ QJsonValue Task::toJson() const
     ret["content"] = content;
     Q_ASSERT((int)repeatType >= 0 && (int)repeatType <= 3);
     ret["repeatType"] = repeatType;
+    Q_ASSERT(repeatInterval >= 1);
     ret["repeatInterval"] = repeatInterval;
     QJsonArray excludeArr;
     for (int i = 0; i < exclude.count(); i++)

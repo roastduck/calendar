@@ -60,6 +60,10 @@ private slots:
     void on_monthBox_valueChanged(int arg1);
     void on_dayBox_valueChanged(int arg1);
 
+    void on_exportButton_clicked(bool checked);
+
+    void on_importButton_clicked(bool checked);
+
 private:
     /// Initialize a month display
     void initMonth();

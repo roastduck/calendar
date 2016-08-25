@@ -8,6 +8,8 @@
         <file>../resource/delete.ico</file>
         <file>../resource/calendar.ico</file>
         <file>../resource/deleteall.ico</file>
+        <file>../resource/export.ico</file>
+        <file>../resource/import.ico</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

@@ -38,10 +38,10 @@ public:
     const Task *taskAt(int index) const;
     Task *taskAt(int index);
 
-private:
     /// File to save data
-    const QString saveFile = "savedcalendar.json";
+    static constexpr const char *saveFile = "savedcalendar.json";
 
+private:
     const QColor defaultDayColor= QColor(0xE0, 0xFF, 0x85, 0xD0);
 
     QJsonObject data;

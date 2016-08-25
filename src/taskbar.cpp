@@ -23,15 +23,15 @@ TaskBar::TaskBar(QWidget *anchor, int _taskIndex, QDate _today, QWidget *parent)
     ui->editor->layout()->addWidget(taskDisplay);
     taskDisplay->enableEditor();
 
-    Task::RepeatType t = MainWindow::getMyInstance()->calendarData->taskAt(taskIndex)->getRepeatType();
+    typeToSet = MainWindow::getMyInstance()->calendarData->taskAt(taskIndex)->getRepeatType();
 
-    ui->comboBox->setCurrentIndex((int)t);
-    if (t == Task::NONE)
+    ui->comboBox->setCurrentIndex((int)typeToSet);
+    if (typeToSet == Task::NONE)
     {
         ui->deleteButton->hide();
         ui->spinBox->setDisabled(true);
-    } else
-        ui->spinBox->setValue(MainWindow::getMyInstance()->calendarData->taskAt(taskIndex)->getRepeatInterval());
+    }
+    ui->spinBox->setValue(intervalToSet = MainWindow::getMyInstance()->calendarData->taskAt(taskIndex)->getRepeatInterval());
 }
 
 TaskBar::~TaskBar()
@@ -67,7 +67,7 @@ void TaskBar::on_deleteAllButton_clicked(bool)
 
 void TaskBar::on_comboBox_activated(int index)
 {
-    qDebug() << "choose " << index;
+    qDebug() << "type choosed " << index;
     typeToSet = (Task::RepeatType)index;
     ui->spinBox->setDisabled(typeToSet == Task::NONE);
 }

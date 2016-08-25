@@ -1,8 +1,10 @@
+#include <QFile>
 #include <QList>
 #include <QLabel>
 #include <QDebug>
 #include <QPalette>
 #include <QComboBox>
+#include <QFileDialog>
 #include <QVBoxLayout>
 #include <QLayoutItem>
 #include <QSignalMapper>
@@ -237,4 +239,34 @@ void MainWindow::on_dayBox_valueChanged(int)
 {
     if (changingDate) return;
     alterDisplayedDate(QDate(ui->yearBox->value(), ui->monthBox->value(), ui->dayBox->value()));
+}
+
+void MainWindow::on_exportButton_clicked(bool)
+{
+    QString destFile = QFileDialog::getSaveFileName(this, tr("Choose a filename"),
+                                                    "calendarConf.json", "JSON files (*.json)");
+    delete calendarData;
+    calendarData = 0;
+    if (QFile::exists(destFile))
+    {
+        qDebug() << "removing " << destFile;
+        QFile::remove(destFile);
+    }
+    QFile::copy(Data::saveFile, destFile);
+    calendarData = new Data(this);
+}
+
+void MainWindow::on_importButton_clicked(bool)
+{
+    QString destFile = QFileDialog::getOpenFileName(this, tr("Choose a file"));
+    delete calendarData;
+    calendarData = 0;
+    if (QFile::exists(Data::saveFile))
+    {
+        qDebug() << "removing " << Data::saveFile;
+        QFile::remove(Data::saveFile);
+    }
+    QFile::copy(destFile, Data::saveFile);
+    calendarData = new Data(this);
+    init();
 }
