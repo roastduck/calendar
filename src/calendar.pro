@@ -18,17 +18,23 @@ SOURCES += main.cpp\
     tile.cpp \
     tilebar.cpp \
     sidebar.cpp \
-    data.cpp
+    data.cpp \
+    task.cpp \
+    taskdisplay.cpp
 
 HEADERS  += mainwindow.h \
     html.h \
     tile.h \
     tilebar.h \
     sidebar.h \
-    data.h
+    data.h \
+    task.h \
+    taskdisplay.h
 
 FORMS    += mainwindow.ui \
-    tilebar.ui
+    tilebar.ui \
+    taskdisplay.ui \
+    tile.ui
 
 TRANSLATIONS += zh_cn.ts
 

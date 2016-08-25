@@ -9,6 +9,7 @@ namespace Ui {
 class TileBar;
 }
 
+/// The side bar besides a day in the calendar
 class TileBar : public SideBar
 {
     Q_OBJECT
@@ -18,7 +19,8 @@ public:
     ~TileBar();
 
 private slots:
-    void on_colorBox_currentIndexChanged(int index);
+    void on_colorBox_activated(int index);
+    void on_pushButton_clicked(bool checked);
 
 private:
     void initColorBox();

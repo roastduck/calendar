@@ -3,6 +3,7 @@
 
 #include <QWidget>
 
+/// Base class for side bar besides a day or a task
 class SideBar : public QWidget
 {
     Q_OBJECT

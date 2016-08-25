@@ -22,6 +22,8 @@ TileBar::~TileBar()
 
 void TileBar::initColorBox()
 {
+    QColor currentColor = dynamic_cast<MainWindow*>(anchor->window())->calendarData->getDayColor(date);
+
     for (int i = 0; i < 4; i++)
     {
         QPixmap pix( QSize( 70, 20 ) );
@@ -29,10 +31,19 @@ void TileBar::initColorBox()
         ui->colorBox->addItem(QIcon(pix), 0);
         ui->colorBox->setIconSize(QSize(70, 20));
         ui->colorBox->setSizeAdjustPolicy(QComboBox::AdjustToContents);
+        if (currentColor == colors[i])
+            ui->colorBox->setCurrentIndex(i);
     }
 }
 
-void TileBar::on_colorBox_currentIndexChanged(int index)
+void TileBar::on_colorBox_activated(int index)
 {
     dynamic_cast<MainWindow*>(anchor->window())->calendarData->setDayColor(date, colors[index]);
+    hide();
+}
+
+void TileBar::on_pushButton_clicked(bool)
+{
+    dynamic_cast<MainWindow*>(anchor->window())->calendarData->addTask(date);
+    hide();
 }

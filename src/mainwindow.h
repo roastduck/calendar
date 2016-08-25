@@ -58,10 +58,6 @@ private:
     /// Clear all cells in the grid
     void clearGrid();
 
-    /// Generates a new grid cell
-    /// @param mouseBehavior : true means response to mouse events
-    QWidget *newCell(QWidget *w, QColor c, bool mouseBehavior = false);
-
     /// Generates a cell for a day in a month display
     QWidget *dayInMonth(QDate date, bool monthDisplayed);
 

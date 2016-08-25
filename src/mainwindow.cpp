@@ -1,3 +1,4 @@
+#include <QList>
 #include <QLabel>
 #include <QDebug>
 #include <QPalette>
@@ -8,8 +9,10 @@
 #include "data.h"
 #include "tile.h"
 #include "html.h"
+#include "ui_tile.h"
 #include "tilebar.h"
 #include "mainwindow.h"
+#include "taskdisplay.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -61,7 +64,7 @@ void MainWindow::alterDisplayedDate(QDate date)
 void MainWindow::clearGrid()
 {
     QLayoutItem *child = 0;
-    while (child = ui->grid->takeAt(0))
+    while ((child = ui->grid->takeAt(0)))
         delete child->widget();
     widgetToDate.clear();
 }
@@ -81,9 +84,10 @@ void MainWindow::initMonth()
 
     QString headerText[] = { tr("Week"), tr("Mon"), tr("Tue"), tr("Wed"), tr("Thu"), tr("Fri"), tr("Sat"), tr("Sun") };
     for (int i = 0; i <= 7; i++)
-        ui->grid->addWidget(newCell(
-            new QLabel(Html::white(Html::italic(headerText[i]))),
-            QColor(0x42, 0x37, 0x32, 0xD0)
+        ui->grid->addWidget(new Tile(
+            QColor(0x42, 0x37, 0x32, 0xD0),
+            Html::white(Html::italic(headerText[i])),
+            {}, false, ui->gridWidget
         ), 0, i);
 
     QDate iter(year, month, 1);
@@ -95,9 +99,10 @@ void MainWindow::initMonth()
         int rowId = iter.weekNumber() - stWeek + 1;
         ui->grid->addWidget(dayInMonth(iter, iter.month() == month), rowId, iter.dayOfWeek());
         if (iter.dayOfWeek() == 1)
-            ui->grid->addWidget(newCell(
-                new QLabel(Html::white(Html::italic(QString::number(iter.weekNumber())))),
-                QColor(0x42, 0x37, 0x32, 0xD0)
+            ui->grid->addWidget(new Tile(
+                QColor(0x42, 0x37, 0x32, 0xD0),
+                Html::white(Html::italic(QString::number(iter.weekNumber()))),
+                {}, false, ui->gridWidget
             ), rowId, 0);
     }
 
@@ -109,44 +114,32 @@ void MainWindow::initMonth()
         ui->grid->setColumnStretch(i, 20);
 }
 
-QWidget *MainWindow::newCell(QWidget *w, QColor c, bool mouseBehavior)
-{
-    QWidget *ret = 0;
-    if (mouseBehavior)
-    {
-        ret = new Tile();
-        QSignalMapper *mapper = new QSignalMapper(ret);
-        connect(ret, SIGNAL(onSelected()), mapper, SLOT(map()));
-        mapper->setMapping(ret, ret);
-        connect(mapper, SIGNAL(mapped(QWidget*)), this, SLOT(promptTileBar(QWidget*)));
-    } else
-        ret = new QWidget();
-    QPalette palette = ret->palette();
-    palette.setColor(QPalette::Window, c);
-    ret->setPalette(palette);
-    ret->setAutoFillBackground(true);
-
-    QVBoxLayout *layout = new QVBoxLayout(ret);
-
-    w->setAttribute(Qt::WA_TransparentForMouseEvents);
-    layout->addWidget(w);
-
-    return ret;
-}
-
 QWidget *MainWindow::dayInMonth(QDate date, bool monthDisplayed)
 {
     QString title = QString::number(date.day());
     if (! monthDisplayed) title = Html::gray(title);
-    QLabel *label = new QLabel(Html::strong(title));
-    label->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    title = Html::strong(title);
 
     QColor color;
     if (date == QDate::currentDate())
         color = QColor(0x00, 0x3D, 0x99, 0xD0);
     else
         color = calendarData->getDayColor(date);
-    QWidget *ret = newCell(label, color, true);
+
+    QList<QWidget*> w;
+    QList<int> tasks = calendarData->findTask(date);
+    for (int i = 0; i < tasks.count(); i++)
+        w.push_back(new TaskDisplay(tasks[i], 0));
+
+    Tile *ret = new Tile(color, title, w, true, ui->gridWidget);
+
+    ret->ui->title->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+
+    QSignalMapper *mapper = new QSignalMapper(ret);
+    connect(ret, SIGNAL(onSelected()), mapper, SLOT(map()));
+    mapper->setMapping(ret, ret);
+    connect(mapper, SIGNAL(mapped(QWidget*)), this, SLOT(promptTileBar(QWidget*)));
+
     widgetToDate[ret] = date;
     return ret;
 }

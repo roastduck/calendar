@@ -7,9 +7,16 @@
 class Html
 {
 public:
+    /// Make text gray
     static QString gray(QString str);
+
+    /// Make text white
     static QString white(QString str);
+
+    /// Make text italic
     static QString italic(QString str);
+
+    /// Make text strong
     static QString strong(QString str);
 };
 
