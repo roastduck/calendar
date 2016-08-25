@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Calendar</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/icon/resource/calendar.ico</normaloff>:/icon/resource/calendar.ico</iconset>
+  </property>
   <property name="windowOpacity">
    <double>1.000000000000000</double>
   </property>

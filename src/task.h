@@ -37,6 +37,10 @@ public:
     const QString &getContent() const;
 
     RepeatType getRepeatType() const;
+    void setRepeatType(RepeatType t);
+
+    int getRepeatInterval() const;
+    void setRepeatInterval(int interval);
 
     void addExclude(const QDate &day);
 

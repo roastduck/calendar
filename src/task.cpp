@@ -20,7 +20,7 @@ Task::Task(QJsonValueRef json, QObject *parent) : QObject(parent)
 
 Task::Task(const QDate &_baseDate, QObject *parent)
     : QObject(parent),
-      baseDate(_baseDate), content(""), repeatType(NONE), repeatInterval(0)
+      baseDate(_baseDate), content(tr("Double click to edit")), repeatType(NONE), repeatInterval(0)
 {}
 
 QJsonValue Task::toJson() const
@@ -49,10 +49,11 @@ bool Task::isFor(const QDate &day) const
     case BY_DAY:
         return (baseDate.daysTo(day) % repeatInterval == 0);
     case BY_MONTH:
-        return (((baseDate.year() * 12 + baseDate.month()) - (day.year() * 12 + day.month())) % repeatInterval == 0);
+        return (baseDate.day() == day.day() && ((baseDate.year() * 12 + baseDate.month()) - (day.year() * 12 + day.month())) % repeatInterval == 0);
     case BY_YEAR:
-        return ((baseDate.year() - day.year()) % repeatInterval == 0);
+        return (baseDate.day() == day.day() && baseDate.month() == day.month() && (baseDate.year() - day.year()) % repeatInterval == 0);
     default:
+        qDebug() << "repeatInterval = " << repeatInterval;
         Q_ASSERT(false);
     }
 }
@@ -75,6 +76,21 @@ const QString &Task::getContent() const
 Task::RepeatType Task::getRepeatType() const
 {
     return repeatType;
+}
+
+void Task::setRepeatType(RepeatType t)
+{
+    repeatType = t;
+}
+
+int Task::getRepeatInterval() const
+{
+    return repeatInterval;
+}
+
+void Task::setRepeatInterval(int interval)
+{
+    repeatInterval = interval;
 }
 
 void Task::addExclude(const QDate &day)

@@ -21,8 +21,7 @@ SOURCES += main.cpp\
     data.cpp \
     task.cpp \
     taskdisplay.cpp \
-    taskbar.cpp \
-    deletetaskconfirm.cpp
+    taskbar.cpp
 
 HEADERS  += mainwindow.h \
     html.h \
@@ -32,15 +31,13 @@ HEADERS  += mainwindow.h \
     data.h \
     task.h \
     taskdisplay.h \
-    taskbar.h \
-    deletetaskconfirm.h
+    taskbar.h
 
 FORMS    += mainwindow.ui \
     tilebar.ui \
     taskdisplay.ui \
     tile.ui \
-    taskbar.ui \
-    deletetaskconfirm.ui
+    taskbar.ui
 
 TRANSLATIONS += zh_cn.ts
 

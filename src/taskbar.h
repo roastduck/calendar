@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QDialog>
+#include "task.h"
 #include "sidebar.h"
 
 class TaskDisplay;
@@ -20,13 +21,14 @@ public:
     ~TaskBar();
 
 private slots:
-    void deleteCancle(QDialog *dialog);
-    void deleteSingle(QDialog *dialog);
-    void deleteWhole(QDialog *dialog);
-
     void on_pushButton_clicked(bool checked);
     void on_okButton_clicked(bool checked);
     void on_deleteButton_clicked(bool checked);
+    void on_deleteAllButton_clicked(bool checked);
+
+    void on_comboBox_activated(int index);
+
+    void on_spinBox_valueChanged(int arg1);
 
 private:
     Ui::TaskBar *ui;
@@ -34,6 +36,10 @@ private:
     int taskIndex;
 
     TaskDisplay *taskDisplay;
+
+    /// to be set after clicking save
+    Task::RepeatType typeToSet;
+    int intervalToSet;
 };
 
 #endif // TASKBAR_H

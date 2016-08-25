@@ -53,6 +53,13 @@ void Tile::leaveEvent(QEvent *event)
     QWidget::leaveEvent(event);
 }
 
+void Tile::mousePressEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::RightButton)
+        emit onSelected();
+    QWidget::mousePressEvent(event);
+}
+
 void Tile::mouseDoubleClickEvent(QMouseEvent *event)
 {
     emit onSelected();

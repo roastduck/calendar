@@ -6,6 +6,8 @@
         <file>../resource/add.ico</file>
         <file>../resource/check.ico</file>
         <file>../resource/delete.ico</file>
+        <file>../resource/calendar.ico</file>
+        <file>../resource/deleteall.ico</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

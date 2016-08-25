@@ -54,6 +54,16 @@ void TaskDisplay::leaveEvent(QEvent *event)
     QWidget::leaveEvent(event);
 }
 
+void TaskDisplay::mousePressEvent(QMouseEvent *event)
+{
+    if (hoverEffect && event->button() == Qt::RightButton)
+    {
+        emit onSelected(this, index);
+        // no calling parent
+    } else
+        QWidget::mousePressEvent(event);
+}
+
 void TaskDisplay::mouseDoubleClickEvent(QMouseEvent *event)
 {
     if (hoverEffect)

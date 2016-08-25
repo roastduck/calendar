@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>300</width>
-    <height>300</height>
+    <width>344</width>
+    <height>500</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -22,7 +22,7 @@
   <property name="minimumSize">
    <size>
     <width>300</width>
-    <height>300</height>
+    <height>500</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -277,6 +277,9 @@
                </disabled>
               </palette>
              </property>
+             <property name="toolTip">
+              <string>Save and close</string>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -368,35 +371,6 @@
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="repeatButton">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>60</width>
-               <height>60</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>60</width>
-               <height>60</height>
-              </size>
-             </property>
-             <property name="toolTip">
-              <string>Set the task to repeat by an interval</string>
-             </property>
-             <property name="text">
-              <string>Set
-Repeat</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <widget class="QPushButton" name="deleteButton">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -417,7 +391,7 @@ Repeat</string>
               </size>
              </property>
              <property name="toolTip">
-              <string>Delete this task</string>
+              <string>Delete this task just for this day</string>
              </property>
              <property name="text">
               <string/>
@@ -432,6 +406,82 @@ Repeat</string>
                <height>48</height>
               </size>
              </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="deleteAllButton">
+             <property name="minimumSize">
+              <size>
+               <width>60</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>60</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="toolTip">
+              <string>Delete this task including repeated series</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="icon.qrc">
+               <normaloff>:/icon/resource/deleteall.ico</normaloff>:/icon/resource/deleteall.ico</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>48</width>
+               <height>48</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="font">
+              <font>
+               <family>SimSun-ExtB</family>
+               <pointsize>12</pointsize>
+              </font>
+             </property>
+             <property name="text">
+              <string>Repeats every:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="spinBox">
+             <property name="minimum">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="comboBox">
+             <item>
+              <property name="text">
+               <string>N/A</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>days</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>months</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>years</string>
+              </property>
+             </item>
             </widget>
            </item>
           </layout>
