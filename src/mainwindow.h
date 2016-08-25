@@ -47,7 +47,7 @@ protected:
     void mouseMoveEvent(QMouseEvent *event);
 
 public slots:
-    void promptTaskBar(QWidget *task, int taskIndex);
+    void promptTaskBar(QWidget *task, int taskIndex, QDate today);
 
 private slots:
     void promptTileBar(QWidget *tile);

@@ -1,6 +1,7 @@
 #ifndef TASKDISPLAY_H
 #define TASKDISPLAY_H
 
+#include <QDate>
 #include <QEvent>
 #include <QString>
 #include <QWidget>
@@ -19,7 +20,7 @@ public:
      * @param _index : task index
      * @param _hoverEffect : whether to highlight on hover event and recieve double-click to prompt menu
      */
-    explicit TaskDisplay(int _index, bool _hoverEffect, QWidget *parent);
+    explicit TaskDisplay(int _index, bool _hoverEffect, QDate _today, QWidget *parent);
     ~TaskDisplay();
 
     void enableEditor();
@@ -34,7 +35,7 @@ protected:
     void mouseDoubleClickEvent(QMouseEvent *event);
 
 signals:
-    void onSelected(QWidget *anchor, int taskIndex);
+    void onSelected(QWidget *anchor, int taskIndex, QDate today);
 
 private:
     Ui::TaskDisplay *ui;
@@ -42,6 +43,8 @@ private:
     int index;
 
     bool hoverEffect;
+
+    QDate today;
 };
 
 #endif // TASKDISPLAY_H

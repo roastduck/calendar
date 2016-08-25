@@ -164,9 +164,9 @@ QWidget *MainWindow::dayInMonth(QDate date, bool monthDisplayed)
     QList<int> tasks = calendarData->findTask(date);
     for (int i = 0; i < tasks.count(); i++)
     {
-        TaskDisplay *task = new TaskDisplay(tasks[i], true, 0);
+        TaskDisplay *task = new TaskDisplay(tasks[i], true, date, 0);
         w.push_back(task);
-        connect(task, SIGNAL(onSelected(QWidget*,int)), this, SLOT(promptTaskBar(QWidget*,int)));
+        connect(task, SIGNAL(onSelected(QWidget*,int,QDate)), this, SLOT(promptTaskBar(QWidget*,int,QDate)));
     }
 
     Tile *ret = new Tile(color, title, w, true, ui->gridWidget);
@@ -182,10 +182,10 @@ QWidget *MainWindow::dayInMonth(QDate date, bool monthDisplayed)
     return ret;
 }
 
-void MainWindow::promptTaskBar(QWidget *task, int taskIndex)
+void MainWindow::promptTaskBar(QWidget *task, int taskIndex, QDate today)
 {
     qDebug() << "prompt task bar";
-    new TaskBar(task, taskIndex);
+    new TaskBar(task, taskIndex, today, 0);
 }
 
 void MainWindow::promptTileBar(QWidget *tile)

@@ -17,7 +17,7 @@ class TaskBar : public SideBar
     Q_OBJECT
 
 public:
-    explicit TaskBar(QWidget *anchor, int _taskIndex, QWidget *parent = 0);
+    explicit TaskBar(QWidget *anchor, int _taskIndex, QDate _today, QWidget *parent);
     ~TaskBar();
 
 private slots:
@@ -25,9 +25,7 @@ private slots:
     void on_okButton_clicked(bool checked);
     void on_deleteButton_clicked(bool checked);
     void on_deleteAllButton_clicked(bool checked);
-
     void on_comboBox_activated(int index);
-
     void on_spinBox_valueChanged(int arg1);
 
 private:
@@ -40,6 +38,8 @@ private:
     /// to be set after clicking save
     Task::RepeatType typeToSet;
     int intervalToSet;
+
+    QDate today;
 };
 
 #endif // TASKBAR_H

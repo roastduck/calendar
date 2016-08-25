@@ -8,17 +8,18 @@
 #include "mainwindow.h"
 #include "taskdisplay.h"
 
-TaskBar::TaskBar(QWidget *anchor, int _taskIndex, QWidget *parent) :
+TaskBar::TaskBar(QWidget *anchor, int _taskIndex, QDate _today, QWidget *parent) :
     SideBar(anchor, false, parent),
     ui(new Ui::TaskBar),
-    taskIndex(_taskIndex)
+    taskIndex(_taskIndex),
+    today(_today)
 {
     ui->setupUi(this);
 
     init();
     move(anchor->mapToGlobal(anchor->mapFromParent(anchor->geometry().topLeft())));
 
-    taskDisplay = new TaskDisplay(taskIndex, false, ui->editor);
+    taskDisplay = new TaskDisplay(taskIndex, false, today, ui->editor);
     ui->editor->layout()->addWidget(taskDisplay);
     taskDisplay->enableEditor();
 
@@ -54,8 +55,7 @@ void TaskBar::on_okButton_clicked(bool)
 
 void TaskBar::on_deleteButton_clicked(bool)
 {
-    QDate day = MainWindow::getMyInstance()->calendarData->taskAt(taskIndex)->getBaseDate();
-    MainWindow::getMyInstance()->calendarData->taskAt(taskIndex)->addExclude(day);
+    MainWindow::getMyInstance()->calendarData->taskAt(taskIndex)->addExclude(today);
     hide();
 }
 
