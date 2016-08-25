@@ -26,7 +26,8 @@ MainWindow *MainWindow::getMyInstance()
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     calendarData(new Data(this)),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    changingDate(false)
 {
     ui->setupUi(this);
 
@@ -62,11 +63,13 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
 
 void MainWindow::alterDisplayedDate(QDate date)
 {
+    changingDate = true;
     ui->yearBox->setValue(date.year());
     ui->monthBox->setValue(date.month());
     ui->dayBox->setValue(date.day());
     displayedDate = date;
     init();
+    changingDate = false;
 }
 
 void MainWindow::clearGrid()
@@ -92,11 +95,14 @@ void MainWindow::initMonth()
 
     QString headerText[] = { tr("Week"), tr("Mon"), tr("Tue"), tr("Wed"), tr("Thu"), tr("Fri"), tr("Sat"), tr("Sun") };
     for (int i = 0; i <= 7; i++)
-        ui->grid->addWidget(new Tile(
+    {
+        Tile *hHeader = new Tile(
             QColor(0x42, 0x37, 0x32, 0xD0),
             Html::white(Html::italic(headerText[i])),
             {}, false, ui->gridWidget
-        ), 0, i);
+        );
+        ui->grid->addWidget(hHeader, 0, i);
+    }
 
     QDate iter(year, month, 1);
     while (iter.dayOfWeek() != 1) iter = iter.addDays(-1);
@@ -105,13 +111,17 @@ void MainWindow::initMonth()
     {
         if (iter.weekNumber() < stWeek) stWeek = 0;
         int rowId = iter.weekNumber() - stWeek + 1;
-        ui->grid->addWidget(dayInMonth(iter, iter.month() == month), rowId, iter.dayOfWeek());
+        QWidget *tile = dayInMonth(iter, iter.month() == month);
+        ui->grid->addWidget(tile, rowId, iter.dayOfWeek());
         if (iter.dayOfWeek() == 1)
-            ui->grid->addWidget(new Tile(
+        {
+            Tile *vHeader = new Tile(
                 QColor(0x42, 0x37, 0x32, 0xD0),
                 Html::white(Html::italic(QString::number(iter.weekNumber()))),
                 {}, false, ui->gridWidget
-            ), rowId, 0);
+            );
+            ui->grid->addWidget(vHeader, rowId, 0);
+        }
     }
 
     ui->grid->setRowStretch(0, 10);
@@ -197,15 +207,18 @@ void MainWindow::on_nextButton_clicked(bool)
 
 void MainWindow::on_yearBox_valueChanged(int)
 {
+    if (changingDate) return;
     alterDisplayedDate(QDate(ui->yearBox->value(), ui->monthBox->value(), ui->dayBox->value()));
 }
 
 void MainWindow::on_monthBox_valueChanged(int)
 {
+    if (changingDate) return;
     alterDisplayedDate(QDate(ui->yearBox->value(), ui->monthBox->value(), ui->dayBox->value()));
 }
 
 void MainWindow::on_dayBox_valueChanged(int)
 {
+    if (changingDate) return;
     alterDisplayedDate(QDate(ui->yearBox->value(), ui->monthBox->value(), ui->dayBox->value()));
 }

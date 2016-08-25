@@ -81,6 +81,9 @@ private:
 
     QTranslator chinese;
 
+    /// Prevent recursive calling
+    bool changingDate;
+
     static MainWindow *myInstance;
 };
 
