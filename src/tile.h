@@ -25,6 +25,9 @@ public:
 
     Ui::Tile *ui;
 
+    void highlight();
+    void removeHighlight();
+
 protected:
     void enterEvent(QEvent *event);
     void leaveEvent(QEvent *event);

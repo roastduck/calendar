@@ -3,8 +3,8 @@
 #include "sidebar.h"
 #include "mainwindow.h"
 
-SideBar::SideBar(QWidget *_anchor, QWidget *parent)
-    : QWidget(parent), anchor(_anchor)
+SideBar::SideBar(QWidget *_anchor, bool _clickToLeave, QWidget *parent)
+    : QWidget(parent), anchor(_anchor), clickToLeave(_clickToLeave)
 {
     QGraphicsBlurEffect *blur = new QGraphicsBlurEffect(anchor->window());
     anchor->window()->setGraphicsEffect(blur);
@@ -20,10 +20,12 @@ SideBar::~SideBar()
 void SideBar::init()
 {
     setWindowModality(Qt::ApplicationModal);
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Popup);
+    if (clickToLeave)
+        setWindowFlags(Qt::FramelessWindowHint | Qt::Popup);
+    else
+        setWindowFlags(Qt::FramelessWindowHint);
     // Qt::Popup used to close it when clicking outside
     setAttribute(Qt::WA_TranslucentBackground);
-    move(anchor->mapToGlobal(anchor->mapFromParent(anchor->geometry().topRight())));
     show();
 }
 

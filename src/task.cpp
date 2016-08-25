@@ -47,6 +47,11 @@ bool Task::isFor(QDate day) const
     }
 }
 
+void Task::setContent(QString _content)
+{
+    content = _content;
+}
+
 QString Task::getContent() const
 {
     return content;

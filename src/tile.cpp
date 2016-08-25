@@ -16,27 +16,35 @@ Tile::Tile(QColor color, QString title, QList<QWidget*> body, bool _hoverEffect,
     setPalette(thisPalette);
 
     ui->title->setText(title);
+    ui->title->setAttribute(Qt::WA_TransparentForMouseEvents);
 
     for (int i = 0; i < body.count(); i++)
     {
-        //if (body[i]->metaObject()->className() != QString("TaskDisplay"))
-        body[i]->setAttribute(Qt::WA_TransparentForMouseEvents);
+        //body[i]->setAttribute(Qt::WA_TransparentForMouseEvents);
         layout()->addWidget(body[i]);
     }
 }
 
-void Tile::enterEvent(QEvent *event)
+void Tile::highlight()
 {
-    if (! hoverEffect) return;
     QGraphicsColorizeEffect *effect = new QGraphicsColorizeEffect(this);
     setGraphicsEffect(effect);
+}
+
+void Tile::removeHighlight()
+{
+    setGraphicsEffect(0);
+}
+
+void Tile::enterEvent(QEvent *event)
+{
+    if (hoverEffect) highlight();
     QWidget::enterEvent(event);
 }
 
 void Tile::leaveEvent(QEvent *event)
 {
-    if (! hoverEffect) return;
-    setGraphicsEffect(0);
+    if (hoverEffect) removeHighlight();
     QWidget::leaveEvent(event);
 }
 

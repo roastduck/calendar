@@ -31,6 +31,7 @@ public:
     /// Check whether the task should be applied to a day
     bool isFor(QDate day) const;
 
+    void setContent(QString _content);
     QString getContent() const;
 
 private:

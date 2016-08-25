@@ -8,7 +8,11 @@ class SideBar : public QWidget
 {
     Q_OBJECT
 public:
-    explicit SideBar(QWidget *_anchor, QWidget *parent = 0);
+    /**
+     * @param _anchor : to show from which widget's
+     * @param _clickToLeave : click anywhere outside to exit
+     */
+    explicit SideBar(QWidget *_anchor, bool _clickToLeave, QWidget *parent = 0);
     ~SideBar();
 
     void init();
@@ -17,6 +21,8 @@ protected:
     void hideEvent(QHideEvent *event);
 
     QWidget *anchor;
+
+    bool clickToLeave;
 };
 
 #endif // SIDEBAR_H

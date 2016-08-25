@@ -1,3 +1,4 @@
+#include <QDebug>
 #include <QColor>
 #include <QString>
 #include "data.h"
@@ -6,12 +7,13 @@
 #include "ui_tilebar.h"
 
 TileBar::TileBar(QWidget *anchor, QDate _date, QWidget *parent) :
-    SideBar(anchor, parent),
+    SideBar(anchor, true, parent),
     ui(new Ui::TileBar),
     date(_date)
 {
     ui->setupUi(this);
     init();
+    move(anchor->mapToGlobal(anchor->mapFromParent(anchor->geometry().topRight())));
     initColorBox();
 }
 
@@ -22,7 +24,7 @@ TileBar::~TileBar()
 
 void TileBar::initColorBox()
 {
-    QColor currentColor = dynamic_cast<MainWindow*>(anchor->window())->calendarData->getDayColor(date);
+    QColor currentColor = MainWindow::getMyInstance()->calendarData->getDayColor(date);
 
     for (int i = 0; i < 4; i++)
     {
@@ -38,12 +40,13 @@ void TileBar::initColorBox()
 
 void TileBar::on_colorBox_activated(int index)
 {
-    dynamic_cast<MainWindow*>(anchor->window())->calendarData->setDayColor(date, colors[index]);
+    MainWindow::getMyInstance()->calendarData->setDayColor(date, colors[index]);
     hide();
 }
 
 void TileBar::on_pushButton_clicked(bool)
 {
-    dynamic_cast<MainWindow*>(anchor->window())->calendarData->addTask(date);
+    qDebug() << "addTask clicked";
+    MainWindow::getMyInstance()->calendarData->addTask(date);
     hide();
 }

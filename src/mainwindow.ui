@@ -515,6 +515,9 @@
          </disabled>
         </palette>
        </property>
+       <property name="toolTip">
+        <string>Exit calendar</string>
+       </property>
        <property name="autoFillBackground">
         <bool>false</bool>
        </property>

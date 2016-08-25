@@ -22,11 +22,15 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
 public:
+    static MainWindow *getMyInstance();
+
+private:
     explicit MainWindow(QWidget *parent = 0);
+    MainWindow(const MainWindow &) = delete;
     ~MainWindow();
 
+public:
     /// Initialize or renew the main grid display
     void init();
 
@@ -36,6 +40,9 @@ public:
 protected:
     void mousePressEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
+
+public slots:
+    void promptTaskBar(QWidget *task, int taskIndex);
 
 private slots:
     void promptTileBar(QWidget *tile);
@@ -73,6 +80,8 @@ private:
     QMap<QWidget*, QDate> widgetToDate;
 
     QTranslator chinese;
+
+    static MainWindow *myInstance;
 };
 
 #endif // MAINWINDOW_H

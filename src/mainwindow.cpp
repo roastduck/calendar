@@ -10,10 +10,18 @@
 #include "tile.h"
 #include "html.h"
 #include "ui_tile.h"
+#include "taskbar.h"
 #include "tilebar.h"
 #include "mainwindow.h"
 #include "taskdisplay.h"
 #include "ui_mainwindow.h"
+
+MainWindow *MainWindow::myInstance = 0;
+
+MainWindow *MainWindow::getMyInstance()
+{
+    return (myInstance ? myInstance : (myInstance = new MainWindow()));
+}
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -129,7 +137,11 @@ QWidget *MainWindow::dayInMonth(QDate date, bool monthDisplayed)
     QList<QWidget*> w;
     QList<int> tasks = calendarData->findTask(date);
     for (int i = 0; i < tasks.count(); i++)
-        w.push_back(new TaskDisplay(tasks[i], 0));
+    {
+        TaskDisplay *task = new TaskDisplay(tasks[i], true, 0);
+        w.push_back(task);
+        connect(task, SIGNAL(onSelected(QWidget*,int)), this, SLOT(promptTaskBar(QWidget*,int)));
+    }
 
     Tile *ret = new Tile(color, title, w, true, ui->gridWidget);
 
@@ -142,6 +154,12 @@ QWidget *MainWindow::dayInMonth(QDate date, bool monthDisplayed)
 
     widgetToDate[ret] = date;
     return ret;
+}
+
+void MainWindow::promptTaskBar(QWidget *task, int taskIndex)
+{
+    qDebug() << "prompt task bar";
+    new TaskBar(task, taskIndex);
 }
 
 void MainWindow::promptTileBar(QWidget *tile)

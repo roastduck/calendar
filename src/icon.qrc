@@ -4,6 +4,7 @@
         <file>../resource/arrow-right.ico</file>
         <file>../resource/arrow-left.ico</file>
         <file>../resource/add.ico</file>
+        <file>../resource/check.ico</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

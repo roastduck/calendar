@@ -10,6 +10,24 @@
     <height>144</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>78</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>78</width>
+    <height>144</height>
+   </size>
+  </property>
+  <property name="sizeIncrement">
+   <size>
+    <width>78</width>
+    <height>144</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>

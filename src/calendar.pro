@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     sidebar.cpp \
     data.cpp \
     task.cpp \
-    taskdisplay.cpp
+    taskdisplay.cpp \
+    taskbar.cpp
 
 HEADERS  += mainwindow.h \
     html.h \
@@ -29,12 +30,14 @@ HEADERS  += mainwindow.h \
     sidebar.h \
     data.h \
     task.h \
-    taskdisplay.h
+    taskdisplay.h \
+    taskbar.h
 
 FORMS    += mainwindow.ui \
     tilebar.ui \
     taskdisplay.ui \
-    tile.ui
+    tile.ui \
+    taskbar.ui
 
 TRANSLATIONS += zh_cn.ts
 

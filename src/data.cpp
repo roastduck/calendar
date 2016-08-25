@@ -66,6 +66,7 @@ QList<int> Data::findTask(QDate day) const
 
 const Task *Data::taskAt(int index) const
 {
+    qDebug() << "required task " << index;
     return tasks[index];
 }
 
