@@ -22,6 +22,7 @@ public:
      * @param _hoverEffect : whether to change color when hover
      */
     explicit Tile(QColor color, QString title, QList<QWidget*> body, bool _hoverEffect, QWidget *parent);
+    ~Tile();
 
     Ui::Tile *ui;
 

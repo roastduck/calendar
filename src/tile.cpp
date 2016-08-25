@@ -25,6 +25,11 @@ Tile::Tile(QColor color, QString title, QList<QWidget*> body, bool _hoverEffect,
     }
 }
 
+Tile::~Tile()
+{
+    delete ui;
+}
+
 void Tile::highlight()
 {
     QGraphicsColorizeEffect *effect = new QGraphicsColorizeEffect(this);
