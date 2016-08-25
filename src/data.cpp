@@ -30,7 +30,7 @@ Data::~Data()
     file.write(QJsonDocument(data).toJson());
 }
 
-void Data::setDayColor(QDate day, QColor color)
+void Data::setDayColor(const QDate &day, const QColor &color)
 {
     QJsonObject dayColor = data["dayColor"].toObject();
     dayColor[QString::number(day.toJulianDay())] =
@@ -38,7 +38,7 @@ void Data::setDayColor(QDate day, QColor color)
     data["dayColor"] = dayColor;
 }
 
-QColor Data::getDayColor(QDate day) const
+QColor Data::getDayColor(const QDate &day) const
 {
     QJsonObject dayColor = data["dayColor"].toObject();
     QJsonValueRef element = dayColor[QString::number(day.toJulianDay())];
@@ -50,12 +50,17 @@ QColor Data::getDayColor(QDate day) const
     return defaultDayColor;
 }
 
-void Data::addTask(QDate day)
+void Data::addTask(const QDate &day)
 {
     tasks.push_back(new Task(day, this));
 }
 
-QList<int> Data::findTask(QDate day) const
+void Data::delTask(int index)
+{
+    tasks.removeAt(index);
+}
+
+QList<int> Data::findTask(const QDate &day) const
 {
     QList<int> ret;
     for (int i = 0; i < tasks.size(); i++)

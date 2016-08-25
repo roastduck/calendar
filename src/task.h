@@ -23,16 +23,22 @@ public:
     explicit Task(QJsonValueRef json, QObject *parent);
 
     /// New task for a day
-    explicit Task(QDate _baseDate, QObject *parent);
+    explicit Task(const QDate &_baseDate, QObject *parent);
 
     /// Output to json
     QJsonValue toJson() const;
 
     /// Check whether the task should be applied to a day
-    bool isFor(QDate day) const;
+    bool isFor(const QDate &day) const;
 
-    void setContent(QString _content);
-    QString getContent() const;
+    const QDate &getBaseDate() const;
+
+    void setContent(const QString &_content);
+    const QString &getContent() const;
+
+    RepeatType getRepeatType() const;
+
+    void addExclude(const QDate &day);
 
 private:
     QDate baseDate;
@@ -41,6 +47,8 @@ private:
 
     RepeatType repeatType;
     int repeatInterval;
+
+    QList<QDate> exclude;
 };
 
 #endif // TASK_H

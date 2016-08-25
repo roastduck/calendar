@@ -2,6 +2,7 @@
 #define TASKBAR_H
 
 #include <QWidget>
+#include <QDialog>
 #include "sidebar.h"
 
 class TaskDisplay;
@@ -19,9 +20,13 @@ public:
     ~TaskBar();
 
 private slots:
-    void on_pushButton_clicked(bool checked);
+    void deleteCancle(QDialog *dialog);
+    void deleteSingle(QDialog *dialog);
+    void deleteWhole(QDialog *dialog);
 
+    void on_pushButton_clicked(bool checked);
     void on_okButton_clicked(bool checked);
+    void on_deleteButton_clicked(bool checked);
 
 private:
     Ui::TaskBar *ui;

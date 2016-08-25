@@ -13,9 +13,12 @@ Task::Task(QJsonValueRef json, QObject *parent) : QObject(parent)
     content = obj["content"].toString();
     repeatType = (RepeatType)(obj["repeatType"].toInt());
     repeatInterval = obj["repeatInterval"].toInt();
+    QJsonArray excludeArr = obj["exclude"].toArray();
+    for (int i = 0; i < excludeArr.count(); i++)
+        exclude.push_back(QDate::fromJulianDay(excludeArr[i].toInt()));
 }
 
-Task::Task(QDate _baseDate, QObject *parent)
+Task::Task(const QDate &_baseDate, QObject *parent)
     : QObject(parent),
       baseDate(_baseDate), content(""), repeatType(NONE), repeatInterval(0)
 {}
@@ -27,11 +30,18 @@ QJsonValue Task::toJson() const
     ret["content"] = content;
     ret["repeatType"] = repeatType;
     ret["repeatInterval"] = repeatInterval;
+    QJsonArray excludeArr;
+    for (int i = 0; i < exclude.count(); i++)
+        excludeArr.push_back(exclude[i].toJulianDay());
+    ret["exclude"] = excludeArr;
     return ret;
 }
 
-bool Task::isFor(QDate day) const
+bool Task::isFor(const QDate &day) const
 {
+    for (int i = 0; i < exclude.count(); i++)
+        if (exclude[i] == day)
+            return false;
     switch (repeatInterval)
     {
     case NONE:
@@ -47,12 +57,27 @@ bool Task::isFor(QDate day) const
     }
 }
 
-void Task::setContent(QString _content)
+const QDate &Task::getBaseDate() const
+{
+    return baseDate;
+}
+
+void Task::setContent(const QString &_content)
 {
     content = _content;
 }
 
-QString Task::getContent() const
+const QString &Task::getContent() const
 {
     return content;
+}
+
+Task::RepeatType Task::getRepeatType() const
+{
+    return repeatType;
+}
+
+void Task::addExclude(const QDate &day)
+{
+    exclude.push_back(day);
 }

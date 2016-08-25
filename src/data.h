@@ -22,14 +22,17 @@ public:
     /// Save data to file
     ~Data();
 
-    void setDayColor(QDate day, QColor color);
-    QColor getDayColor(QDate day) const;
+    void setDayColor(const QDate &day, const QColor &color);
+    QColor getDayColor(const QDate &day) const;
 
     /// Initialize a task for a day
-    void addTask(QDate day);
+    void addTask(const QDate &day);
+
+    /// Delete a task
+    void delTask(int index);
 
     /// Return indices of tasks for a day
-    QList<int> findTask(QDate day) const;
+    QList<int> findTask(const QDate &day) const;
 
     /// Get a task by index
     const Task *taskAt(int index) const;
