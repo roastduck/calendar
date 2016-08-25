@@ -18,9 +18,22 @@
 
 MainWindow *MainWindow::myInstance = 0;
 
+void MainWindow::createInstance()
+{
+    Q_ASSERT(myInstance == 0);
+    myInstance = new MainWindow();
+}
+
 MainWindow *MainWindow::getMyInstance()
 {
-    return (myInstance ? myInstance : (myInstance = new MainWindow()));
+    Q_ASSERT(myInstance != 0);
+    return myInstance;
+}
+
+void MainWindow::destroyInstance()
+{
+    delete myInstance;
+    myInstance = 0;
 }
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -33,13 +46,16 @@ MainWindow::MainWindow(QWidget *parent) :
 
     if (! chinese.load(":/translation/zh_cn.qm"))
         qDebug() << "failed to load zh_cn.qm";
-
-    alterDisplayedDate(QDate::currentDate());
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::postConstructInit()
+{
+    alterDisplayedDate(QDate::currentDate());
 }
 
 void MainWindow::init()

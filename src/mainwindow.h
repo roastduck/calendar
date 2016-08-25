@@ -23,7 +23,12 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 public:
+    static void createInstance();
     static MainWindow *getMyInstance();
+    static void destroyInstance();
+
+    /// Do some initialization that cannot be put into constructor
+    void postConstructInit();
 
 private:
     explicit MainWindow(QWidget *parent = 0);
