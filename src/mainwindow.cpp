@@ -54,6 +54,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
     if (! chinese.load(":/translation/zh_cn.qm"))
         qDebug() << "failed to load zh_cn.qm";
+
+    if (calendarData->isChinese())
+    {
+        qApp->installTranslator(&chinese);
+        ui->retranslateUi(this);
+        ui->comboBox->setCurrentIndex(1);
+    }
 }
 
 MainWindow::~MainWindow()
@@ -214,9 +221,14 @@ void MainWindow::on_comboBox_activated(int index)
 {
     qDebug() << "language switched to " << index;
     if (index == 1) // chinese
+    {
+        calendarData->setChinese(true);
         qApp->installTranslator(&chinese);
-    else
+    } else
+    {
+        calendarData->setChinese(false);
         qApp->removeTranslator(&chinese);
+    }
     ui->retranslateUi(this);
     init();
     ui->comboBox->setCurrentIndex(index);

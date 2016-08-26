@@ -25,6 +25,9 @@ public:
     void setDayColor(const QDate &day, const QColor &color);
     QColor getDayColor(const QDate &day) const;
 
+    void setChinese(bool chinese);
+    bool isChinese() const;
+
     /// Initialize a task for a day
     void addTask(const QDate &day);
 

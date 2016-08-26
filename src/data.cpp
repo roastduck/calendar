@@ -50,6 +50,16 @@ QColor Data::getDayColor(const QDate &day) const
     return defaultDayColor;
 }
 
+void Data::setChinese(bool chinese)
+{
+    data["chinese"] = chinese;
+}
+
+bool Data::isChinese() const
+{
+    return data["chinese"].toBool();
+}
+
 void Data::addTask(const QDate &day)
 {
     tasks.push_back(new Task(day, this));
