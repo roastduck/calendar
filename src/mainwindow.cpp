@@ -118,7 +118,7 @@ void MainWindow::clearGrid()
 {
     QLayoutItem *child = 0;
     while ((child = ui->grid->takeAt(0)))
-        delete child->widget();
+        child->widget()->deleteLater();
     widgetToDate.clear();
 }
 

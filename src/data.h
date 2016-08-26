@@ -16,6 +16,7 @@
 class Task;
 class File;
 
+/// Manage all user data and save it as JSON format
 class Data : public QObject
 {
     Q_OBJECT

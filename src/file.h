@@ -7,6 +7,7 @@
 #include <QJsonValue>
 #include <QJsonValueRef>
 
+/// A file dragged in by user. Encode its content in Base64
 class File : public QObject
 {
     Q_OBJECT
@@ -17,6 +18,7 @@ public:
     QJsonValue toJson() const;
 
     const QString &getFilename() const;
+    const QString &getBase64() const;
 
 private:
     QString filename, base64;

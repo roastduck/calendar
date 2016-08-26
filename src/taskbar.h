@@ -12,6 +12,7 @@ namespace Ui {
 class TaskBar;
 }
 
+/// Provide an interface for users to interact with tasks
 class TaskBar : public SideBar
 {
     Q_OBJECT

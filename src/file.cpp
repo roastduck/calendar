@@ -1,4 +1,5 @@
 #include <QFile>
+#include <QIODevice>
 #include <QJsonObject>
 #include "file.h"
 
@@ -18,6 +19,7 @@ File::File(const QUrl &path, QObject *parent) : QObject(parent)
     QFile file(path.toLocalFile());
     Q_ASSERT(file.open(QIODevice::ReadOnly));
     base64 = file.readAll().toBase64();
+    file.close();
 }
 
 QJsonValue File::toJson() const
@@ -31,4 +33,9 @@ QJsonValue File::toJson() const
 const QString &File::getFilename() const
 {
     return filename;
+}
+
+const QString &File::getBase64() const
+{
+    return base64;
 }

@@ -1,6 +1,7 @@
 #include <QFile>
 #include <QPair>
 #include <QDebug>
+#include <QIODevice>
 #include <QJsonDocument>
 #include "data.h"
 #include "task.h"
@@ -10,8 +11,10 @@ Data::Data(QObject *parent) : QObject(parent)
 {
     QFile file(saveFile);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+    {
         data = QJsonDocument::fromJson(file.readAll()).object();
-    else
+        file.close();
+    } else
         data = QJsonObject();
 
     QJsonArray tasksArr = data["tasks"].toArray();
@@ -52,6 +55,7 @@ Data::~Data()
     QFile file(saveFile);
     Q_ASSERT(file.open(QIODevice::WriteOnly | QIODevice::Text));
     file.write(QJsonDocument(data).toJson());
+    file.close();
 }
 
 void Data::setDayColor(const QDate &day, const QColor &color)

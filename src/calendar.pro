@@ -23,7 +23,9 @@ SOURCES += main.cpp\
     taskdisplay.cpp \
     taskbar.cpp \
     file.cpp \
-    filedisplay.cpp
+    filedisplay.cpp \
+    dragdata.cpp \
+    labelwithclick.cpp
 
 HEADERS  += mainwindow.h \
     html.h \
@@ -35,7 +37,9 @@ HEADERS  += mainwindow.h \
     taskdisplay.h \
     taskbar.h \
     file.h \
-    filedisplay.h
+    filedisplay.h \
+    dragdata.h \
+    labelwithclick.h
 
 FORMS    += mainwindow.ui \
     tilebar.ui \

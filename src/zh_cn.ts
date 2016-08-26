@@ -2,6 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="zh_CN" sourcelanguage="en">
 <context>
+    <name>FileDisplay</name>
+    <message>
+        <location filename="filedisplay.ui" line="20"/>
+        <source>Form</source>
+        <translation>表单</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="mainwindow.ui" line="14"/>
@@ -45,52 +53,52 @@
         <translation>从文件导入配置</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="119"/>
+        <location filename="mainwindow.cpp" line="138"/>
         <source>Week</source>
         <translation>周次</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="119"/>
+        <location filename="mainwindow.cpp" line="138"/>
         <source>Mon</source>
         <translation>周一</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="119"/>
+        <location filename="mainwindow.cpp" line="138"/>
         <source>Tue</source>
         <translation>周二</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="119"/>
+        <location filename="mainwindow.cpp" line="138"/>
         <source>Wed</source>
         <translation>周三</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="119"/>
+        <location filename="mainwindow.cpp" line="138"/>
         <source>Thu</source>
         <translation>周四</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="119"/>
+        <location filename="mainwindow.cpp" line="138"/>
         <source>Fri</source>
         <translation>周五</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="119"/>
+        <location filename="mainwindow.cpp" line="138"/>
         <source>Sat</source>
         <translation>周六</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="119"/>
+        <location filename="mainwindow.cpp" line="138"/>
         <source>Sun</source>
         <translation>周日</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="251"/>
+        <location filename="mainwindow.cpp" line="284"/>
         <source>Choose a filename</source>
         <translation>选择文件名</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="266"/>
+        <location filename="mainwindow.cpp" line="299"/>
         <source>Choose a file</source>
         <translation>选择文件</translation>
     </message>
@@ -129,9 +137,8 @@
 <context>
     <name>Task</name>
     <message>
-        <location filename="task.cpp" line="25"/>
         <source>Double click to edit</source>
-        <translation>双击以编辑</translation>
+        <translation type="vanished">双击以编辑</translation>
     </message>
 </context>
 <context>
@@ -200,6 +207,11 @@
         <source>Form</source>
         <translation>表单</translation>
     </message>
+    <message>
+        <location filename="taskdisplay.ui" line="157"/>
+        <source>Double-click to edit</source>
+        <translation>双击以编辑</translation>
+    </message>
 </context>
 <context>
     <name>Tile</name>
@@ -209,7 +221,12 @@
         <translation>表单</translation>
     </message>
     <message>
-        <location filename="tile.ui" line="44"/>
+        <location filename="tile.ui" line="17"/>
+        <source>Drag file here to add it in</source>
+        <translation>可向此日拖入文件</translation>
+    </message>
+    <message>
+        <location filename="tile.ui" line="47"/>
         <source>TextLabel</source>
         <translation>标签</translation>
     </message>

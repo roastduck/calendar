@@ -3,11 +3,13 @@
 
 #include <QDate>
 #include <QWidget>
+#include <QMouseEvent>
 
 namespace Ui {
 class FileDisplay;
 }
 
+/// Display a file dragged in by user
 class FileDisplay : public QWidget
 {
     Q_OBJECT
@@ -17,6 +19,8 @@ public:
     ~FileDisplay();
 
 private slots:
+    void startDrag();
+
     void on_label_2_linkActivated(const QString &link);
 
 signals:
