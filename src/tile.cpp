@@ -3,6 +3,7 @@
 #include <QGraphicsColorizeEffect>
 #include "tile.h"
 #include "ui_tile.h"
+#include "mainwindow.h"
 
 Tile::Tile(QColor color, QString title, QList<QWidget*> body, bool _hoverEffect, QWidget *parent)
     : QWidget(parent),
@@ -39,6 +40,16 @@ void Tile::highlight()
 void Tile::removeHighlight()
 {
     setGraphicsEffect(0);
+}
+
+bool Tile::event(QEvent *event)
+{
+    if (MainWindow::getMyInstance()->isPinned())
+    {
+        event->accept();
+        return true;
+    }
+    return QWidget::event(event);
 }
 
 void Tile::enterEvent(QEvent *event)

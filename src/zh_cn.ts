@@ -31,61 +31,66 @@
     </message>
     <message>
         <location filename="mainwindow.ui" line="596"/>
+        <source>pin/unpin the interface</source>
+        <translation>固定/取消固定界面</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.ui" line="634"/>
         <source>Export configurations to file</source>
         <translation>导出配置到文件</translation>
     </message>
     <message>
-        <location filename="mainwindow.ui" line="634"/>
+        <location filename="mainwindow.ui" line="672"/>
         <source>Import configurations from file</source>
         <translation>从文件导入配置</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="114"/>
+        <location filename="mainwindow.cpp" line="119"/>
         <source>Week</source>
         <translation>周次</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="114"/>
+        <location filename="mainwindow.cpp" line="119"/>
         <source>Mon</source>
         <translation>周一</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="114"/>
+        <location filename="mainwindow.cpp" line="119"/>
         <source>Tue</source>
         <translation>周二</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="114"/>
+        <location filename="mainwindow.cpp" line="119"/>
         <source>Wed</source>
         <translation>周三</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="114"/>
+        <location filename="mainwindow.cpp" line="119"/>
         <source>Thu</source>
         <translation>周四</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="114"/>
+        <location filename="mainwindow.cpp" line="119"/>
         <source>Fri</source>
         <translation>周五</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="114"/>
+        <location filename="mainwindow.cpp" line="119"/>
         <source>Sat</source>
         <translation>周六</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="114"/>
+        <location filename="mainwindow.cpp" line="119"/>
         <source>Sun</source>
         <translation>周日</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="246"/>
+        <location filename="mainwindow.cpp" line="251"/>
         <source>Choose a filename</source>
         <translation>选择文件名</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="261"/>
+        <location filename="mainwindow.cpp" line="266"/>
         <source>Choose a file</source>
         <translation>选择文件</translation>
     </message>

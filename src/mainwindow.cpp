@@ -1,7 +1,11 @@
 #include <QFile>
 #include <QList>
+#include <QIcon>
+#include <QRect>
 #include <QLabel>
 #include <QDebug>
+#include <QPoint>
+#include <QRegion>
 #include <QPalette>
 #include <QComboBox>
 #include <QFileDialog>
@@ -42,7 +46,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     calendarData(new Data(this)),
     ui(new Ui::MainWindow),
-    changingDate(false)
+    isDragging(false),
+    changingDate(false),
+    pinned(false)
 {
     ui->setupUi(this);
 
@@ -67,15 +73,23 @@ void MainWindow::init()
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
+    isDragging = true;
     QPoint windowPos = pos();
     QPoint mousePos = event->globalPos();
     dPos = mousePos - windowPos;
     QMainWindow::mousePressEvent(event);
 }
 
+void MainWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+    isDragging = false;
+    QMainWindow::mouseReleaseEvent(event);
+}
+
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
-    move(event->globalPos() - dPos);
+    if (isDragging)
+        move(event->globalPos() - dPos);
     QMainWindow::mouseMoveEvent(event);
 }
 
@@ -269,4 +283,29 @@ void MainWindow::on_importButton_clicked(bool)
     QFile::copy(destFile, Data::saveFile);
     calendarData = new Data(this);
     init();
+}
+
+void MainWindow::on_pinButton_clicked(bool)
+{
+    if (! pinned)
+    {
+        pinned = true;
+
+        ui->pinButton->setIcon(QIcon(":/icon/pinned.ico"));
+
+        QPoint topLeft1 = ui->pinButton->mapTo(this, QPoint(0, 0));
+        QRegion mask1(topLeft1.x(), topLeft1.y(), ui->pinButton->geometry().width(), ui->pinButton->geometry().height());
+
+        QPoint topLeft2 = ui->gridWidget->mapTo(this, QPoint(0, 0));
+        QRegion mask2(topLeft2.x(), topLeft2.y(), ui->gridWidget->geometry().width(), ui->gridWidget->geometry().height());
+
+        setMask(mask1 + mask2);
+    } else
+    {
+        pinned = false;
+
+        ui->pinButton->setIcon(QIcon(":/icon/pin.ico"));
+
+        clearMask();
+    }
 }

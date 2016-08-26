@@ -10,6 +10,8 @@
         <file>../resource/deleteall.ico</file>
         <file>../resource/export.ico</file>
         <file>../resource/import.ico</file>
+        <file alias="pin.ico">../resource/pin.ico</file>
+        <file alias="pinned.ico">../resource/pinned.ico</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

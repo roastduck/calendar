@@ -30,6 +30,9 @@ public:
     /// Do some initialization that cannot be put into constructor
     void postConstructInit();
 
+    /// Whether to not response to mouse event
+    bool isPinned() const { return pinned; }
+
 private:
     explicit MainWindow(QWidget *parent = 0);
     MainWindow(const MainWindow &) = delete;
@@ -44,6 +47,7 @@ public:
 
 protected:
     void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
 
 public slots:
@@ -59,10 +63,9 @@ private slots:
     void on_yearBox_valueChanged(int arg1);
     void on_monthBox_valueChanged(int arg1);
     void on_dayBox_valueChanged(int arg1);
-
     void on_exportButton_clicked(bool checked);
-
     void on_importButton_clicked(bool checked);
+    void on_pinButton_clicked(bool checked);
 
 private:
     /// Initialize a month display
@@ -82,6 +85,8 @@ private:
     /// date displayed in the main window
     QDate displayedDate;
 
+    /// is dragging window
+    bool isDragging;
     /// Original pos for moving the window
     QPoint dPos;
 
@@ -92,6 +97,9 @@ private:
 
     /// Prevent recursive calling
     bool changingDate;
+
+    /// The grid not reveiving mouse event
+    bool pinned;
 
     static MainWindow *myInstance;
 };
