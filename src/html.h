@@ -18,6 +18,9 @@ public:
 
     /// Make text strong
     static QString strong(QString str);
+
+    /// Make text to be link
+    static QString link(QString str);
 };
 
 #endif // HTML_H

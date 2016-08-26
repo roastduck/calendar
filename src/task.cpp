@@ -22,7 +22,7 @@ Task::Task(QJsonValueRef json, QObject *parent) : QObject(parent)
 
 Task::Task(const QDate &_baseDate, QObject *parent)
     : QObject(parent),
-      baseDate(_baseDate), content(tr("Double click to edit")), repeatType(NONE), repeatInterval(1)
+      baseDate(_baseDate), content(""), repeatType(NONE), repeatInterval(1)
 {}
 
 QJsonValue Task::toJson() const

@@ -19,3 +19,8 @@ QString Html::strong(QString str)
 {
     return "<strong>" + str + "</strong>";
 }
+
+QString Html::link(QString str)
+{
+    return "<a href='#'>" + str + "</a>";
+}

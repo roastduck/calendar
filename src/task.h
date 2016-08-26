@@ -5,6 +5,7 @@
 #include <QString>
 #include <QObject>
 #include <QJsonValue>
+#include <QJsonValueRef>
 
 /// A task defined by user
 class Task : public QObject

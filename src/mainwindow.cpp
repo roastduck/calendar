@@ -13,6 +13,7 @@
 #include <QLayoutItem>
 #include <QSignalMapper>
 #include "data.h"
+#include "file.h"
 #include "tile.h"
 #include "html.h"
 #include "ui_tile.h"
@@ -20,6 +21,7 @@
 #include "tilebar.h"
 #include "mainwindow.h"
 #include "taskdisplay.h"
+#include "filedisplay.h"
 #include "ui_mainwindow.h"
 
 MainWindow *MainWindow::myInstance = 0;
@@ -75,6 +77,7 @@ void MainWindow::postConstructInit()
 
 void MainWindow::init()
 {
+    qDebug() << "refreshed";
     initMonth();
 }
 
@@ -191,8 +194,15 @@ QWidget *MainWindow::dayInMonth(QDate date, bool monthDisplayed)
         w.push_back(task);
         connect(task, SIGNAL(onSelected(QWidget*,int,QDate)), this, SLOT(promptTaskBar(QWidget*,int,QDate)));
     }
+    QList<File*> files = calendarData->getFile(date);
+    for (int i = 0; i < files.count(); i++)
+    {
+        FileDisplay *file = new FileDisplay(date, i, 0);
+        w.push_back(file);
+        connect(file, SIGNAL(requireRefresh()), this, SLOT(init()));
+    }
 
-    Tile *ret = new Tile(color, title, w, true, ui->gridWidget);
+    Tile *ret = new Tile(color, title, w, true, ui->gridWidget, date);
 
     ret->ui->title->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
@@ -200,6 +210,8 @@ QWidget *MainWindow::dayInMonth(QDate date, bool monthDisplayed)
     connect(ret, SIGNAL(onSelected()), mapper, SLOT(map()));
     mapper->setMapping(ret, ret);
     connect(mapper, SIGNAL(mapped(QWidget*)), this, SLOT(promptTileBar(QWidget*)));
+
+    connect(ret, SIGNAL(requireRefresh()), this, SLOT(init()));
 
     widgetToDate[ret] = date;
     return ret;

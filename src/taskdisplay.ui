@@ -153,6 +153,9 @@
        </disabled>
       </palette>
      </property>
+     <property name="placeholderText">
+      <string>Double-click to edit</string>
+     </property>
     </widget>
    </item>
   </layout>

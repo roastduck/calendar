@@ -1,8 +1,10 @@
 #include <QFile>
+#include <QPair>
 #include <QDebug>
 #include <QJsonDocument>
 #include "data.h"
 #include "task.h"
+#include "file.h"
 
 Data::Data(QObject *parent) : QObject(parent)
 {
@@ -16,6 +18,17 @@ Data::Data(QObject *parent) : QObject(parent)
     tasks.reserve(tasksArr.size());
     for (int i = 0; i < tasksArr.size(); i++)
         tasks.push_back(new Task(tasksArr[i], this));
+
+    QJsonObject filesObj = data["files"].toObject();
+    for (auto iter = filesObj.begin(); iter != filesObj.end(); iter++)
+    {
+        QJsonArray filesArr = iter.value().toArray();
+        QList<File*> target;
+        target.reserve(filesArr.size());
+        for (int i = 0; i < filesArr.size(); i++)
+            target.push_back(new File(filesArr[i], this));
+        files[QDate::fromJulianDay(iter.key().toInt())] = target;
+    }
 }
 
 Data::~Data()
@@ -24,6 +37,17 @@ Data::~Data()
     for (int i = 0; i < tasks.size(); i++)
         taskArr.push_back(tasks[i]->toJson());
     data["tasks"] = taskArr;
+
+    QJsonObject filesObj;
+    for (auto iter = files.begin(); iter != files.end(); iter++)
+    {
+        QJsonArray filesArr;
+        const QList<File*> &target = iter.value();
+        for (int i = 0; i < target.size(); i++)
+            filesArr.push_back(target[i]->toJson());
+        filesObj[QString::number(iter.key().toJulianDay())] = filesArr;
+    }
+    data["files"] = filesObj;
 
     QFile file(saveFile);
     Q_ASSERT(file.open(QIODevice::WriteOnly | QIODevice::Text));
@@ -88,4 +112,27 @@ const Task *Data::taskAt(int index) const
 Task *Data::taskAt(int index)
 {
     return tasks[index];
+}
+
+int Data::addFile(const QDate &date, const QUrl &path)
+{
+    files[date].push_back(new File(path, this));
+    return files[date].size() - 1;
+}
+
+QList<File*> Data::getFile(const QDate &date)
+{
+    return files[date];
+}
+
+File *Data::getFile(const QDate &date, int index)
+{
+    Q_ASSERT(index >= 0 && index < files[date].size());
+    return files[date][index];
+}
+
+void Data::delFile(const QDate &date, int index)
+{
+    Q_ASSERT(index >= 0 && index < files[date].size());
+    files[date].removeAt(index);
 }

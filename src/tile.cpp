@@ -1,14 +1,21 @@
+#include <QUrl>
+#include <QList>
+#include <QFile>
 #include <QDebug>
 #include <QPalette>
+#include <QMimeData>
 #include <QGraphicsColorizeEffect>
+#include "data.h"
+#include "file.h"
 #include "tile.h"
 #include "ui_tile.h"
 #include "mainwindow.h"
 
-Tile::Tile(QColor color, QString title, QList<QWidget*> body, bool _hoverEffect, QWidget *parent)
+Tile::Tile(QColor color, QString title, QList<QWidget*> body, bool isDay, QWidget *parent, const QDate &_today)
     : QWidget(parent),
       ui(new Ui::Tile()),
-      hoverEffect(_hoverEffect)
+      hoverEffect(isDay),
+      today(_today)
 {
     ui->setupUi(this);
 
@@ -21,9 +28,11 @@ Tile::Tile(QColor color, QString title, QList<QWidget*> body, bool _hoverEffect,
 
     for (int i = 0; i < body.count(); i++)
     {
-        //body[i]->setAttribute(Qt::WA_TransparentForMouseEvents);
+        body[i]->setParent(this);
         layout()->addWidget(body[i]);
     }
+
+    setAcceptDrops(isDay);
 }
 
 Tile::~Tile()
@@ -50,6 +59,32 @@ bool Tile::event(QEvent *event)
         return true;
     }
     return QWidget::event(event);
+}
+
+void Tile::dragEnterEvent(QDragEnterEvent *event)
+{
+    highlight();
+    event->acceptProposedAction();
+    QWidget::dragEnterEvent(event);
+}
+
+void Tile::dragLeaveEvent(QDragLeaveEvent *event)
+{
+    removeHighlight();
+    QWidget::dragLeaveEvent(event);
+}
+
+void Tile::dropEvent(QDropEvent *event)
+{
+    if (! event->mimeData()->hasUrls()) return;
+    QList<QUrl> urls = event->mimeData()->urls();
+    for (int i = 0; i < urls.count(); i++)
+    {
+        qDebug() << "received url " << urls[i];
+        MainWindow::getMyInstance()->calendarData->addFile(today, urls[i]);
+    }
+    emit requireRefresh();
+    QWidget::dropEvent(event);
 }
 
 void Tile::enterEvent(QEvent *event)

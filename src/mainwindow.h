@@ -38,10 +38,11 @@ private:
     MainWindow(const MainWindow &) = delete;
     ~MainWindow();
 
-public:
+public slots:
     /// Initialize or renew the main grid display
     void init();
 
+public:
     /// All data set by user
     Data *calendarData;
 

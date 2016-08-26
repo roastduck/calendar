@@ -1,6 +1,8 @@
 #ifndef DATA_H
 #define DATA_H
 
+#include <QUrl>
+#include <QMap>
 #include <QList>
 #include <QDate>
 #include <QColor>
@@ -9,8 +11,10 @@
 #include <QJsonValue>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QJsonValueRef>
 
 class Task;
+class File;
 
 class Data : public QObject
 {
@@ -41,6 +45,15 @@ public:
     const Task *taskAt(int index) const;
     Task *taskAt(int index);
 
+    /// Attach a file to a day
+    /**
+     * @return : index
+     */
+    int addFile(const QDate &date, const QUrl &path);
+    QList<File*> getFile(const QDate &date);
+    File *getFile(const QDate &date, int index);
+    void delFile(const QDate &date, int index);
+
     /// File to save data
     static constexpr const char *saveFile = "savedcalendar.json";
 
@@ -49,6 +62,7 @@ private:
 
     QJsonObject data;
     QList<Task*> tasks;
+    QMap< QDate, QList<File*> > files;
 };
 
 #endif // DATA_H

@@ -12,6 +12,8 @@
         <file>../resource/import.ico</file>
         <file alias="pin.ico">../resource/pin.ico</file>
         <file alias="pinned.ico">../resource/pinned.ico</file>
+        <file alias="file.ico">../resource/file.ico</file>
+        <file alias="cross.ico">../resource/cross.ico</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>
