@@ -53,52 +53,58 @@
         <translation>从文件导入配置</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="138"/>
+        <location filename="mainwindow.ui" line="704"/>
+        <source>Disable/enable file dragging</source>
+        <oldsource>Disable file dragging</oldsource>
+        <translation>关闭/开启文件拖曳</translation>
+    </message>
+    <message>
+        <location filename="mainwindow.cpp" line="139"/>
         <source>Week</source>
         <translation>周次</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="138"/>
+        <location filename="mainwindow.cpp" line="139"/>
         <source>Mon</source>
         <translation>周一</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="138"/>
+        <location filename="mainwindow.cpp" line="139"/>
         <source>Tue</source>
         <translation>周二</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="138"/>
+        <location filename="mainwindow.cpp" line="139"/>
         <source>Wed</source>
         <translation>周三</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="138"/>
+        <location filename="mainwindow.cpp" line="139"/>
         <source>Thu</source>
         <translation>周四</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="138"/>
+        <location filename="mainwindow.cpp" line="139"/>
         <source>Fri</source>
         <translation>周五</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="138"/>
+        <location filename="mainwindow.cpp" line="139"/>
         <source>Sat</source>
         <translation>周六</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="138"/>
+        <location filename="mainwindow.cpp" line="139"/>
         <source>Sun</source>
         <translation>周日</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="284"/>
+        <location filename="mainwindow.cpp" line="285"/>
         <source>Choose a filename</source>
         <translation>选择文件名</translation>
     </message>
     <message>
-        <location filename="mainwindow.cpp" line="299"/>
+        <location filename="mainwindow.cpp" line="300"/>
         <source>Choose a file</source>
         <translation>选择文件</translation>
     </message>

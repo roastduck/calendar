@@ -64,8 +64,11 @@ bool Tile::event(QEvent *event)
 
 void Tile::dragEnterEvent(QDragEnterEvent *event)
 {
-    highlight();
-    event->acceptProposedAction();
+    if (! MainWindow::getMyInstance()->calendarData->dragDisabled())
+    {
+        highlight();
+        event->acceptProposedAction();
+    }
     QWidget::dragEnterEvent(event);
 }
 
@@ -77,15 +80,17 @@ void Tile::dragLeaveEvent(QDragLeaveEvent *event)
 
 void Tile::dropEvent(QDropEvent *event)
 {
-    if (! event->mimeData()->hasUrls()) return;
-    QList<QUrl> urls = event->mimeData()->urls();
-    for (int i = 0; i < urls.count(); i++)
+    if (! MainWindow::getMyInstance()->calendarData->dragDisabled() && event->mimeData()->hasUrls())
     {
-        if (! QFileInfo(urls[i].toLocalFile()).isFile()) continue;
-        qDebug() << "received url " << urls[i];
-        MainWindow::getMyInstance()->calendarData->addFile(today, urls[i]);
+        QList<QUrl> urls = event->mimeData()->urls();
+        for (int i = 0; i < urls.count(); i++)
+        {
+            if (! QFileInfo(urls[i].toLocalFile()).isFile()) continue;
+            qDebug() << "received url " << urls[i];
+            MainWindow::getMyInstance()->calendarData->addFile(today, urls[i]);
+        }
+        emit requireRefresh();
     }
-    emit requireRefresh();
     QWidget::dropEvent(event);
 }
 

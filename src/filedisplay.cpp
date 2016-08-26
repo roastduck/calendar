@@ -42,6 +42,7 @@ void FileDisplay::on_label_2_linkActivated(const QString &)
 
 void FileDisplay::startDrag()
 {
+    if (MainWindow::getMyInstance()->calendarData->dragDisabled()) return;
     File *file = MainWindow::getMyInstance()->calendarData->getFile(date, index);
     DragData *dragData = new DragData(file->getFilename(), file->getBase64());
     QDrag *drag = new QDrag(this);

@@ -67,6 +67,9 @@ private slots:
     void on_exportButton_clicked(bool checked);
     void on_importButton_clicked(bool checked);
     void on_pinButton_clicked(bool checked);
+    void on_dragSwitchButton_clicked(bool checked);
+
+    void on_dragSwitchButton_toggled(bool checked);
 
 private:
     /// Initialize a month display

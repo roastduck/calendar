@@ -63,6 +63,7 @@ MainWindow::MainWindow(QWidget *parent) :
         ui->retranslateUi(this);
         ui->comboBox->setCurrentIndex(1);
     }
+    ui->dragSwitchButton->setChecked(calendarData->dragDisabled());
 }
 
 MainWindow::~MainWindow()
@@ -332,4 +333,17 @@ void MainWindow::on_pinButton_clicked(bool)
 
         clearMask();
     }
+}
+
+void MainWindow::on_dragSwitchButton_clicked(bool checked)
+{
+    calendarData->disableDrag(checked);
+}
+
+void MainWindow::on_dragSwitchButton_toggled(bool checked)
+{
+    if (checked)
+        ui->dragSwitchButton->setIcon(QIcon(":/icon/file-transfer-cross.ico"));
+    else
+        ui->dragSwitchButton->setIcon(QIcon(":/icon/file-transfer-checkmark.ico"));
 }

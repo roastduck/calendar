@@ -33,6 +33,9 @@ public:
     void setChinese(bool chinese);
     bool isChinese() const;
 
+    void disableDrag(bool disable);
+    bool dragDisabled() const;
+
     /// Initialize a task for a day
     void addTask(const QDate &day);
 

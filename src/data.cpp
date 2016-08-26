@@ -88,6 +88,16 @@ bool Data::isChinese() const
     return data["chinese"].toBool();
 }
 
+void Data::disableDrag(bool disable)
+{
+    data["disableDrag"] = disable;
+}
+
+bool Data::dragDisabled() const
+{
+    return data["disableDrag"].toBool();
+}
+
 void Data::addTask(const QDate &day)
 {
     tasks.push_back(new Task(day, this));
