@@ -3,6 +3,7 @@
 #include <QFile>
 #include <QDebug>
 #include <QPalette>
+#include <QFileInfo>
 #include <QMimeData>
 #include <QGraphicsColorizeEffect>
 #include "data.h"
@@ -80,6 +81,7 @@ void Tile::dropEvent(QDropEvent *event)
     QList<QUrl> urls = event->mimeData()->urls();
     for (int i = 0; i < urls.count(); i++)
     {
+        if (! QFileInfo(urls[i].toLocalFile()).isFile()) continue;
         qDebug() << "received url " << urls[i];
         MainWindow::getMyInstance()->calendarData->addFile(today, urls[i]);
     }
