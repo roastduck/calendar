@@ -68,26 +68,46 @@ private slots:
     void on_importButton_clicked(bool checked);
     void on_pinButton_clicked(bool checked);
     void on_dragSwitchButton_clicked(bool checked);
-
     void on_dragSwitchButton_toggled(bool checked);
+    void on_modeBox_activated(int index);
 
 private:
     /// Initialize a month display
     void initMonth();
+    /// Initialize a day display
+    void initDay();
+    /// Initialize a week display
+    void initWeek();
+
+    /// These 3 functions set the date bar at top
+    void showYMD(); /// year & month & day
+    void showYM(); /// year & month
+    void showY(); /// year
 
     /// Display another date
     void alterDisplayedDate(QDate date);
 
+    /// Add an interval x to current displayed date
+    void addToDate(int x);
+
     /// Clear all cells in the grid
     void clearGrid();
 
-    /// Generates a cell for a day in a month display
+    /// Generates a cell for a day
     QWidget *dayInMonth(QDate date, bool monthDisplayed);
 
     Ui::MainWindow *ui;
 
     /// date displayed in the main window
     QDate displayedDate;
+    enum DisplayMode
+    {
+        MONTH = 0,
+        DAY = 1,
+        WEEK = 2,
+        YEAR = 3,
+        TASK = 4
+    } displayMode;
 
     /// is dragging window
     bool isDragging;

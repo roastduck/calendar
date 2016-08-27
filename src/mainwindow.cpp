@@ -8,6 +8,7 @@
 #include <QRegion>
 #include <QPalette>
 #include <QComboBox>
+#include <QGridLayout>
 #include <QFileDialog>
 #include <QVBoxLayout>
 #include <QLayoutItem>
@@ -48,6 +49,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     calendarData(new Data(this)),
     ui(new Ui::MainWindow),
+    displayMode(MONTH),
     isDragging(false),
     changingDate(false),
     pinned(false)
@@ -79,29 +81,21 @@ void MainWindow::postConstructInit()
 void MainWindow::init()
 {
     qDebug() << "refreshed";
-    initMonth();
-}
-
-void MainWindow::mousePressEvent(QMouseEvent *event)
-{
-    isDragging = true;
-    QPoint windowPos = pos();
-    QPoint mousePos = event->globalPos();
-    dPos = mousePos - windowPos;
-    QMainWindow::mousePressEvent(event);
-}
-
-void MainWindow::mouseReleaseEvent(QMouseEvent *event)
-{
-    isDragging = false;
-    QMainWindow::mouseReleaseEvent(event);
-}
-
-void MainWindow::mouseMoveEvent(QMouseEvent *event)
-{
-    if (isDragging)
-        move(event->globalPos() - dPos);
-    QMainWindow::mouseMoveEvent(event);
+    switch (displayMode)
+    {
+    case MONTH:
+        initMonth();
+        break;
+    case DAY:
+        initDay();
+        break;
+    case WEEK:
+        initWeek();
+        break;
+    default:
+        qDebug() << "displayMode = " << displayMode;
+        Q_ASSERT(false);
+    }
 }
 
 void MainWindow::alterDisplayedDate(QDate date)
@@ -117,22 +111,50 @@ void MainWindow::alterDisplayedDate(QDate date)
 
 void MainWindow::clearGrid()
 {
+    QGridLayout *grid = dynamic_cast<QGridLayout*>(ui->gridWidget->layout());
+    for (int i = 0; i < grid->rowCount(); i++)
+        grid->setRowStretch(i, 0);
+    for (int i = 0; i < grid->columnCount(); i++)
+        grid->setColumnStretch(i, 0);
     QLayoutItem *child = 0;
-    while ((child = ui->grid->takeAt(0)))
+    while ((child = grid->takeAt(0)))
         child->widget()->deleteLater();
     widgetToDate.clear();
 }
 
-void MainWindow::initMonth()
+void MainWindow::showYMD()
 {
-    clearGrid();
+    ui->yearBox->show();
+    ui->monthBox->show();
+    ui->dayBox->show();
+    ui->yearMonthLabel->show();
+    ui->monthDayLabel->show();
+}
 
+void MainWindow::showYM()
+{
     ui->yearBox->show();
     ui->monthBox->show();
     ui->dayBox->hide();
     ui->yearMonthLabel->show();
     ui->monthDayLabel->hide();
+}
 
+void MainWindow::showY()
+{
+    ui->yearBox->show();
+    ui->monthBox->hide();
+    ui->dayBox->hide();
+    ui->yearMonthLabel->hide();
+    ui->monthDayLabel->hide();
+}
+
+void MainWindow::initMonth()
+{
+    clearGrid();
+    showYM();
+
+    QGridLayout *grid = dynamic_cast<QGridLayout*>(ui->gridWidget->layout());
     int year = displayedDate.year();
     int month = displayedDate.month();
 
@@ -144,7 +166,7 @@ void MainWindow::initMonth()
             Html::white(Html::italic(headerText[i])),
             {}, false, ui->gridWidget
         );
-        ui->grid->addWidget(hHeader, 0, i);
+        grid->addWidget(hHeader, 0, i);
     }
 
     QDate iter(year, month, 1);
@@ -155,7 +177,7 @@ void MainWindow::initMonth()
         if (iter.weekNumber() < stWeek) stWeek = 0;
         int rowId = iter.weekNumber() - stWeek + 1;
         QWidget *tile = dayInMonth(iter, iter.month() == month);
-        ui->grid->addWidget(tile, rowId, iter.dayOfWeek());
+        grid->addWidget(tile, rowId, iter.dayOfWeek());
         if (iter.dayOfWeek() == 1)
         {
             Tile *vHeader = new Tile(
@@ -163,16 +185,65 @@ void MainWindow::initMonth()
                 Html::white(Html::italic(QString::number(iter.weekNumber()))),
                 {}, false, ui->gridWidget
             );
-            ui->grid->addWidget(vHeader, rowId, 0);
+            grid->addWidget(vHeader, rowId, 0);
         }
     }
 
-    ui->grid->setRowStretch(0, 10);
-    for (int i = 1; i < ui->grid->rowCount(); i++)
-        ui->grid->setRowStretch(i, 20);
-    ui->grid->setColumnStretch(0, 10);
-    for (int i = 1; i < ui->grid->columnCount(); i++)
-        ui->grid->setColumnStretch(i, 20);
+    grid->setRowStretch(0, 10);
+    for (int i = 1; i < grid->rowCount(); i++)
+        grid->setRowStretch(i, 20);
+    grid->setColumnStretch(0, 10);
+    for (int i = 1; i < grid->columnCount(); i++)
+        grid->setColumnStretch(i, 20);
+}
+
+void MainWindow::initDay()
+{
+    clearGrid();
+    showYMD();
+
+    QGridLayout *grid = dynamic_cast<QGridLayout*>(ui->gridWidget->layout());
+    QWidget *tile = dayInMonth(displayedDate, true);
+    grid->addWidget(tile, 0, 0);
+}
+
+void MainWindow::initWeek()
+{
+    clearGrid();
+    showYMD();
+
+    QGridLayout *grid = dynamic_cast<QGridLayout*>(ui->gridWidget->layout());
+    int month = displayedDate.month();
+
+    QString headerText[] = { tr("Week"), tr("Mon"), tr("Tue"), tr("Wed"), tr("Thu"), tr("Fri"), tr("Sat"), tr("Sun") };
+    for (int i = 0; i <= 7; i++)
+    {
+        Tile *hHeader = new Tile(
+            QColor(0x42, 0x37, 0x32, 0xD0),
+            Html::white(Html::italic(headerText[i])),
+            {}, false, ui->gridWidget
+        );
+        grid->addWidget(hHeader, 0, i);
+    }
+
+    QDate iter(displayedDate);
+    while (iter.dayOfWeek() != 1) iter = iter.addDays(-1);
+
+    Tile *vHeader = new Tile(
+        QColor(0x42, 0x37, 0x32, 0xD0),
+        Html::white(Html::italic(QString::number(iter.weekNumber()))),
+        {}, false, ui->gridWidget
+    );
+    grid->addWidget(vHeader, 1, 0);
+
+    for (int i = 0; i < 7; i++, iter = iter.addDays(1))
+        grid->addWidget(dayInMonth(iter, iter.month() == month), 1, iter.dayOfWeek());
+
+    grid->setRowStretch(0, 10);
+    grid->setRowStretch(1, 60);
+    grid->setColumnStretch(0, 10);
+    for (int i = 1; i < grid->columnCount(); i++)
+        grid->setColumnStretch(i, 20);
 }
 
 QWidget *MainWindow::dayInMonth(QDate date, bool monthDisplayed)
@@ -225,7 +296,7 @@ void MainWindow::promptTaskBar(QWidget *task, int taskIndex, QDate today)
 }
 
 void MainWindow::promptTileBar(QWidget *tile)
-{    
+{
     qDebug() << "prmopt tile bar";
     new TileBar(tile, widgetToDate[tile]);
 }
@@ -252,14 +323,36 @@ void MainWindow::on_quitButton_clicked(bool)
     qApp->exit();
 }
 
+void MainWindow::addToDate(int x)
+{
+    switch (displayMode)
+    {
+    case MONTH:
+        alterDisplayedDate(displayedDate.addMonths(x));
+        break;
+    case DAY:
+    case TASK:
+        alterDisplayedDate(displayedDate.addDays(x));
+        break;
+    case WEEK:
+        alterDisplayedDate(displayedDate.addDays(x * 7));
+        break;
+    case YEAR:
+        alterDisplayedDate(displayedDate.addYears(x));
+        break;
+    default:
+        Q_ASSERT(false);
+    }
+}
+
 void MainWindow::on_previousButton_clicked(bool)
 {
-    alterDisplayedDate(displayedDate.addMonths(-1));
+    addToDate(-1);
 }
 
 void MainWindow::on_nextButton_clicked(bool)
 {
-    alterDisplayedDate(displayedDate.addMonths(1));
+    addToDate(1);
 }
 
 void MainWindow::on_yearBox_valueChanged(int)
@@ -346,4 +439,32 @@ void MainWindow::on_dragSwitchButton_toggled(bool checked)
         ui->dragSwitchButton->setIcon(QIcon(":/icon/file-transfer-cross.ico"));
     else
         ui->dragSwitchButton->setIcon(QIcon(":/icon/file-transfer-checkmark.ico"));
+}
+
+void MainWindow::on_modeBox_activated(int index)
+{
+    displayMode = (DisplayMode)index;
+    init();
+}
+
+void MainWindow::mousePressEvent(QMouseEvent *event)
+{
+    isDragging = true;
+    QPoint windowPos = pos();
+    QPoint mousePos = event->globalPos();
+    dPos = mousePos - windowPos;
+    QMainWindow::mousePressEvent(event);
+}
+
+void MainWindow::mouseReleaseEvent(QMouseEvent *event)
+{
+    isDragging = false;
+    QMainWindow::mouseReleaseEvent(event);
+}
+
+void MainWindow::mouseMoveEvent(QMouseEvent *event)
+{
+    if (isDragging)
+        move(event->globalPos() - dPos);
+    QMainWindow::mouseMoveEvent(event);
 }

@@ -1,3 +1,4 @@
+#include <QRect>
 #include <QDebug>
 #include <algorithm>
 #include <QSizePolicy>
@@ -32,6 +33,18 @@ TaskBar::TaskBar(QWidget *anchor, int _taskIndex, QDate _today, QWidget *parent)
         ui->spinBox->setDisabled(true);
     }
     ui->spinBox->setValue(intervalToSet = MainWindow::getMyInstance()->calendarData->taskAt(taskIndex)->getRepeatInterval());
+
+    int childRight = anchor->mapToGlobal(anchor->mapFromParent(anchor->geometry().topRight())).x();
+    int myRight = ui->editor->mapToGlobal(ui->editor->mapFromParent(ui->editor->geometry().topRight())).x();
+    qDebug() << childRight << " -- " << myRight;
+    if (childRight > myRight)
+        resize(width() + childRight - myRight, height());
+
+    int childDown = anchor->mapToGlobal(anchor->mapFromParent(anchor->geometry().bottomLeft())).y();
+    int myDown = ui->editor->mapToGlobal(ui->editor->mapFromParent(ui->editor->geometry().bottomLeft())).y();
+    qDebug() << childDown << " -- " << myDown;
+    if (childDown > myDown)
+        resize(width(), height() + childDown - myDown);
 }
 
 TaskBar::~TaskBar()

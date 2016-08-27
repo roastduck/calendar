@@ -21,6 +21,12 @@
    <double>1.000000000000000</double>
   </property>
   <widget class="QWidget" name="centralWidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <property name="rightMargin">
      <number>0</number>
@@ -394,15 +400,12 @@
     <item>
      <widget class="QWidget" name="gridWidget" native="true">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <property name="spacing">
-        <number>0</number>
-       </property>
+      <layout class="QGridLayout" name="gridLayout">
        <property name="leftMargin">
         <number>0</number>
        </property>
@@ -415,9 +418,6 @@
        <property name="bottomMargin">
         <number>0</number>
        </property>
-       <item>
-        <layout class="QGridLayout" name="grid"/>
-       </item>
       </layout>
      </widget>
     </item>
@@ -568,6 +568,56 @@
        <item>
         <property name="text">
          <string>Chinese</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="modeBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>70</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Display mode</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>A month</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>A Day</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>A week</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>A year</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>All tasks</string>
         </property>
        </item>
       </widget>

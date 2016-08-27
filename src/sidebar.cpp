@@ -6,13 +6,14 @@
 SideBar::SideBar(QWidget *_anchor, bool _clickToLeave, QWidget *parent)
     : QWidget(parent), anchor(_anchor), clickToLeave(_clickToLeave)
 {
+    qDebug() << "blur set";
     QGraphicsBlurEffect *blur = new QGraphicsBlurEffect(MainWindow::getMyInstance());
-    MainWindow::getMyInstance()->setGraphicsEffect(blur);
+    MainWindow::getMyInstance()->setGraphicsEffect(blur); // right click on tile twice will make effect. why?
 }
 
 SideBar::~SideBar()
 {
-    qDebug() << "sidebar deleted";
+    qDebug() << "blur unset";
     MainWindow::getMyInstance()->setGraphicsEffect(0);
     MainWindow::getMyInstance()->init(); // NOTICE: this will destory anchor
 }
