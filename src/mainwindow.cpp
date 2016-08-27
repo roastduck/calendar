@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <QFile>
 #include <QList>
 #include <QIcon>
@@ -84,6 +85,7 @@ void MainWindow::postConstructInit()
 void MainWindow::init()
 {
     qDebug() << "refreshed";
+    clearGrid();
     switch (displayMode)
     {
     case MONTH:
@@ -97,6 +99,9 @@ void MainWindow::init()
         break;
     case YEAR:
         initYear();
+        break;
+    case TASK:
+        initAllTask();
         break;
     default:
         qDebug() << "displayMode = " << displayMode;
@@ -130,6 +135,7 @@ void MainWindow::clearGrid()
 
 void MainWindow::showYMD()
 {
+    ui->titleBar->show();
     ui->yearBox->show();
     ui->monthBox->show();
     ui->dayBox->show();
@@ -139,6 +145,7 @@ void MainWindow::showYMD()
 
 void MainWindow::showYM()
 {
+    ui->titleBar->show();
     ui->yearBox->show();
     ui->monthBox->show();
     ui->dayBox->hide();
@@ -148,6 +155,7 @@ void MainWindow::showYM()
 
 void MainWindow::showY()
 {
+    ui->titleBar->show();
     ui->yearBox->show();
     ui->monthBox->hide();
     ui->dayBox->hide();
@@ -157,7 +165,6 @@ void MainWindow::showY()
 
 void MainWindow::initMonth()
 {
-    clearGrid();
     showYM();
 
     QGridLayout *grid = dynamic_cast<QGridLayout*>(ui->gridWidget->layout());
@@ -205,7 +212,6 @@ void MainWindow::initMonth()
 
 void MainWindow::initDay()
 {
-    clearGrid();
     showYMD();
 
     QGridLayout *grid = dynamic_cast<QGridLayout*>(ui->gridWidget->layout());
@@ -215,7 +221,6 @@ void MainWindow::initDay()
 
 void MainWindow::initWeek()
 {
-    clearGrid();
     showYMD();
 
     QGridLayout *grid = dynamic_cast<QGridLayout*>(ui->gridWidget->layout());
@@ -254,7 +259,6 @@ void MainWindow::initWeek()
 
 void MainWindow::initYear()
 {
-    clearGrid();
     showY();
 
     QGridLayout *grid = dynamic_cast<QGridLayout*>(ui->gridWidget->layout());
@@ -277,6 +281,37 @@ void MainWindow::initYear()
         connect(w, SIGNAL(activated(QDate)), this, SLOT(enterDate(QDate)));
         grid->addWidget(w, (i - 1) / 4, (i - 1) % 4);
     }
+}
+
+void MainWindow::initAllTask()
+{
+    ui->titleBar->hide();
+
+    QGridLayout *grid = dynamic_cast<QGridLayout*>(ui->gridWidget->layout());
+    const auto &tasks = calendarData->allTasks();
+    const auto &files = calendarData->allFiles();
+    QList<QDate> days;
+    for (int i = 0; i < tasks.count(); i++)
+        days.push_back(tasks[i]->getBaseDate());
+    for (auto iter = files.begin(); iter != files.end(); iter++)
+        days.push_back(iter.key());
+    std::sort(days.begin(), days.end());
+
+    if (days.empty())
+    {
+        QLabel *label = new QLabel(tr("No tasks or files added in"), ui->gridWidget);
+        label->setAutoFillBackground(true);
+        grid->addWidget(label, 0, 0);
+        return;
+    }
+
+    for (int i = 0, j = 0; i < days.count(); i++)
+        if (!i || days[i] > days[i-1])
+        {
+            Tile *w = dynamic_cast<Tile*>(dayInMonth(days[i], true));
+            w->ui->title->setText(QString::number(days[i].year()) + "/" + QString::number(days[i].month()) + "/" + w->ui->title->text());
+            grid->addWidget(w, j++, 0);
+        }
 }
 
 QWidget *MainWindow::dayInMonth(QDate date, bool monthDisplayed)

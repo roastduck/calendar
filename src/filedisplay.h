@@ -18,6 +18,9 @@ public:
     explicit FileDisplay(const QDate &_date, int _index, QWidget *parent);
     ~FileDisplay();
 
+protected:
+    bool event(QEvent *event) override;
+
 private slots:
     void startDrag();
 

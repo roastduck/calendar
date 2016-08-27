@@ -81,6 +81,8 @@ private:
     void initWeek();
     /// Initialize a year display
     void initYear();
+    /// Initialize a all-tasks display. i.e. all the days that have tasks or files
+    void initAllTask();
 
     /// These 3 functions set the date bar at top
     void showYMD(); /// year & month & day

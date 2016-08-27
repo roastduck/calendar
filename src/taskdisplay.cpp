@@ -34,6 +34,16 @@ QString TaskDisplay::getContent() const
     return ui->textEdit->toPlainText();
 }
 
+bool TaskDisplay::event(QEvent *event)
+{
+    if (MainWindow::getMyInstance()->isPinned())
+    {
+        event->accept();
+        return true;
+    }
+    return QWidget::event(event);
+}
+
 void TaskDisplay::enterEvent(QEvent *event)
 {
     if (hoverEffect)

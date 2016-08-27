@@ -49,6 +49,9 @@ public:
     const Task *taskAt(int index) const;
     Task *taskAt(int index);
 
+    /// Return all tasks
+    const QList<Task*> &allTasks() const;
+
     /// Attach a file to a day
     /**
      * @return : index
@@ -57,6 +60,9 @@ public:
     QList<File*> getFile(const QDate &date);
     File *getFile(const QDate &date, int index);
     void delFile(const QDate &date, int index);
+
+    /// return all files
+    const QMap< QDate, QList<File*> > &allFiles() const;
 
     /// File to save data
     static constexpr const char *saveFile = "savedcalendar.json";

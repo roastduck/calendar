@@ -33,8 +33,19 @@ FileDisplay::~FileDisplay()
     delete ui;
 }
 
+bool FileDisplay::event(QEvent *event)
+{
+    if (MainWindow::getMyInstance()->isPinned())
+    {
+        event->accept();
+        return true;
+    }
+    return QWidget::event(event);
+}
+
 void FileDisplay::on_label_2_linkActivated(const QString &)
 {
+    if (MainWindow::getMyInstance()->isPinned()) return;
     qDebug() << "link clicked";
     MainWindow::getMyInstance()->calendarData->delFile(date, index);
     emit requireRefresh(); // don't use deleteLater because index changed

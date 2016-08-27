@@ -128,6 +128,11 @@ Task *Data::taskAt(int index)
     return tasks[index];
 }
 
+const QList<Task*> &Data::allTasks() const
+{
+    return tasks;
+}
+
 int Data::addFile(const QDate &date, const QUrl &path)
 {
     files[date].push_back(new File(path, this));
@@ -136,6 +141,7 @@ int Data::addFile(const QDate &date, const QUrl &path)
 
 QList<File*> Data::getFile(const QDate &date)
 {
+    if (! files.count(date)) return {};
     return files[date];
 }
 
@@ -149,4 +155,9 @@ void Data::delFile(const QDate &date, int index)
 {
     Q_ASSERT(index >= 0 && index < files[date].size());
     files[date].removeAt(index);
+}
+
+const QMap< QDate, QList<File*> > &Data::allFiles() const
+{
+    return files;
 }
