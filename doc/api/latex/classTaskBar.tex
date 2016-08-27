@@ -1,0 +1,168 @@
+\hypertarget{classTaskBar}{}\section{Task\+Bar Class Reference}
+\label{classTaskBar}\index{Task\+Bar@{Task\+Bar}}
+
+
+Provide an interface for users to interact with tasks.  
+
+
+
+
+{\ttfamily \#include $<$taskbar.\+h$>$}
+
+
+
+Inheritance diagram for Task\+Bar\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{classTaskBar__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Task\+Bar\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classTaskBar__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTaskBar_a62dbb456b9dd72f6e2c5f07e1765dbfe}{Task\+Bar} (Q\+Widget $\ast$\hyperlink{classSideBar_a0a6a0df257a08bdf785aeb155870efbc}{anchor}, int \+\_\+task\+Index, Q\+Date \+\_\+today, Q\+Widget $\ast$parent)
+\item 
+\hyperlink{classTaskBar_aba46bb3cba29968c2790a5ecfc2d3eba}{$\sim$\+Task\+Bar} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classTaskBar_acf2c1f19d61d67bb3c078c263042012a}{on\+\_\+push\+Button\+\_\+clicked} (bool checked)
+\item 
+void \hyperlink{classTaskBar_a2b2c67c68a830705af3c568b2e005d4d}{on\+\_\+ok\+Button\+\_\+clicked} (bool checked)
+\item 
+void \hyperlink{classTaskBar_adeb4b20f6055736acc7a042698c337ff}{on\+\_\+delete\+Button\+\_\+clicked} (bool checked)
+\item 
+void \hyperlink{classTaskBar_ab3127214b1aa8e3886f77b7b9c11f19e}{on\+\_\+delete\+All\+Button\+\_\+clicked} (bool checked)
+\item 
+void \hyperlink{classTaskBar_a10bf9a5d0649e13e395e04717c0b1490}{on\+\_\+combo\+Box\+\_\+activated} (int index)
+\item 
+void \hyperlink{classTaskBar_ab187953b1f39520cfb1b0792850bbfe8}{on\+\_\+spin\+Box\+\_\+value\+Changed} (int arg1)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::\+Task\+Bar $\ast$ \hyperlink{classTaskBar_adf231c032cb316cc500191fa349de0c8}{ui}
+\item 
+int \hyperlink{classTaskBar_a3207c8756b34796b9670f7cdc90bd121}{task\+Index}
+\item 
+\hyperlink{classTaskDisplay}{Task\+Display} $\ast$ \hyperlink{classTaskBar_ad0eb90c40336ebb502c31c8389c38bf0}{task\+Display}
+\item 
+\hyperlink{classTask_a93fe2c7346381e2e631fb2ba63ac0344}{Task\+::\+Repeat\+Type} \hyperlink{classTaskBar_a84684467e8038096bee94cdd1f26180c}{type\+To\+Set}
+\begin{DoxyCompactList}\small\item\em to be set after clicking save \end{DoxyCompactList}\item 
+int \hyperlink{classTaskBar_a4eb8a4530ebcb300192bb41013a91a1c}{interval\+To\+Set}
+\item 
+Q\+Date \hyperlink{classTaskBar_ab2cdbd96df84313d9de6e86fd968e374}{today}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Provide an interface for users to interact with tasks. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Task\+Bar@{Task\+Bar}!Task\+Bar@{Task\+Bar}}
+\index{Task\+Bar@{Task\+Bar}!Task\+Bar@{Task\+Bar}}
+\subsubsection[{\texorpdfstring{Task\+Bar(\+Q\+Widget $\ast$anchor, int \+\_\+task\+Index, Q\+Date \+\_\+today, Q\+Widget $\ast$parent)}{TaskBar(QWidget *anchor, int _taskIndex, QDate _today, QWidget *parent)}}]{\setlength{\rightskip}{0pt plus 5cm}Task\+Bar\+::\+Task\+Bar (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{anchor, }
+\item[{int}]{\+\_\+task\+Index, }
+\item[{Q\+Date}]{\+\_\+today, }
+\item[{Q\+Widget $\ast$}]{parent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classTaskBar_a62dbb456b9dd72f6e2c5f07e1765dbfe}{}\label{classTaskBar_a62dbb456b9dd72f6e2c5f07e1765dbfe}
+\index{Task\+Bar@{Task\+Bar}!````~Task\+Bar@{$\sim$\+Task\+Bar}}
+\index{````~Task\+Bar@{$\sim$\+Task\+Bar}!Task\+Bar@{Task\+Bar}}
+\subsubsection[{\texorpdfstring{$\sim$\+Task\+Bar()}{~TaskBar()}}]{\setlength{\rightskip}{0pt plus 5cm}Task\+Bar\+::$\sim$\+Task\+Bar (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTaskBar_aba46bb3cba29968c2790a5ecfc2d3eba}{}\label{classTaskBar_aba46bb3cba29968c2790a5ecfc2d3eba}
+
+
+\subsection{Member Function Documentation}
+\index{Task\+Bar@{Task\+Bar}!on\+\_\+combo\+Box\+\_\+activated@{on\+\_\+combo\+Box\+\_\+activated}}
+\index{on\+\_\+combo\+Box\+\_\+activated@{on\+\_\+combo\+Box\+\_\+activated}!Task\+Bar@{Task\+Bar}}
+\subsubsection[{\texorpdfstring{on\+\_\+combo\+Box\+\_\+activated}{on_comboBox_activated}}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Bar\+::on\+\_\+combo\+Box\+\_\+activated (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classTaskBar_a10bf9a5d0649e13e395e04717c0b1490}{}\label{classTaskBar_a10bf9a5d0649e13e395e04717c0b1490}
+\index{Task\+Bar@{Task\+Bar}!on\+\_\+delete\+All\+Button\+\_\+clicked@{on\+\_\+delete\+All\+Button\+\_\+clicked}}
+\index{on\+\_\+delete\+All\+Button\+\_\+clicked@{on\+\_\+delete\+All\+Button\+\_\+clicked}!Task\+Bar@{Task\+Bar}}
+\subsubsection[{\texorpdfstring{on\+\_\+delete\+All\+Button\+\_\+clicked}{on_deleteAllButton_clicked}}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Bar\+::on\+\_\+delete\+All\+Button\+\_\+clicked (
+\begin{DoxyParamCaption}
+\item[{bool}]{checked}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classTaskBar_ab3127214b1aa8e3886f77b7b9c11f19e}{}\label{classTaskBar_ab3127214b1aa8e3886f77b7b9c11f19e}
+\index{Task\+Bar@{Task\+Bar}!on\+\_\+delete\+Button\+\_\+clicked@{on\+\_\+delete\+Button\+\_\+clicked}}
+\index{on\+\_\+delete\+Button\+\_\+clicked@{on\+\_\+delete\+Button\+\_\+clicked}!Task\+Bar@{Task\+Bar}}
+\subsubsection[{\texorpdfstring{on\+\_\+delete\+Button\+\_\+clicked}{on_deleteButton_clicked}}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Bar\+::on\+\_\+delete\+Button\+\_\+clicked (
+\begin{DoxyParamCaption}
+\item[{bool}]{checked}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classTaskBar_adeb4b20f6055736acc7a042698c337ff}{}\label{classTaskBar_adeb4b20f6055736acc7a042698c337ff}
+\index{Task\+Bar@{Task\+Bar}!on\+\_\+ok\+Button\+\_\+clicked@{on\+\_\+ok\+Button\+\_\+clicked}}
+\index{on\+\_\+ok\+Button\+\_\+clicked@{on\+\_\+ok\+Button\+\_\+clicked}!Task\+Bar@{Task\+Bar}}
+\subsubsection[{\texorpdfstring{on\+\_\+ok\+Button\+\_\+clicked}{on_okButton_clicked}}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Bar\+::on\+\_\+ok\+Button\+\_\+clicked (
+\begin{DoxyParamCaption}
+\item[{bool}]{checked}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classTaskBar_a2b2c67c68a830705af3c568b2e005d4d}{}\label{classTaskBar_a2b2c67c68a830705af3c568b2e005d4d}
+\index{Task\+Bar@{Task\+Bar}!on\+\_\+push\+Button\+\_\+clicked@{on\+\_\+push\+Button\+\_\+clicked}}
+\index{on\+\_\+push\+Button\+\_\+clicked@{on\+\_\+push\+Button\+\_\+clicked}!Task\+Bar@{Task\+Bar}}
+\subsubsection[{\texorpdfstring{on\+\_\+push\+Button\+\_\+clicked}{on_pushButton_clicked}}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Bar\+::on\+\_\+push\+Button\+\_\+clicked (
+\begin{DoxyParamCaption}
+\item[{bool}]{checked}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classTaskBar_acf2c1f19d61d67bb3c078c263042012a}{}\label{classTaskBar_acf2c1f19d61d67bb3c078c263042012a}
+\index{Task\+Bar@{Task\+Bar}!on\+\_\+spin\+Box\+\_\+value\+Changed@{on\+\_\+spin\+Box\+\_\+value\+Changed}}
+\index{on\+\_\+spin\+Box\+\_\+value\+Changed@{on\+\_\+spin\+Box\+\_\+value\+Changed}!Task\+Bar@{Task\+Bar}}
+\subsubsection[{\texorpdfstring{on\+\_\+spin\+Box\+\_\+value\+Changed}{on_spinBox_valueChanged}}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Bar\+::on\+\_\+spin\+Box\+\_\+value\+Changed (
+\begin{DoxyParamCaption}
+\item[{int}]{arg1}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classTaskBar_ab187953b1f39520cfb1b0792850bbfe8}{}\label{classTaskBar_ab187953b1f39520cfb1b0792850bbfe8}
+
+
+\subsection{Member Data Documentation}
+\index{Task\+Bar@{Task\+Bar}!interval\+To\+Set@{interval\+To\+Set}}
+\index{interval\+To\+Set@{interval\+To\+Set}!Task\+Bar@{Task\+Bar}}
+\subsubsection[{\texorpdfstring{interval\+To\+Set}{intervalToSet}}]{\setlength{\rightskip}{0pt plus 5cm}int Task\+Bar\+::interval\+To\+Set\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTaskBar_a4eb8a4530ebcb300192bb41013a91a1c}{}\label{classTaskBar_a4eb8a4530ebcb300192bb41013a91a1c}
+\index{Task\+Bar@{Task\+Bar}!task\+Display@{task\+Display}}
+\index{task\+Display@{task\+Display}!Task\+Bar@{Task\+Bar}}
+\subsubsection[{\texorpdfstring{task\+Display}{taskDisplay}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Task\+Display}$\ast$ Task\+Bar\+::task\+Display\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTaskBar_ad0eb90c40336ebb502c31c8389c38bf0}{}\label{classTaskBar_ad0eb90c40336ebb502c31c8389c38bf0}
+\index{Task\+Bar@{Task\+Bar}!task\+Index@{task\+Index}}
+\index{task\+Index@{task\+Index}!Task\+Bar@{Task\+Bar}}
+\subsubsection[{\texorpdfstring{task\+Index}{taskIndex}}]{\setlength{\rightskip}{0pt plus 5cm}int Task\+Bar\+::task\+Index\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTaskBar_a3207c8756b34796b9670f7cdc90bd121}{}\label{classTaskBar_a3207c8756b34796b9670f7cdc90bd121}
+\index{Task\+Bar@{Task\+Bar}!today@{today}}
+\index{today@{today}!Task\+Bar@{Task\+Bar}}
+\subsubsection[{\texorpdfstring{today}{today}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Date Task\+Bar\+::today\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTaskBar_ab2cdbd96df84313d9de6e86fd968e374}{}\label{classTaskBar_ab2cdbd96df84313d9de6e86fd968e374}
+\index{Task\+Bar@{Task\+Bar}!type\+To\+Set@{type\+To\+Set}}
+\index{type\+To\+Set@{type\+To\+Set}!Task\+Bar@{Task\+Bar}}
+\subsubsection[{\texorpdfstring{type\+To\+Set}{typeToSet}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Task\+::\+Repeat\+Type} Task\+Bar\+::type\+To\+Set\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTaskBar_a84684467e8038096bee94cdd1f26180c}{}\label{classTaskBar_a84684467e8038096bee94cdd1f26180c}
+
+
+to be set after clicking save 
+
+\index{Task\+Bar@{Task\+Bar}!ui@{ui}}
+\index{ui@{ui}!Task\+Bar@{Task\+Bar}}
+\subsubsection[{\texorpdfstring{ui}{ui}}]{\setlength{\rightskip}{0pt plus 5cm}Ui\+::\+Task\+Bar$\ast$ Task\+Bar\+::ui\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTaskBar_adf231c032cb316cc500191fa349de0c8}{}\label{classTaskBar_adf231c032cb316cc500191fa349de0c8}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{taskbar_8h}{taskbar.\+h}\item 
+\hyperlink{taskbar_8cpp}{taskbar.\+cpp}\end{DoxyCompactItemize}

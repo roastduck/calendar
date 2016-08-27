@@ -1,0 +1,135 @@
+\hypertarget{classFileDisplay}{}\section{File\+Display Class Reference}
+\label{classFileDisplay}\index{File\+Display@{File\+Display}}
+
+
+Display a file dragged in by user.  
+
+
+
+
+{\ttfamily \#include $<$filedisplay.\+h$>$}
+
+
+
+Inheritance diagram for File\+Display\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classFileDisplay__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for File\+Display\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=217pt]{classFileDisplay__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classFileDisplay_a82b770665aa3e87b8945871e65124c16}{require\+Refresh} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classFileDisplay_a78758d0d7cf80cbe6f6a400cc9bb2bcd}{File\+Display} (const Q\+Date \&\+\_\+date, int \+\_\+index, Q\+Widget $\ast$parent)
+\item 
+\hyperlink{classFileDisplay_a57b1b3b135ad210a87ff04c7652dd846}{$\sim$\+File\+Display} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classFileDisplay_a679e676c4496c0b441753c5e6670be81}{event} (Q\+Event $\ast$event) override
+\end{DoxyCompactItemize}
+\subsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classFileDisplay_aaffa2b93339b7a84b8af28847fa1f099}{start\+Drag} ()
+\item 
+void \hyperlink{classFileDisplay_a62f53655eacd44d1026f7fe7808e7a1f}{on\+\_\+label\+\_\+2\+\_\+link\+Activated} (const Q\+String \&link)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::\+File\+Display $\ast$ \hyperlink{classFileDisplay_a0f69fef4d0c94b979e55dd8d97f196c7}{ui}
+\item 
+Q\+Date \hyperlink{classFileDisplay_a0a82f6e8e67ad36ef80575ec6be86372}{date}
+\item 
+int \hyperlink{classFileDisplay_aceb0af801357d0fff3b09bd1285136f7}{index}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Display a file dragged in by user. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{File\+Display@{File\+Display}!File\+Display@{File\+Display}}
+\index{File\+Display@{File\+Display}!File\+Display@{File\+Display}}
+\subsubsection[{\texorpdfstring{File\+Display(const Q\+Date \&\+\_\+date, int \+\_\+index, Q\+Widget $\ast$parent)}{FileDisplay(const QDate &_date, int _index, QWidget *parent)}}]{\setlength{\rightskip}{0pt plus 5cm}File\+Display\+::\+File\+Display (
+\begin{DoxyParamCaption}
+\item[{const Q\+Date \&}]{\+\_\+date, }
+\item[{int}]{\+\_\+index, }
+\item[{Q\+Widget $\ast$}]{parent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classFileDisplay_a78758d0d7cf80cbe6f6a400cc9bb2bcd}{}\label{classFileDisplay_a78758d0d7cf80cbe6f6a400cc9bb2bcd}
+\index{File\+Display@{File\+Display}!````~File\+Display@{$\sim$\+File\+Display}}
+\index{````~File\+Display@{$\sim$\+File\+Display}!File\+Display@{File\+Display}}
+\subsubsection[{\texorpdfstring{$\sim$\+File\+Display()}{~FileDisplay()}}]{\setlength{\rightskip}{0pt plus 5cm}File\+Display\+::$\sim$\+File\+Display (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classFileDisplay_a57b1b3b135ad210a87ff04c7652dd846}{}\label{classFileDisplay_a57b1b3b135ad210a87ff04c7652dd846}
+
+
+\subsection{Member Function Documentation}
+\index{File\+Display@{File\+Display}!event@{event}}
+\index{event@{event}!File\+Display@{File\+Display}}
+\subsubsection[{\texorpdfstring{event(\+Q\+Event $\ast$event) override}{event(QEvent *event) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool File\+Display\+::event (
+\begin{DoxyParamCaption}
+\item[{Q\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}\hypertarget{classFileDisplay_a679e676c4496c0b441753c5e6670be81}{}\label{classFileDisplay_a679e676c4496c0b441753c5e6670be81}
+\index{File\+Display@{File\+Display}!on\+\_\+label\+\_\+2\+\_\+link\+Activated@{on\+\_\+label\+\_\+2\+\_\+link\+Activated}}
+\index{on\+\_\+label\+\_\+2\+\_\+link\+Activated@{on\+\_\+label\+\_\+2\+\_\+link\+Activated}!File\+Display@{File\+Display}}
+\subsubsection[{\texorpdfstring{on\+\_\+label\+\_\+2\+\_\+link\+Activated}{on_label_2_linkActivated}}]{\setlength{\rightskip}{0pt plus 5cm}void File\+Display\+::on\+\_\+label\+\_\+2\+\_\+link\+Activated (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{link}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classFileDisplay_a62f53655eacd44d1026f7fe7808e7a1f}{}\label{classFileDisplay_a62f53655eacd44d1026f7fe7808e7a1f}
+\index{File\+Display@{File\+Display}!require\+Refresh@{require\+Refresh}}
+\index{require\+Refresh@{require\+Refresh}!File\+Display@{File\+Display}}
+\subsubsection[{\texorpdfstring{require\+Refresh}{requireRefresh}}]{\setlength{\rightskip}{0pt plus 5cm}void File\+Display\+::require\+Refresh (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\hypertarget{classFileDisplay_a82b770665aa3e87b8945871e65124c16}{}\label{classFileDisplay_a82b770665aa3e87b8945871e65124c16}
+\index{File\+Display@{File\+Display}!start\+Drag@{start\+Drag}}
+\index{start\+Drag@{start\+Drag}!File\+Display@{File\+Display}}
+\subsubsection[{\texorpdfstring{start\+Drag}{startDrag}}]{\setlength{\rightskip}{0pt plus 5cm}void File\+Display\+::start\+Drag (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classFileDisplay_aaffa2b93339b7a84b8af28847fa1f099}{}\label{classFileDisplay_aaffa2b93339b7a84b8af28847fa1f099}
+
+
+\subsection{Member Data Documentation}
+\index{File\+Display@{File\+Display}!date@{date}}
+\index{date@{date}!File\+Display@{File\+Display}}
+\subsubsection[{\texorpdfstring{date}{date}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Date File\+Display\+::date\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classFileDisplay_a0a82f6e8e67ad36ef80575ec6be86372}{}\label{classFileDisplay_a0a82f6e8e67ad36ef80575ec6be86372}
+\index{File\+Display@{File\+Display}!index@{index}}
+\index{index@{index}!File\+Display@{File\+Display}}
+\subsubsection[{\texorpdfstring{index}{index}}]{\setlength{\rightskip}{0pt plus 5cm}int File\+Display\+::index\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classFileDisplay_aceb0af801357d0fff3b09bd1285136f7}{}\label{classFileDisplay_aceb0af801357d0fff3b09bd1285136f7}
+\index{File\+Display@{File\+Display}!ui@{ui}}
+\index{ui@{ui}!File\+Display@{File\+Display}}
+\subsubsection[{\texorpdfstring{ui}{ui}}]{\setlength{\rightskip}{0pt plus 5cm}Ui\+::\+File\+Display$\ast$ File\+Display\+::ui\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classFileDisplay_a0f69fef4d0c94b979e55dd8d97f196c7}{}\label{classFileDisplay_a0f69fef4d0c94b979e55dd8d97f196c7}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{filedisplay_8h}{filedisplay.\+h}\item 
+\hyperlink{filedisplay_8cpp}{filedisplay.\+cpp}\end{DoxyCompactItemize}

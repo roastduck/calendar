@@ -1,0 +1,4 @@
+<map id="SideBar" name="SideBar">
+<area shape="rect" id="node3" href="$classTaskBar.html" title="Provide an interface for users to interact with tasks. " alt="" coords="5,315,201,583"/>
+<area shape="rect" id="node4" href="$classTileBar.html" title="The side bar besides a day in the calendar. " alt="" coords="226,366,399,531"/>
+</map>

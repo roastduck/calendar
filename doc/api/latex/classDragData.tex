@@ -1,0 +1,119 @@
+\hypertarget{classDragData}{}\section{Drag\+Data Class Reference}
+\label{classDragData}\index{Drag\+Data@{Drag\+Data}}
+
+
+Create a file and return its url when requested.  
+
+
+
+
+{\ttfamily \#include $<$dragdata.\+h$>$}
+
+
+
+Inheritance diagram for Drag\+Data\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classDragData__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Drag\+Data\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classDragData__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classDragData_a09c41f96b24d51674b88d17168b33d78}{Drag\+Data} (const Q\+String \&\+\_\+filename, const Q\+String \+\_\+base64)
+\item 
+Q\+String\+List \hyperlink{classDragData_ae8564afb0c0f5fb2868c39d9a922974e}{formats} () const override
+\item 
+bool \hyperlink{classDragData_a02f40827e954229013d893ec7c148a96}{has\+Format} (const Q\+String \&mime\+Type) const override
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Variant \hyperlink{classDragData_abb3bb5ffb7ac287fe5c14d5d5a29831d}{retrieve\+Data} (const Q\+String \&mimetype, Q\+Variant\+::\+Type preferred\+Type) const override
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classDragData_a2037ac6c96051425bc5c810f560ebc96}{file\+Created}
+\begin{DoxyCompactList}\small\item\em Only create temporary file once. \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classDragData_a3ec29e3d1a3a05e44582a724244256f5}{filename}
+\item 
+Q\+String \hyperlink{classDragData_a96f7b850cb7dfed17dc74057340384e3}{base64}
+\begin{DoxyCompactList}\small\item\em file content in Base64 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Create a file and return its url when requested. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Drag\+Data@{Drag\+Data}!Drag\+Data@{Drag\+Data}}
+\index{Drag\+Data@{Drag\+Data}!Drag\+Data@{Drag\+Data}}
+\subsubsection[{\texorpdfstring{Drag\+Data(const Q\+String \&\+\_\+filename, const Q\+String \+\_\+base64)}{DragData(const QString &_filename, const QString _base64)}}]{\setlength{\rightskip}{0pt plus 5cm}Drag\+Data\+::\+Drag\+Data (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{\+\_\+filename, }
+\item[{const Q\+String}]{\+\_\+base64}
+\end{DoxyParamCaption}
+)}\hypertarget{classDragData_a09c41f96b24d51674b88d17168b33d78}{}\label{classDragData_a09c41f96b24d51674b88d17168b33d78}
+
+
+\subsection{Member Function Documentation}
+\index{Drag\+Data@{Drag\+Data}!formats@{formats}}
+\index{formats@{formats}!Drag\+Data@{Drag\+Data}}
+\subsubsection[{\texorpdfstring{formats() const override}{formats() const override}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String\+List Drag\+Data\+::formats (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [override]}}\hypertarget{classDragData_ae8564afb0c0f5fb2868c39d9a922974e}{}\label{classDragData_ae8564afb0c0f5fb2868c39d9a922974e}
+\index{Drag\+Data@{Drag\+Data}!has\+Format@{has\+Format}}
+\index{has\+Format@{has\+Format}!Drag\+Data@{Drag\+Data}}
+\subsubsection[{\texorpdfstring{has\+Format(const Q\+String \&mime\+Type) const override}{hasFormat(const QString &mimeType) const override}}]{\setlength{\rightskip}{0pt plus 5cm}bool Drag\+Data\+::has\+Format (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{mime\+Type}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [override]}}\hypertarget{classDragData_a02f40827e954229013d893ec7c148a96}{}\label{classDragData_a02f40827e954229013d893ec7c148a96}
+\index{Drag\+Data@{Drag\+Data}!retrieve\+Data@{retrieve\+Data}}
+\index{retrieve\+Data@{retrieve\+Data}!Drag\+Data@{Drag\+Data}}
+\subsubsection[{\texorpdfstring{retrieve\+Data(const Q\+String \&mimetype, Q\+Variant\+::\+Type preferred\+Type) const override}{retrieveData(const QString &mimetype, QVariant::Type preferredType) const override}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Variant Drag\+Data\+::retrieve\+Data (
+\begin{DoxyParamCaption}
+\item[{const Q\+String \&}]{mimetype, }
+\item[{Q\+Variant\+::\+Type}]{preferred\+Type}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}\hypertarget{classDragData_abb3bb5ffb7ac287fe5c14d5d5a29831d}{}\label{classDragData_abb3bb5ffb7ac287fe5c14d5d5a29831d}
+
+
+\subsection{Member Data Documentation}
+\index{Drag\+Data@{Drag\+Data}!base64@{base64}}
+\index{base64@{base64}!Drag\+Data@{Drag\+Data}}
+\subsubsection[{\texorpdfstring{base64}{base64}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Drag\+Data\+::base64\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDragData_a96f7b850cb7dfed17dc74057340384e3}{}\label{classDragData_a96f7b850cb7dfed17dc74057340384e3}
+
+
+file content in Base64 
+
+\index{Drag\+Data@{Drag\+Data}!file\+Created@{file\+Created}}
+\index{file\+Created@{file\+Created}!Drag\+Data@{Drag\+Data}}
+\subsubsection[{\texorpdfstring{file\+Created}{fileCreated}}]{\setlength{\rightskip}{0pt plus 5cm}bool Drag\+Data\+::file\+Created\hspace{0.3cm}{\ttfamily [mutable]}, {\ttfamily [private]}}\hypertarget{classDragData_a2037ac6c96051425bc5c810f560ebc96}{}\label{classDragData_a2037ac6c96051425bc5c810f560ebc96}
+
+
+Only create temporary file once. 
+
+\index{Drag\+Data@{Drag\+Data}!filename@{filename}}
+\index{filename@{filename}!Drag\+Data@{Drag\+Data}}
+\subsubsection[{\texorpdfstring{filename}{filename}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Drag\+Data\+::filename\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classDragData_a3ec29e3d1a3a05e44582a724244256f5}{}\label{classDragData_a3ec29e3d1a3a05e44582a724244256f5}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{dragdata_8h}{dragdata.\+h}\item 
+\hyperlink{dragdata_8cpp}{dragdata.\+cpp}\end{DoxyCompactItemize}

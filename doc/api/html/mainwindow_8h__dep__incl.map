@@ -1,0 +1,11 @@
+<map id="mainwindow.h" name="mainwindow.h">
+<area shape="rect" id="node2" href="$filedisplay_8cpp.html" title="filedisplay.cpp" alt="" coords="5,80,111,107"/>
+<area shape="rect" id="node3" href="$labelwithclick_8cpp.html" title="labelwithclick.cpp" alt="" coords="135,80,261,107"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="main.cpp" alt="" coords="285,80,359,107"/>
+<area shape="rect" id="node5" href="$mainwindow_8cpp.html" title="mainwindow.cpp" alt="" coords="383,80,501,107"/>
+<area shape="rect" id="node6" href="$sidebar_8cpp.html" title="sidebar.cpp" alt="" coords="525,80,615,107"/>
+<area shape="rect" id="node7" href="$taskbar_8cpp.html" title="taskbar.cpp" alt="" coords="639,80,730,107"/>
+<area shape="rect" id="node8" href="$taskdisplay_8cpp.html" title="taskdisplay.cpp" alt="" coords="755,80,868,107"/>
+<area shape="rect" id="node9" href="$tile_8cpp.html" title="tile.cpp" alt="" coords="893,80,957,107"/>
+<area shape="rect" id="node10" href="$tilebar_8cpp.html" title="tilebar.cpp" alt="" coords="981,80,1063,107"/>
+</map>

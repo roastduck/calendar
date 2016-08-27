@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classData.html" title="Manage all user data and save it as JSON format. " alt="" coords="124,5,175,32"/>
+<area shape="rect" id="node3" href="$classFile.html" title="A file dragged in by user. Encode its content in Base64. " alt="" coords="128,56,171,83"/>
+<area shape="rect" id="node4" href="$classTask.html" title="A task defined by user. " alt="" coords="124,107,175,133"/>
+</map>

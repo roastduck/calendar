@@ -1,0 +1,187 @@
+\hypertarget{classTaskDisplay}{}\section{Task\+Display Class Reference}
+\label{classTaskDisplay}\index{Task\+Display@{Task\+Display}}
+
+
+Display and edit a task.  
+
+
+
+
+{\ttfamily \#include $<$taskdisplay.\+h$>$}
+
+
+
+Inheritance diagram for Task\+Display\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{classTaskDisplay__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Task\+Display\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{classTaskDisplay__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classTaskDisplay_a25d79a4505fb588372786e1798c826a7}{on\+Selected} (Q\+Widget $\ast$anchor, int task\+Index, Q\+Date \hyperlink{classTaskDisplay_a1adb50384f7db484b7f35c8952395157}{today})
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTaskDisplay_acbfb32482b03fc1c64bf8658403f2af9}{Task\+Display} (int \+\_\+index, bool \+\_\+hover\+Effect, Q\+Date \+\_\+today, Q\+Widget $\ast$parent)
+\item 
+\hyperlink{classTaskDisplay_a5ce3c02b7a2d887b0842d5ae141a212e}{$\sim$\+Task\+Display} ()
+\item 
+void \hyperlink{classTaskDisplay_ae31dc04c0368ab8202067aec2751e2db}{enable\+Editor} ()
+\item 
+Q\+String \hyperlink{classTaskDisplay_a4d808c7da0c5c7c95d049a013b988fec}{get\+Content} () const 
+\begin{DoxyCompactList}\small\item\em Get content in the editor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classTaskDisplay_a32caa0a9768c26e08864a46fe128ed74}{event} (Q\+Event $\ast$event)
+\item 
+void \hyperlink{classTaskDisplay_a6c59096df7c96c3bd3dfbc79df9a5712}{enter\+Event} (Q\+Event $\ast$\hyperlink{classTaskDisplay_a32caa0a9768c26e08864a46fe128ed74}{event})
+\item 
+void \hyperlink{classTaskDisplay_ac88db0d1766d9eb4b622cbfeb701fcc7}{leave\+Event} (Q\+Event $\ast$\hyperlink{classTaskDisplay_a32caa0a9768c26e08864a46fe128ed74}{event})
+\item 
+void \hyperlink{classTaskDisplay_a6c488759b6e70862f2138aa55262aaaf}{mouse\+Press\+Event} (Q\+Mouse\+Event $\ast$\hyperlink{classTaskDisplay_a32caa0a9768c26e08864a46fe128ed74}{event})
+\item 
+void \hyperlink{classTaskDisplay_a5c604068075246ce7f60d6e6432da284}{mouse\+Double\+Click\+Event} (Q\+Mouse\+Event $\ast$\hyperlink{classTaskDisplay_a32caa0a9768c26e08864a46fe128ed74}{event})
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::\+Task\+Display $\ast$ \hyperlink{classTaskDisplay_a580ecd014e47a399bf6416fa31aff7da}{ui}
+\item 
+int \hyperlink{classTaskDisplay_a59c27396e432f0d65d4988aa917edb28}{index}
+\item 
+bool \hyperlink{classTaskDisplay_a1dcd9193b35d30e1321515e7d9aded08}{hover\+Effect}
+\item 
+Q\+Date \hyperlink{classTaskDisplay_a1adb50384f7db484b7f35c8952395157}{today}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Display and edit a task. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Task\+Display@{Task\+Display}!Task\+Display@{Task\+Display}}
+\index{Task\+Display@{Task\+Display}!Task\+Display@{Task\+Display}}
+\subsubsection[{\texorpdfstring{Task\+Display(int \+\_\+index, bool \+\_\+hover\+Effect, Q\+Date \+\_\+today, Q\+Widget $\ast$parent)}{TaskDisplay(int _index, bool _hoverEffect, QDate _today, QWidget *parent)}}]{\setlength{\rightskip}{0pt plus 5cm}Task\+Display\+::\+Task\+Display (
+\begin{DoxyParamCaption}
+\item[{int}]{\+\_\+index, }
+\item[{bool}]{\+\_\+hover\+Effect, }
+\item[{Q\+Date}]{\+\_\+today, }
+\item[{Q\+Widget $\ast$}]{parent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classTaskDisplay_acbfb32482b03fc1c64bf8658403f2af9}{}\label{classTaskDisplay_acbfb32482b03fc1c64bf8658403f2af9}
+
+\begin{DoxyParams}{Parameters}
+{\em \+\_\+index} & \+: task index \\
+\hline
+{\em \+\_\+hover\+Effect} & \+: whether to highlight on hover event and recieve double-\/click to prompt menu \\
+\hline
+\end{DoxyParams}
+\index{Task\+Display@{Task\+Display}!````~Task\+Display@{$\sim$\+Task\+Display}}
+\index{````~Task\+Display@{$\sim$\+Task\+Display}!Task\+Display@{Task\+Display}}
+\subsubsection[{\texorpdfstring{$\sim$\+Task\+Display()}{~TaskDisplay()}}]{\setlength{\rightskip}{0pt plus 5cm}Task\+Display\+::$\sim$\+Task\+Display (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTaskDisplay_a5ce3c02b7a2d887b0842d5ae141a212e}{}\label{classTaskDisplay_a5ce3c02b7a2d887b0842d5ae141a212e}
+
+
+\subsection{Member Function Documentation}
+\index{Task\+Display@{Task\+Display}!enable\+Editor@{enable\+Editor}}
+\index{enable\+Editor@{enable\+Editor}!Task\+Display@{Task\+Display}}
+\subsubsection[{\texorpdfstring{enable\+Editor()}{enableEditor()}}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Display\+::enable\+Editor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTaskDisplay_ae31dc04c0368ab8202067aec2751e2db}{}\label{classTaskDisplay_ae31dc04c0368ab8202067aec2751e2db}
+\index{Task\+Display@{Task\+Display}!enter\+Event@{enter\+Event}}
+\index{enter\+Event@{enter\+Event}!Task\+Display@{Task\+Display}}
+\subsubsection[{\texorpdfstring{enter\+Event(\+Q\+Event $\ast$event)}{enterEvent(QEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Display\+::enter\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTaskDisplay_a6c59096df7c96c3bd3dfbc79df9a5712}{}\label{classTaskDisplay_a6c59096df7c96c3bd3dfbc79df9a5712}
+\index{Task\+Display@{Task\+Display}!event@{event}}
+\index{event@{event}!Task\+Display@{Task\+Display}}
+\subsubsection[{\texorpdfstring{event(\+Q\+Event $\ast$event)}{event(QEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Task\+Display\+::event (
+\begin{DoxyParamCaption}
+\item[{Q\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTaskDisplay_a32caa0a9768c26e08864a46fe128ed74}{}\label{classTaskDisplay_a32caa0a9768c26e08864a46fe128ed74}
+\index{Task\+Display@{Task\+Display}!get\+Content@{get\+Content}}
+\index{get\+Content@{get\+Content}!Task\+Display@{Task\+Display}}
+\subsubsection[{\texorpdfstring{get\+Content() const }{getContent() const }}]{\setlength{\rightskip}{0pt plus 5cm}Q\+String Task\+Display\+::get\+Content (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classTaskDisplay_a4d808c7da0c5c7c95d049a013b988fec}{}\label{classTaskDisplay_a4d808c7da0c5c7c95d049a013b988fec}
+
+
+Get content in the editor. 
+
+\index{Task\+Display@{Task\+Display}!leave\+Event@{leave\+Event}}
+\index{leave\+Event@{leave\+Event}!Task\+Display@{Task\+Display}}
+\subsubsection[{\texorpdfstring{leave\+Event(\+Q\+Event $\ast$event)}{leaveEvent(QEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Display\+::leave\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTaskDisplay_ac88db0d1766d9eb4b622cbfeb701fcc7}{}\label{classTaskDisplay_ac88db0d1766d9eb4b622cbfeb701fcc7}
+\index{Task\+Display@{Task\+Display}!mouse\+Double\+Click\+Event@{mouse\+Double\+Click\+Event}}
+\index{mouse\+Double\+Click\+Event@{mouse\+Double\+Click\+Event}!Task\+Display@{Task\+Display}}
+\subsubsection[{\texorpdfstring{mouse\+Double\+Click\+Event(\+Q\+Mouse\+Event $\ast$event)}{mouseDoubleClickEvent(QMouseEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Display\+::mouse\+Double\+Click\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Mouse\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTaskDisplay_a5c604068075246ce7f60d6e6432da284}{}\label{classTaskDisplay_a5c604068075246ce7f60d6e6432da284}
+\index{Task\+Display@{Task\+Display}!mouse\+Press\+Event@{mouse\+Press\+Event}}
+\index{mouse\+Press\+Event@{mouse\+Press\+Event}!Task\+Display@{Task\+Display}}
+\subsubsection[{\texorpdfstring{mouse\+Press\+Event(\+Q\+Mouse\+Event $\ast$event)}{mousePressEvent(QMouseEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Display\+::mouse\+Press\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Mouse\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTaskDisplay_a6c488759b6e70862f2138aa55262aaaf}{}\label{classTaskDisplay_a6c488759b6e70862f2138aa55262aaaf}
+\index{Task\+Display@{Task\+Display}!on\+Selected@{on\+Selected}}
+\index{on\+Selected@{on\+Selected}!Task\+Display@{Task\+Display}}
+\subsubsection[{\texorpdfstring{on\+Selected}{onSelected}}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+Display\+::on\+Selected (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{anchor, }
+\item[{int}]{task\+Index, }
+\item[{Q\+Date}]{today}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\hypertarget{classTaskDisplay_a25d79a4505fb588372786e1798c826a7}{}\label{classTaskDisplay_a25d79a4505fb588372786e1798c826a7}
+
+
+\subsection{Member Data Documentation}
+\index{Task\+Display@{Task\+Display}!hover\+Effect@{hover\+Effect}}
+\index{hover\+Effect@{hover\+Effect}!Task\+Display@{Task\+Display}}
+\subsubsection[{\texorpdfstring{hover\+Effect}{hoverEffect}}]{\setlength{\rightskip}{0pt plus 5cm}bool Task\+Display\+::hover\+Effect\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTaskDisplay_a1dcd9193b35d30e1321515e7d9aded08}{}\label{classTaskDisplay_a1dcd9193b35d30e1321515e7d9aded08}
+\index{Task\+Display@{Task\+Display}!index@{index}}
+\index{index@{index}!Task\+Display@{Task\+Display}}
+\subsubsection[{\texorpdfstring{index}{index}}]{\setlength{\rightskip}{0pt plus 5cm}int Task\+Display\+::index\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTaskDisplay_a59c27396e432f0d65d4988aa917edb28}{}\label{classTaskDisplay_a59c27396e432f0d65d4988aa917edb28}
+\index{Task\+Display@{Task\+Display}!today@{today}}
+\index{today@{today}!Task\+Display@{Task\+Display}}
+\subsubsection[{\texorpdfstring{today}{today}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Date Task\+Display\+::today\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTaskDisplay_a1adb50384f7db484b7f35c8952395157}{}\label{classTaskDisplay_a1adb50384f7db484b7f35c8952395157}
+\index{Task\+Display@{Task\+Display}!ui@{ui}}
+\index{ui@{ui}!Task\+Display@{Task\+Display}}
+\subsubsection[{\texorpdfstring{ui}{ui}}]{\setlength{\rightskip}{0pt plus 5cm}Ui\+::\+Task\+Display$\ast$ Task\+Display\+::ui\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTaskDisplay_a580ecd014e47a399bf6416fa31aff7da}{}\label{classTaskDisplay_a580ecd014e47a399bf6416fa31aff7da}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{taskdisplay_8h}{taskdisplay.\+h}\item 
+\hyperlink{taskdisplay_8cpp}{taskdisplay.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,8 @@
+<map id="sidebar.h" name="sidebar.h">
+<area shape="rect" id="node2" href="$taskbar_8h.html" title="taskbar.h" alt="" coords="94,80,170,107"/>
+<area shape="rect" id="node5" href="$tilebar_8h.html" title="tilebar.h" alt="" coords="194,80,262,107"/>
+<area shape="rect" id="node7" href="$sidebar_8cpp.html" title="sidebar.cpp" alt="" coords="286,80,375,107"/>
+<area shape="rect" id="node3" href="$mainwindow_8cpp.html" title="mainwindow.cpp" alt="" coords="121,155,239,181"/>
+<area shape="rect" id="node4" href="$taskbar_8cpp.html" title="taskbar.cpp" alt="" coords="5,155,96,181"/>
+<area shape="rect" id="node6" href="$tilebar_8cpp.html" title="tilebar.cpp" alt="" coords="263,155,345,181"/>
+</map>

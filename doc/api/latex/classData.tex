@@ -1,0 +1,304 @@
+\hypertarget{classData}{}\section{Data Class Reference}
+\label{classData}\index{Data@{Data}}
+
+
+Manage all user data and save it as J\+S\+ON format.  
+
+
+
+
+{\ttfamily \#include $<$data.\+h$>$}
+
+
+
+Inheritance diagram for Data\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classData__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Data\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=176pt]{classData__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classData_aaa7fad49e389b8fc445a6af43629609f}{Data} (Q\+Object $\ast$parent)
+\begin{DoxyCompactList}\small\item\em Retrieve data from file. \end{DoxyCompactList}\item 
+\hyperlink{classData_aab31956423290f0d62dcca47ab4d16dd}{$\sim$\+Data} ()
+\begin{DoxyCompactList}\small\item\em Save data to file. \end{DoxyCompactList}\item 
+void \hyperlink{classData_add1cb88caf02345f55126fd9ca934c3e}{set\+Day\+Color} (const Q\+Date \&day, const Q\+Color \&color)
+\item 
+Q\+Color \hyperlink{classData_a46470cbe33c14e9f24c8427e257a311e}{get\+Day\+Color} (const Q\+Date \&day) const 
+\item 
+void \hyperlink{classData_a051034d0bb71172fc8bbb3b395d2fe33}{set\+Chinese} (bool chinese)
+\item 
+bool \hyperlink{classData_ae538200aa5edaec5d01ee80bcda3f042}{is\+Chinese} () const 
+\item 
+void \hyperlink{classData_a8ece00071d9093892b80f1c994f99fb5}{disable\+Drag} (bool disable)
+\item 
+bool \hyperlink{classData_a5acaf7bb5f48c325240035351fe6b9bc}{drag\+Disabled} () const 
+\item 
+void \hyperlink{classData_a1a124e38871f90a177ddc34841c8e919}{add\+Task} (const Q\+Date \&day)
+\begin{DoxyCompactList}\small\item\em Initialize a task for a day. \end{DoxyCompactList}\item 
+void \hyperlink{classData_a16e96a143863d25e3dbcd875199e17f2}{del\+Task} (int index)
+\begin{DoxyCompactList}\small\item\em Delete a task. \end{DoxyCompactList}\item 
+Q\+List$<$ int $>$ \hyperlink{classData_aaf5830615d5abadbcb79f34dd89d4e0b}{find\+Task} (const Q\+Date \&day) const 
+\begin{DoxyCompactList}\small\item\em Return indices of tasks for a day. \end{DoxyCompactList}\item 
+const \hyperlink{classTask}{Task} $\ast$ \hyperlink{classData_ad46736016dc5ea00f2a98592e44e58f0}{task\+At} (int index) const 
+\begin{DoxyCompactList}\small\item\em Get a task by index. \end{DoxyCompactList}\item 
+\hyperlink{classTask}{Task} $\ast$ \hyperlink{classData_a4009575e5594138ae5b2d736480f46d2}{task\+At} (int index)
+\item 
+const Q\+List$<$ \hyperlink{classTask}{Task} $\ast$ $>$ \& \hyperlink{classData_a4e41f32520d3fc33a76d2e1eeda77883}{all\+Tasks} () const 
+\begin{DoxyCompactList}\small\item\em Return all tasks. \end{DoxyCompactList}\item 
+int \hyperlink{classData_aa571f90439e6d2890a94f86fc2324821}{add\+File} (const Q\+Date \&date, const Q\+Url \&path)
+\begin{DoxyCompactList}\small\item\em Attach a file to a day. \end{DoxyCompactList}\item 
+Q\+List$<$ \hyperlink{classFile}{File} $\ast$ $>$ \hyperlink{classData_af806515016b248a38ad33582509ffef5}{get\+File} (const Q\+Date \&date)
+\item 
+\hyperlink{classFile}{File} $\ast$ \hyperlink{classData_af5184411eed2650b9af48e21915c307f}{get\+File} (const Q\+Date \&date, int index)
+\item 
+void \hyperlink{classData_af027d735856b6505cf94ac3420700390}{del\+File} (const Q\+Date \&date, int index)
+\item 
+const Q\+Map$<$ Q\+Date, Q\+List$<$ \hyperlink{classFile}{File} $\ast$ $>$ $>$ \& \hyperlink{classData_a2a4f70a2e889f7f2a80a252571438030}{all\+Files} () const 
+\begin{DoxyCompactList}\small\item\em return all files \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const Q\+Color \hyperlink{classData_a5baa18f96bc11fe93566709af7fe16ba}{default\+Day\+Color} = Q\+Color(0x\+E0, 0x\+F\+F, 0x85, 0x\+D0)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr const char $\ast$ \hyperlink{classData_a6781153c24e007e3540acf077fcbd2f7}{save\+File} = \char`\"{}savedcalendar.\+json\char`\"{}
+\begin{DoxyCompactList}\small\item\em \hyperlink{classFile}{File} to save data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Json\+Object \hyperlink{classData_ab6755adb48780d2aa2affe7497abe239}{data}
+\item 
+Q\+List$<$ \hyperlink{classTask}{Task} $\ast$ $>$ \hyperlink{classData_a532f7e91418f13e2f67dd3a47ff890f4}{tasks}
+\item 
+Q\+Map$<$ Q\+Date, Q\+List$<$ \hyperlink{classFile}{File} $\ast$ $>$ $>$ \hyperlink{classData_a5c3557bd928d1681876b174a5d7c3db9}{files}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Manage all user data and save it as J\+S\+ON format. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Data@{Data}!Data@{Data}}
+\index{Data@{Data}!Data@{Data}}
+\subsubsection[{\texorpdfstring{Data(\+Q\+Object $\ast$parent)}{Data(QObject *parent)}}]{\setlength{\rightskip}{0pt plus 5cm}Data\+::\+Data (
+\begin{DoxyParamCaption}
+\item[{Q\+Object $\ast$}]{parent}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classData_aaa7fad49e389b8fc445a6af43629609f}{}\label{classData_aaa7fad49e389b8fc445a6af43629609f}
+
+
+Retrieve data from file. 
+
+\index{Data@{Data}!````~Data@{$\sim$\+Data}}
+\index{````~Data@{$\sim$\+Data}!Data@{Data}}
+\subsubsection[{\texorpdfstring{$\sim$\+Data()}{~Data()}}]{\setlength{\rightskip}{0pt plus 5cm}Data\+::$\sim$\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_aab31956423290f0d62dcca47ab4d16dd}{}\label{classData_aab31956423290f0d62dcca47ab4d16dd}
+
+
+Save data to file. 
+
+
+
+\subsection{Member Function Documentation}
+\index{Data@{Data}!add\+File@{add\+File}}
+\index{add\+File@{add\+File}!Data@{Data}}
+\subsubsection[{\texorpdfstring{add\+File(const Q\+Date \&date, const Q\+Url \&path)}{addFile(const QDate &date, const QUrl &path)}}]{\setlength{\rightskip}{0pt plus 5cm}int Data\+::add\+File (
+\begin{DoxyParamCaption}
+\item[{const Q\+Date \&}]{date, }
+\item[{const Q\+Url \&}]{path}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_aa571f90439e6d2890a94f86fc2324821}{}\label{classData_aa571f90439e6d2890a94f86fc2324821}
+
+
+Attach a file to a day. 
+
+\begin{DoxyReturn}{Returns}
+\+: index 
+\end{DoxyReturn}
+\index{Data@{Data}!add\+Task@{add\+Task}}
+\index{add\+Task@{add\+Task}!Data@{Data}}
+\subsubsection[{\texorpdfstring{add\+Task(const Q\+Date \&day)}{addTask(const QDate &day)}}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+::add\+Task (
+\begin{DoxyParamCaption}
+\item[{const Q\+Date \&}]{day}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_a1a124e38871f90a177ddc34841c8e919}{}\label{classData_a1a124e38871f90a177ddc34841c8e919}
+
+
+Initialize a task for a day. 
+
+\index{Data@{Data}!all\+Files@{all\+Files}}
+\index{all\+Files@{all\+Files}!Data@{Data}}
+\subsubsection[{\texorpdfstring{all\+Files() const }{allFiles() const }}]{\setlength{\rightskip}{0pt plus 5cm}const Q\+Map$<$ Q\+Date, Q\+List$<$ {\bf File} $\ast$ $>$ $>$ \& Data\+::all\+Files (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classData_a2a4f70a2e889f7f2a80a252571438030}{}\label{classData_a2a4f70a2e889f7f2a80a252571438030}
+
+
+return all files 
+
+\index{Data@{Data}!all\+Tasks@{all\+Tasks}}
+\index{all\+Tasks@{all\+Tasks}!Data@{Data}}
+\subsubsection[{\texorpdfstring{all\+Tasks() const }{allTasks() const }}]{\setlength{\rightskip}{0pt plus 5cm}const Q\+List$<$ {\bf Task} $\ast$ $>$ \& Data\+::all\+Tasks (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classData_a4e41f32520d3fc33a76d2e1eeda77883}{}\label{classData_a4e41f32520d3fc33a76d2e1eeda77883}
+
+
+Return all tasks. 
+
+\index{Data@{Data}!del\+File@{del\+File}}
+\index{del\+File@{del\+File}!Data@{Data}}
+\subsubsection[{\texorpdfstring{del\+File(const Q\+Date \&date, int index)}{delFile(const QDate &date, int index)}}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+::del\+File (
+\begin{DoxyParamCaption}
+\item[{const Q\+Date \&}]{date, }
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_af027d735856b6505cf94ac3420700390}{}\label{classData_af027d735856b6505cf94ac3420700390}
+\index{Data@{Data}!del\+Task@{del\+Task}}
+\index{del\+Task@{del\+Task}!Data@{Data}}
+\subsubsection[{\texorpdfstring{del\+Task(int index)}{delTask(int index)}}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+::del\+Task (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_a16e96a143863d25e3dbcd875199e17f2}{}\label{classData_a16e96a143863d25e3dbcd875199e17f2}
+
+
+Delete a task. 
+
+\index{Data@{Data}!disable\+Drag@{disable\+Drag}}
+\index{disable\+Drag@{disable\+Drag}!Data@{Data}}
+\subsubsection[{\texorpdfstring{disable\+Drag(bool disable)}{disableDrag(bool disable)}}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+::disable\+Drag (
+\begin{DoxyParamCaption}
+\item[{bool}]{disable}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_a8ece00071d9093892b80f1c994f99fb5}{}\label{classData_a8ece00071d9093892b80f1c994f99fb5}
+\index{Data@{Data}!drag\+Disabled@{drag\+Disabled}}
+\index{drag\+Disabled@{drag\+Disabled}!Data@{Data}}
+\subsubsection[{\texorpdfstring{drag\+Disabled() const }{dragDisabled() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Data\+::drag\+Disabled (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classData_a5acaf7bb5f48c325240035351fe6b9bc}{}\label{classData_a5acaf7bb5f48c325240035351fe6b9bc}
+\index{Data@{Data}!find\+Task@{find\+Task}}
+\index{find\+Task@{find\+Task}!Data@{Data}}
+\subsubsection[{\texorpdfstring{find\+Task(const Q\+Date \&day) const }{findTask(const QDate &day) const }}]{\setlength{\rightskip}{0pt plus 5cm}Q\+List$<$ int $>$ Data\+::find\+Task (
+\begin{DoxyParamCaption}
+\item[{const Q\+Date \&}]{day}
+\end{DoxyParamCaption}
+) const}\hypertarget{classData_aaf5830615d5abadbcb79f34dd89d4e0b}{}\label{classData_aaf5830615d5abadbcb79f34dd89d4e0b}
+
+
+Return indices of tasks for a day. 
+
+\index{Data@{Data}!get\+Day\+Color@{get\+Day\+Color}}
+\index{get\+Day\+Color@{get\+Day\+Color}!Data@{Data}}
+\subsubsection[{\texorpdfstring{get\+Day\+Color(const Q\+Date \&day) const }{getDayColor(const QDate &day) const }}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Color Data\+::get\+Day\+Color (
+\begin{DoxyParamCaption}
+\item[{const Q\+Date \&}]{day}
+\end{DoxyParamCaption}
+) const}\hypertarget{classData_a46470cbe33c14e9f24c8427e257a311e}{}\label{classData_a46470cbe33c14e9f24c8427e257a311e}
+\index{Data@{Data}!get\+File@{get\+File}}
+\index{get\+File@{get\+File}!Data@{Data}}
+\subsubsection[{\texorpdfstring{get\+File(const Q\+Date \&date)}{getFile(const QDate &date)}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+List$<$ {\bf File} $\ast$ $>$ Data\+::get\+File (
+\begin{DoxyParamCaption}
+\item[{const Q\+Date \&}]{date}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_af806515016b248a38ad33582509ffef5}{}\label{classData_af806515016b248a38ad33582509ffef5}
+\index{Data@{Data}!get\+File@{get\+File}}
+\index{get\+File@{get\+File}!Data@{Data}}
+\subsubsection[{\texorpdfstring{get\+File(const Q\+Date \&date, int index)}{getFile(const QDate &date, int index)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf File} $\ast$ Data\+::get\+File (
+\begin{DoxyParamCaption}
+\item[{const Q\+Date \&}]{date, }
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_af5184411eed2650b9af48e21915c307f}{}\label{classData_af5184411eed2650b9af48e21915c307f}
+\index{Data@{Data}!is\+Chinese@{is\+Chinese}}
+\index{is\+Chinese@{is\+Chinese}!Data@{Data}}
+\subsubsection[{\texorpdfstring{is\+Chinese() const }{isChinese() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Data\+::is\+Chinese (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classData_ae538200aa5edaec5d01ee80bcda3f042}{}\label{classData_ae538200aa5edaec5d01ee80bcda3f042}
+\index{Data@{Data}!set\+Chinese@{set\+Chinese}}
+\index{set\+Chinese@{set\+Chinese}!Data@{Data}}
+\subsubsection[{\texorpdfstring{set\+Chinese(bool chinese)}{setChinese(bool chinese)}}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+::set\+Chinese (
+\begin{DoxyParamCaption}
+\item[{bool}]{chinese}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_a051034d0bb71172fc8bbb3b395d2fe33}{}\label{classData_a051034d0bb71172fc8bbb3b395d2fe33}
+\index{Data@{Data}!set\+Day\+Color@{set\+Day\+Color}}
+\index{set\+Day\+Color@{set\+Day\+Color}!Data@{Data}}
+\subsubsection[{\texorpdfstring{set\+Day\+Color(const Q\+Date \&day, const Q\+Color \&color)}{setDayColor(const QDate &day, const QColor &color)}}]{\setlength{\rightskip}{0pt plus 5cm}void Data\+::set\+Day\+Color (
+\begin{DoxyParamCaption}
+\item[{const Q\+Date \&}]{day, }
+\item[{const Q\+Color \&}]{color}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_add1cb88caf02345f55126fd9ca934c3e}{}\label{classData_add1cb88caf02345f55126fd9ca934c3e}
+\index{Data@{Data}!task\+At@{task\+At}}
+\index{task\+At@{task\+At}!Data@{Data}}
+\subsubsection[{\texorpdfstring{task\+At(int index) const }{taskAt(int index) const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Task} $\ast$ Data\+::task\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+) const}\hypertarget{classData_ad46736016dc5ea00f2a98592e44e58f0}{}\label{classData_ad46736016dc5ea00f2a98592e44e58f0}
+
+
+Get a task by index. 
+
+\index{Data@{Data}!task\+At@{task\+At}}
+\index{task\+At@{task\+At}!Data@{Data}}
+\subsubsection[{\texorpdfstring{task\+At(int index)}{taskAt(int index)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Task} $\ast$ Data\+::task\+At (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)}\hypertarget{classData_a4009575e5594138ae5b2d736480f46d2}{}\label{classData_a4009575e5594138ae5b2d736480f46d2}
+
+
+\subsection{Member Data Documentation}
+\index{Data@{Data}!data@{data}}
+\index{data@{data}!Data@{Data}}
+\subsubsection[{\texorpdfstring{data}{data}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Json\+Object Data\+::data\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classData_ab6755adb48780d2aa2affe7497abe239}{}\label{classData_ab6755adb48780d2aa2affe7497abe239}
+\index{Data@{Data}!default\+Day\+Color@{default\+Day\+Color}}
+\index{default\+Day\+Color@{default\+Day\+Color}!Data@{Data}}
+\subsubsection[{\texorpdfstring{default\+Day\+Color}{defaultDayColor}}]{\setlength{\rightskip}{0pt plus 5cm}const Q\+Color Data\+::default\+Day\+Color = Q\+Color(0x\+E0, 0x\+F\+F, 0x85, 0x\+D0)}\hypertarget{classData_a5baa18f96bc11fe93566709af7fe16ba}{}\label{classData_a5baa18f96bc11fe93566709af7fe16ba}
+\index{Data@{Data}!files@{files}}
+\index{files@{files}!Data@{Data}}
+\subsubsection[{\texorpdfstring{files}{files}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$ Q\+Date, Q\+List$<${\bf File}$\ast$$>$ $>$ Data\+::files\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classData_a5c3557bd928d1681876b174a5d7c3db9}{}\label{classData_a5c3557bd928d1681876b174a5d7c3db9}
+\index{Data@{Data}!save\+File@{save\+File}}
+\index{save\+File@{save\+File}!Data@{Data}}
+\subsubsection[{\texorpdfstring{save\+File}{saveFile}}]{\setlength{\rightskip}{0pt plus 5cm}constexpr const char$\ast$ Data\+::save\+File = \char`\"{}savedcalendar.\+json\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classData_a6781153c24e007e3540acf077fcbd2f7}{}\label{classData_a6781153c24e007e3540acf077fcbd2f7}
+
+
+\hyperlink{classFile}{File} to save data. 
+
+\index{Data@{Data}!tasks@{tasks}}
+\index{tasks@{tasks}!Data@{Data}}
+\subsubsection[{\texorpdfstring{tasks}{tasks}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+List$<${\bf Task}$\ast$$>$ Data\+::tasks\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classData_a532f7e91418f13e2f67dd3a47ff890f4}{}\label{classData_a532f7e91418f13e2f67dd3a47ff890f4}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{data_8h}{data.\+h}\item 
+\hyperlink{data_8cpp}{data.\+cpp}\end{DoxyCompactItemize}

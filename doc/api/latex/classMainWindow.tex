@@ -1,0 +1,616 @@
+\hypertarget{classMainWindow}{}\section{Main\+Window Class Reference}
+\label{classMainWindow}\index{Main\+Window@{Main\+Window}}
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+
+
+Inheritance diagram for Main\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classMainWindow__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Main\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{classMainWindow__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classMainWindow_a671e7e5b0a3a7a3fb1cf44c5c8377952}{init} ()
+\begin{DoxyCompactList}\small\item\em Initialize or renew the main grid display. \end{DoxyCompactList}\item 
+void \hyperlink{classMainWindow_a4c5f8ee24616439a17d368fe95ab6c41}{prompt\+Task\+Bar} (Q\+Widget $\ast$task, int task\+Index, Q\+Date today)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classMainWindow_a8566d13d3417aa595a1533586cc3ada5}{post\+Construct\+Init} ()
+\begin{DoxyCompactList}\small\item\em Do some initialization that cannot be put into constructor. \end{DoxyCompactList}\item 
+bool \hyperlink{classMainWindow_aae7db4c3a3f3e723ec3d21adb9ef7fd4}{is\+Pinned} () const 
+\begin{DoxyCompactList}\small\item\em Whether to not response to mouse event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classMainWindow_a9d383570468f2568c9637c799fb1dfe1}{create\+Instance} ()
+\item 
+static \hyperlink{classMainWindow}{Main\+Window} $\ast$ \hyperlink{classMainWindow_a5f4dcec4f4725d36109f6530e52a22af}{get\+My\+Instance} ()
+\item 
+static void \hyperlink{classMainWindow_a61c1442c562239ef28e3d77d00d2234c}{destroy\+Instance} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classData}{Data} $\ast$ \hyperlink{classMainWindow_a4344962e43608c8c9f1b03e98eaa9283}{calendar\+Data}
+\begin{DoxyCompactList}\small\item\em All data set by user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classMainWindow_a2b5463ae209a03d1680b39c950dac8be}{mouse\+Press\+Event} (Q\+Mouse\+Event $\ast$event)
+\item 
+void \hyperlink{classMainWindow_a32bbb036a55856e49c31a5348f937b53}{mouse\+Release\+Event} (Q\+Mouse\+Event $\ast$event)
+\item 
+void \hyperlink{classMainWindow_a2cf42454562815dd44c716e78d515697}{mouse\+Move\+Event} (Q\+Mouse\+Event $\ast$event)
+\end{DoxyCompactItemize}
+\subsection*{Private Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8}{Display\+Mode} \{ \\*
+\hyperlink{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8ae246ce36606e3dcc90557e03ff0f56d3}{M\+O\+N\+TH} = 0, 
+\hyperlink{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8aace7e7f9db7ef6ea0e1035adb1cd7816}{D\+AY} = 1, 
+\hyperlink{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8ac595bfa80e486bcacb7156545d455220}{W\+E\+EK} = 2, 
+\hyperlink{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8abfec19a213e559fa1510f6470839dd54}{Y\+E\+AR} = 3, 
+\\*
+\hyperlink{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8a115c6a291d5706194267a4dfc6ce0d73}{T\+A\+SK} = 4
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classMainWindow_a0b149c5bca3c35a39c919fe9581be2dd}{prompt\+Tile\+Bar} (Q\+Widget $\ast$tile)
+\item 
+void \hyperlink{classMainWindow_a407c21579299391a8d3e34f5b3af362e}{enter\+Date} (const Q\+Date \&date)
+\item 
+void \hyperlink{classMainWindow_a20dbb80de6c861f26ae88c4588ca6cf2}{on\+\_\+combo\+Box\+\_\+activated} (int index)
+\item 
+void \hyperlink{classMainWindow_aca2f10b04ded003c6da32e81c898d16e}{on\+\_\+quit\+Button\+\_\+clicked} (bool checked)
+\item 
+void \hyperlink{classMainWindow_a228228aec016d5f37ef06dc62ad0c42a}{on\+\_\+previous\+Button\+\_\+clicked} (bool checked)
+\item 
+void \hyperlink{classMainWindow_ad1a550b59a2a3a2a0b48f2f63e8071eb}{on\+\_\+next\+Button\+\_\+clicked} (bool checked)
+\item 
+void \hyperlink{classMainWindow_a906e1abeb5bda05405106d78779872e3}{on\+\_\+year\+Box\+\_\+value\+Changed} (int arg1)
+\item 
+void \hyperlink{classMainWindow_a369ef8f03c1c6e986418234bd462ab06}{on\+\_\+month\+Box\+\_\+value\+Changed} (int arg1)
+\item 
+void \hyperlink{classMainWindow_ac985b15a3e2b9a28ca2e319fb039d1d7}{on\+\_\+day\+Box\+\_\+value\+Changed} (int arg1)
+\item 
+void \hyperlink{classMainWindow_a0ae56967e1df87215428eb9f91df9ba0}{on\+\_\+export\+Button\+\_\+clicked} (bool checked)
+\item 
+void \hyperlink{classMainWindow_a42193cb2a4a2cac74da5a8291ab5bd96}{on\+\_\+import\+Button\+\_\+clicked} (bool checked)
+\item 
+void \hyperlink{classMainWindow_ae779988974613e15ccb434645f474d8f}{on\+\_\+pin\+Button\+\_\+clicked} (bool checked)
+\item 
+void \hyperlink{classMainWindow_a9e6103352c52b8e96959a71919ad4cf9}{on\+\_\+drag\+Switch\+Button\+\_\+clicked} (bool checked)
+\item 
+void \hyperlink{classMainWindow_a0679e38138ca8bfdf6a877cbc821b21b}{on\+\_\+drag\+Switch\+Button\+\_\+toggled} (bool checked)
+\item 
+void \hyperlink{classMainWindow_a4cd877b54dd972c62fa97553191d69c1}{on\+\_\+mode\+Box\+\_\+activated} (int index)
+\item 
+void \hyperlink{classMainWindow_af5c3bae5874c9868604a90ee6071cc04}{on\+\_\+help\+Button\+\_\+clicked} (bool checked)
+\end{DoxyCompactItemize}
+\subsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classMainWindow_a8b244be8b7b7db1b08de2a2acb9409db}{Main\+Window} (Q\+Widget $\ast$parent=0)
+\item 
+\hyperlink{classMainWindow_af1d822d2183a379458e4bc0e2ea2bf3b}{Main\+Window} (const \hyperlink{classMainWindow}{Main\+Window} \&)=delete
+\item 
+\hyperlink{classMainWindow_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$\+Main\+Window} ()
+\item 
+void \hyperlink{classMainWindow_a6ae0984b3c00fe9253616e9f5aeea6d2}{init\+Month} ()
+\begin{DoxyCompactList}\small\item\em Initialize a month display. \end{DoxyCompactList}\item 
+void \hyperlink{classMainWindow_adcc14141e6eef45ee903900bb83f8129}{init\+Day} ()
+\begin{DoxyCompactList}\small\item\em Initialize a day display. \end{DoxyCompactList}\item 
+void \hyperlink{classMainWindow_ae7ea21dab9b67f4a691c798026b61999}{init\+Week} ()
+\begin{DoxyCompactList}\small\item\em Initialize a week display. \end{DoxyCompactList}\item 
+void \hyperlink{classMainWindow_a8791b87648ba02f9f40ff0e4d820a76a}{init\+Year} ()
+\begin{DoxyCompactList}\small\item\em Initialize a year display. \end{DoxyCompactList}\item 
+void \hyperlink{classMainWindow_a9019bfe47aed0dd0d9c6647e066eb55e}{init\+All\+Task} ()
+\begin{DoxyCompactList}\small\item\em Initialize a all-\/tasks display. i.\+e. all the days that have tasks or files. \end{DoxyCompactList}\item 
+void \hyperlink{classMainWindow_aa2a16a8bde8f4d34b1f5c333a7c6041f}{show\+Y\+MD} ()
+\begin{DoxyCompactList}\small\item\em These 3 functions set the date bar at top. \end{DoxyCompactList}\item 
+void \hyperlink{classMainWindow_a6c1803c0b3b3299044eb2d33bc9c0e7d}{show\+YM} ()
+\begin{DoxyCompactList}\small\item\em year \& month \& day \end{DoxyCompactList}\item 
+void \hyperlink{classMainWindow_ad779c7052af374e51a7f3a2259874df1}{showY} ()
+\begin{DoxyCompactList}\small\item\em year \& month \end{DoxyCompactList}\item 
+void \hyperlink{classMainWindow_adfb23ac3d671ce0d029139658d9bf7d3}{alter\+Displayed\+Date} (Q\+Date date)
+\begin{DoxyCompactList}\small\item\em year \end{DoxyCompactList}\item 
+void \hyperlink{classMainWindow_af7232133bb63540bf0c30b419c36b7d0}{add\+To\+Date} (int x)
+\begin{DoxyCompactList}\small\item\em Add an interval x to current displayed date. \end{DoxyCompactList}\item 
+void \hyperlink{classMainWindow_a5e43be8d8c2c6a2c5a4a73d764cac47b}{clear\+Grid} ()
+\begin{DoxyCompactList}\small\item\em Clear all cells in the grid. \end{DoxyCompactList}\item 
+Q\+Widget $\ast$ \hyperlink{classMainWindow_a99a20813bb08b5c93c33f20255f73c67}{day\+In\+Month} (Q\+Date date, bool month\+Displayed)
+\begin{DoxyCompactList}\small\item\em Generates a cell for a day. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::\+Main\+Window $\ast$ \hyperlink{classMainWindow_a35466a70ed47252a0191168126a352a5}{ui}
+\item 
+Q\+Date \hyperlink{classMainWindow_a3d53fc161132967689d4dde0ad7f8a21}{displayed\+Date}
+\begin{DoxyCompactList}\small\item\em date displayed in the main window \end{DoxyCompactList}\item 
+enum \hyperlink{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8}{Main\+Window\+::\+Display\+Mode} \hyperlink{classMainWindow_a3408763a676b4754ed8f3de394d9c70b}{display\+Mode}
+\item 
+bool \hyperlink{classMainWindow_ab664d23548b84c308cc3809c1e63aaff}{is\+Dragging}
+\begin{DoxyCompactList}\small\item\em is dragging window \end{DoxyCompactList}\item 
+Q\+Point \hyperlink{classMainWindow_a98499e8e85458e2dc2ac349964230983}{d\+Pos}
+\begin{DoxyCompactList}\small\item\em Original pos for moving the window. \end{DoxyCompactList}\item 
+Q\+Map$<$ Q\+Widget $\ast$, Q\+Date $>$ \hyperlink{classMainWindow_ae81ee3cac7678dba0be2fcc37949daa7}{widget\+To\+Date}
+\begin{DoxyCompactList}\small\item\em What wiget refers to what date. \end{DoxyCompactList}\item 
+Q\+Translator \hyperlink{classMainWindow_a2c428c740faa1094e20f658b2db84dc7}{chinese}
+\item 
+bool \hyperlink{classMainWindow_a4ba1fa11c17bc9919783f8988f0f6e92}{changing\+Date}
+\begin{DoxyCompactList}\small\item\em Prevent recursive calling. \end{DoxyCompactList}\item 
+bool \hyperlink{classMainWindow_aac8447a932ef41f544891a8d74d04ab9}{pinned}
+\begin{DoxyCompactList}\small\item\em The grid not reveiving mouse event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classMainWindow}{Main\+Window} $\ast$ \hyperlink{classMainWindow_a40d454c031dd2ff6a4813fb298c79905}{my\+Instance} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\index{Main\+Window@{Main\+Window}!Display\+Mode@{Display\+Mode}}
+\index{Display\+Mode@{Display\+Mode}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{Display\+Mode}{DisplayMode}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Main\+Window\+::\+Display\+Mode}\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8}{}\label{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{M\+O\+N\+TH@{M\+O\+N\+TH}!Main\+Window@{Main\+Window}}\index{Main\+Window@{Main\+Window}!M\+O\+N\+TH@{M\+O\+N\+TH}}\item[{\em 
+M\+O\+N\+TH\hypertarget{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8ae246ce36606e3dcc90557e03ff0f56d3}{}\label{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8ae246ce36606e3dcc90557e03ff0f56d3}
+}]\index{D\+AY@{D\+AY}!Main\+Window@{Main\+Window}}\index{Main\+Window@{Main\+Window}!D\+AY@{D\+AY}}\item[{\em 
+D\+AY\hypertarget{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8aace7e7f9db7ef6ea0e1035adb1cd7816}{}\label{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8aace7e7f9db7ef6ea0e1035adb1cd7816}
+}]\index{W\+E\+EK@{W\+E\+EK}!Main\+Window@{Main\+Window}}\index{Main\+Window@{Main\+Window}!W\+E\+EK@{W\+E\+EK}}\item[{\em 
+W\+E\+EK\hypertarget{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8ac595bfa80e486bcacb7156545d455220}{}\label{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8ac595bfa80e486bcacb7156545d455220}
+}]\index{Y\+E\+AR@{Y\+E\+AR}!Main\+Window@{Main\+Window}}\index{Main\+Window@{Main\+Window}!Y\+E\+AR@{Y\+E\+AR}}\item[{\em 
+Y\+E\+AR\hypertarget{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8abfec19a213e559fa1510f6470839dd54}{}\label{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8abfec19a213e559fa1510f6470839dd54}
+}]\index{T\+A\+SK@{T\+A\+SK}!Main\+Window@{Main\+Window}}\index{Main\+Window@{Main\+Window}!T\+A\+SK@{T\+A\+SK}}\item[{\em 
+T\+A\+SK\hypertarget{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8a115c6a291d5706194267a4dfc6ce0d73}{}\label{classMainWindow_a32a99bf8f548bef64c48491cfa6225e8a115c6a291d5706194267a4dfc6ce0d73}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{Main\+Window(\+Q\+Widget $\ast$parent=0)}{MainWindow(QWidget *parent=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Main\+Window\+::\+Main\+Window (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}, {\ttfamily [private]}}\hypertarget{classMainWindow_a8b244be8b7b7db1b08de2a2acb9409db}{}\label{classMainWindow_a8b244be8b7b7db1b08de2a2acb9409db}
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{Main\+Window(const Main\+Window \&)=delete}{MainWindow(const MainWindow &)=delete}}]{\setlength{\rightskip}{0pt plus 5cm}Main\+Window\+::\+Main\+Window (
+\begin{DoxyParamCaption}
+\item[{const {\bf Main\+Window} \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [delete]}}\hypertarget{classMainWindow_af1d822d2183a379458e4bc0e2ea2bf3b}{}\label{classMainWindow_af1d822d2183a379458e4bc0e2ea2bf3b}
+\index{Main\+Window@{Main\+Window}!````~Main\+Window@{$\sim$\+Main\+Window}}
+\index{````~Main\+Window@{$\sim$\+Main\+Window}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{$\sim$\+Main\+Window()}{~MainWindow()}}]{\setlength{\rightskip}{0pt plus 5cm}Main\+Window\+::$\sim$\+Main\+Window (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_ae98d00a93bc118200eeef9f9bba1dba7}{}\label{classMainWindow_ae98d00a93bc118200eeef9f9bba1dba7}
+
+
+\subsection{Member Function Documentation}
+\index{Main\+Window@{Main\+Window}!add\+To\+Date@{add\+To\+Date}}
+\index{add\+To\+Date@{add\+To\+Date}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{add\+To\+Date(int x)}{addToDate(int x)}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::add\+To\+Date (
+\begin{DoxyParamCaption}
+\item[{int}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_af7232133bb63540bf0c30b419c36b7d0}{}\label{classMainWindow_af7232133bb63540bf0c30b419c36b7d0}
+
+
+Add an interval x to current displayed date. 
+
+\index{Main\+Window@{Main\+Window}!alter\+Displayed\+Date@{alter\+Displayed\+Date}}
+\index{alter\+Displayed\+Date@{alter\+Displayed\+Date}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{alter\+Displayed\+Date(\+Q\+Date date)}{alterDisplayedDate(QDate date)}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::alter\+Displayed\+Date (
+\begin{DoxyParamCaption}
+\item[{Q\+Date}]{date}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_adfb23ac3d671ce0d029139658d9bf7d3}{}\label{classMainWindow_adfb23ac3d671ce0d029139658d9bf7d3}
+
+
+year 
+
+Display another date \index{Main\+Window@{Main\+Window}!clear\+Grid@{clear\+Grid}}
+\index{clear\+Grid@{clear\+Grid}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{clear\+Grid()}{clearGrid()}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::clear\+Grid (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_a5e43be8d8c2c6a2c5a4a73d764cac47b}{}\label{classMainWindow_a5e43be8d8c2c6a2c5a4a73d764cac47b}
+
+
+Clear all cells in the grid. 
+
+\index{Main\+Window@{Main\+Window}!create\+Instance@{create\+Instance}}
+\index{create\+Instance@{create\+Instance}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{create\+Instance()}{createInstance()}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::create\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMainWindow_a9d383570468f2568c9637c799fb1dfe1}{}\label{classMainWindow_a9d383570468f2568c9637c799fb1dfe1}
+\index{Main\+Window@{Main\+Window}!day\+In\+Month@{day\+In\+Month}}
+\index{day\+In\+Month@{day\+In\+Month}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{day\+In\+Month(\+Q\+Date date, bool month\+Displayed)}{dayInMonth(QDate date, bool monthDisplayed)}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Widget $\ast$ Main\+Window\+::day\+In\+Month (
+\begin{DoxyParamCaption}
+\item[{Q\+Date}]{date, }
+\item[{bool}]{month\+Displayed}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_a99a20813bb08b5c93c33f20255f73c67}{}\label{classMainWindow_a99a20813bb08b5c93c33f20255f73c67}
+
+
+Generates a cell for a day. 
+
+\index{Main\+Window@{Main\+Window}!destroy\+Instance@{destroy\+Instance}}
+\index{destroy\+Instance@{destroy\+Instance}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{destroy\+Instance()}{destroyInstance()}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::destroy\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMainWindow_a61c1442c562239ef28e3d77d00d2234c}{}\label{classMainWindow_a61c1442c562239ef28e3d77d00d2234c}
+\index{Main\+Window@{Main\+Window}!enter\+Date@{enter\+Date}}
+\index{enter\+Date@{enter\+Date}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{enter\+Date}{enterDate}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::enter\+Date (
+\begin{DoxyParamCaption}
+\item[{const Q\+Date \&}]{date}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classMainWindow_a407c21579299391a8d3e34f5b3af362e}{}\label{classMainWindow_a407c21579299391a8d3e34f5b3af362e}
+\index{Main\+Window@{Main\+Window}!get\+My\+Instance@{get\+My\+Instance}}
+\index{get\+My\+Instance@{get\+My\+Instance}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{get\+My\+Instance()}{getMyInstance()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Main\+Window} $\ast$ Main\+Window\+::get\+My\+Instance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [static]}}\hypertarget{classMainWindow_a5f4dcec4f4725d36109f6530e52a22af}{}\label{classMainWindow_a5f4dcec4f4725d36109f6530e52a22af}
+\index{Main\+Window@{Main\+Window}!init@{init}}
+\index{init@{init}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{init}{init}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\hypertarget{classMainWindow_a671e7e5b0a3a7a3fb1cf44c5c8377952}{}\label{classMainWindow_a671e7e5b0a3a7a3fb1cf44c5c8377952}
+
+
+Initialize or renew the main grid display. 
+
+\index{Main\+Window@{Main\+Window}!init\+All\+Task@{init\+All\+Task}}
+\index{init\+All\+Task@{init\+All\+Task}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{init\+All\+Task()}{initAllTask()}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::init\+All\+Task (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_a9019bfe47aed0dd0d9c6647e066eb55e}{}\label{classMainWindow_a9019bfe47aed0dd0d9c6647e066eb55e}
+
+
+Initialize a all-\/tasks display. i.\+e. all the days that have tasks or files. 
+
+\index{Main\+Window@{Main\+Window}!init\+Day@{init\+Day}}
+\index{init\+Day@{init\+Day}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{init\+Day()}{initDay()}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::init\+Day (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_adcc14141e6eef45ee903900bb83f8129}{}\label{classMainWindow_adcc14141e6eef45ee903900bb83f8129}
+
+
+Initialize a day display. 
+
+\index{Main\+Window@{Main\+Window}!init\+Month@{init\+Month}}
+\index{init\+Month@{init\+Month}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{init\+Month()}{initMonth()}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::init\+Month (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_a6ae0984b3c00fe9253616e9f5aeea6d2}{}\label{classMainWindow_a6ae0984b3c00fe9253616e9f5aeea6d2}
+
+
+Initialize a month display. 
+
+\index{Main\+Window@{Main\+Window}!init\+Week@{init\+Week}}
+\index{init\+Week@{init\+Week}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{init\+Week()}{initWeek()}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::init\+Week (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_ae7ea21dab9b67f4a691c798026b61999}{}\label{classMainWindow_ae7ea21dab9b67f4a691c798026b61999}
+
+
+Initialize a week display. 
+
+\index{Main\+Window@{Main\+Window}!init\+Year@{init\+Year}}
+\index{init\+Year@{init\+Year}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{init\+Year()}{initYear()}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::init\+Year (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_a8791b87648ba02f9f40ff0e4d820a76a}{}\label{classMainWindow_a8791b87648ba02f9f40ff0e4d820a76a}
+
+
+Initialize a year display. 
+
+\index{Main\+Window@{Main\+Window}!is\+Pinned@{is\+Pinned}}
+\index{is\+Pinned@{is\+Pinned}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{is\+Pinned() const }{isPinned() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Main\+Window\+::is\+Pinned (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classMainWindow_aae7db4c3a3f3e723ec3d21adb9ef7fd4}{}\label{classMainWindow_aae7db4c3a3f3e723ec3d21adb9ef7fd4}
+
+
+Whether to not response to mouse event. 
+
+\index{Main\+Window@{Main\+Window}!mouse\+Move\+Event@{mouse\+Move\+Event}}
+\index{mouse\+Move\+Event@{mouse\+Move\+Event}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{mouse\+Move\+Event(\+Q\+Mouse\+Event $\ast$event)}{mouseMoveEvent(QMouseEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::mouse\+Move\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Mouse\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classMainWindow_a2cf42454562815dd44c716e78d515697}{}\label{classMainWindow_a2cf42454562815dd44c716e78d515697}
+\index{Main\+Window@{Main\+Window}!mouse\+Press\+Event@{mouse\+Press\+Event}}
+\index{mouse\+Press\+Event@{mouse\+Press\+Event}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{mouse\+Press\+Event(\+Q\+Mouse\+Event $\ast$event)}{mousePressEvent(QMouseEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::mouse\+Press\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Mouse\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classMainWindow_a2b5463ae209a03d1680b39c950dac8be}{}\label{classMainWindow_a2b5463ae209a03d1680b39c950dac8be}
+\index{Main\+Window@{Main\+Window}!mouse\+Release\+Event@{mouse\+Release\+Event}}
+\index{mouse\+Release\+Event@{mouse\+Release\+Event}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{mouse\+Release\+Event(\+Q\+Mouse\+Event $\ast$event)}{mouseReleaseEvent(QMouseEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::mouse\+Release\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Mouse\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classMainWindow_a32bbb036a55856e49c31a5348f937b53}{}\label{classMainWindow_a32bbb036a55856e49c31a5348f937b53}
+\index{Main\+Window@{Main\+Window}!on\+\_\+combo\+Box\+\_\+activated@{on\+\_\+combo\+Box\+\_\+activated}}
+\index{on\+\_\+combo\+Box\+\_\+activated@{on\+\_\+combo\+Box\+\_\+activated}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+combo\+Box\+\_\+activated}{on_comboBox_activated}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::on\+\_\+combo\+Box\+\_\+activated (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classMainWindow_a20dbb80de6c861f26ae88c4588ca6cf2}{}\label{classMainWindow_a20dbb80de6c861f26ae88c4588ca6cf2}
+\index{Main\+Window@{Main\+Window}!on\+\_\+day\+Box\+\_\+value\+Changed@{on\+\_\+day\+Box\+\_\+value\+Changed}}
+\index{on\+\_\+day\+Box\+\_\+value\+Changed@{on\+\_\+day\+Box\+\_\+value\+Changed}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+day\+Box\+\_\+value\+Changed}{on_dayBox_valueChanged}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::on\+\_\+day\+Box\+\_\+value\+Changed (
+\begin{DoxyParamCaption}
+\item[{int}]{arg1}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classMainWindow_ac985b15a3e2b9a28ca2e319fb039d1d7}{}\label{classMainWindow_ac985b15a3e2b9a28ca2e319fb039d1d7}
+\index{Main\+Window@{Main\+Window}!on\+\_\+drag\+Switch\+Button\+\_\+clicked@{on\+\_\+drag\+Switch\+Button\+\_\+clicked}}
+\index{on\+\_\+drag\+Switch\+Button\+\_\+clicked@{on\+\_\+drag\+Switch\+Button\+\_\+clicked}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+drag\+Switch\+Button\+\_\+clicked}{on_dragSwitchButton_clicked}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::on\+\_\+drag\+Switch\+Button\+\_\+clicked (
+\begin{DoxyParamCaption}
+\item[{bool}]{checked}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classMainWindow_a9e6103352c52b8e96959a71919ad4cf9}{}\label{classMainWindow_a9e6103352c52b8e96959a71919ad4cf9}
+\index{Main\+Window@{Main\+Window}!on\+\_\+drag\+Switch\+Button\+\_\+toggled@{on\+\_\+drag\+Switch\+Button\+\_\+toggled}}
+\index{on\+\_\+drag\+Switch\+Button\+\_\+toggled@{on\+\_\+drag\+Switch\+Button\+\_\+toggled}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+drag\+Switch\+Button\+\_\+toggled}{on_dragSwitchButton_toggled}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::on\+\_\+drag\+Switch\+Button\+\_\+toggled (
+\begin{DoxyParamCaption}
+\item[{bool}]{checked}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classMainWindow_a0679e38138ca8bfdf6a877cbc821b21b}{}\label{classMainWindow_a0679e38138ca8bfdf6a877cbc821b21b}
+\index{Main\+Window@{Main\+Window}!on\+\_\+export\+Button\+\_\+clicked@{on\+\_\+export\+Button\+\_\+clicked}}
+\index{on\+\_\+export\+Button\+\_\+clicked@{on\+\_\+export\+Button\+\_\+clicked}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+export\+Button\+\_\+clicked}{on_exportButton_clicked}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::on\+\_\+export\+Button\+\_\+clicked (
+\begin{DoxyParamCaption}
+\item[{bool}]{checked}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classMainWindow_a0ae56967e1df87215428eb9f91df9ba0}{}\label{classMainWindow_a0ae56967e1df87215428eb9f91df9ba0}
+\index{Main\+Window@{Main\+Window}!on\+\_\+help\+Button\+\_\+clicked@{on\+\_\+help\+Button\+\_\+clicked}}
+\index{on\+\_\+help\+Button\+\_\+clicked@{on\+\_\+help\+Button\+\_\+clicked}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+help\+Button\+\_\+clicked}{on_helpButton_clicked}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::on\+\_\+help\+Button\+\_\+clicked (
+\begin{DoxyParamCaption}
+\item[{bool}]{checked}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classMainWindow_af5c3bae5874c9868604a90ee6071cc04}{}\label{classMainWindow_af5c3bae5874c9868604a90ee6071cc04}
+\index{Main\+Window@{Main\+Window}!on\+\_\+import\+Button\+\_\+clicked@{on\+\_\+import\+Button\+\_\+clicked}}
+\index{on\+\_\+import\+Button\+\_\+clicked@{on\+\_\+import\+Button\+\_\+clicked}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+import\+Button\+\_\+clicked}{on_importButton_clicked}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::on\+\_\+import\+Button\+\_\+clicked (
+\begin{DoxyParamCaption}
+\item[{bool}]{checked}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classMainWindow_a42193cb2a4a2cac74da5a8291ab5bd96}{}\label{classMainWindow_a42193cb2a4a2cac74da5a8291ab5bd96}
+\index{Main\+Window@{Main\+Window}!on\+\_\+mode\+Box\+\_\+activated@{on\+\_\+mode\+Box\+\_\+activated}}
+\index{on\+\_\+mode\+Box\+\_\+activated@{on\+\_\+mode\+Box\+\_\+activated}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+mode\+Box\+\_\+activated}{on_modeBox_activated}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::on\+\_\+mode\+Box\+\_\+activated (
+\begin{DoxyParamCaption}
+\item[{int}]{index}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classMainWindow_a4cd877b54dd972c62fa97553191d69c1}{}\label{classMainWindow_a4cd877b54dd972c62fa97553191d69c1}
+\index{Main\+Window@{Main\+Window}!on\+\_\+month\+Box\+\_\+value\+Changed@{on\+\_\+month\+Box\+\_\+value\+Changed}}
+\index{on\+\_\+month\+Box\+\_\+value\+Changed@{on\+\_\+month\+Box\+\_\+value\+Changed}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+month\+Box\+\_\+value\+Changed}{on_monthBox_valueChanged}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::on\+\_\+month\+Box\+\_\+value\+Changed (
+\begin{DoxyParamCaption}
+\item[{int}]{arg1}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classMainWindow_a369ef8f03c1c6e986418234bd462ab06}{}\label{classMainWindow_a369ef8f03c1c6e986418234bd462ab06}
+\index{Main\+Window@{Main\+Window}!on\+\_\+next\+Button\+\_\+clicked@{on\+\_\+next\+Button\+\_\+clicked}}
+\index{on\+\_\+next\+Button\+\_\+clicked@{on\+\_\+next\+Button\+\_\+clicked}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+next\+Button\+\_\+clicked}{on_nextButton_clicked}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::on\+\_\+next\+Button\+\_\+clicked (
+\begin{DoxyParamCaption}
+\item[{bool}]{checked}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classMainWindow_ad1a550b59a2a3a2a0b48f2f63e8071eb}{}\label{classMainWindow_ad1a550b59a2a3a2a0b48f2f63e8071eb}
+\index{Main\+Window@{Main\+Window}!on\+\_\+pin\+Button\+\_\+clicked@{on\+\_\+pin\+Button\+\_\+clicked}}
+\index{on\+\_\+pin\+Button\+\_\+clicked@{on\+\_\+pin\+Button\+\_\+clicked}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+pin\+Button\+\_\+clicked}{on_pinButton_clicked}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::on\+\_\+pin\+Button\+\_\+clicked (
+\begin{DoxyParamCaption}
+\item[{bool}]{checked}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classMainWindow_ae779988974613e15ccb434645f474d8f}{}\label{classMainWindow_ae779988974613e15ccb434645f474d8f}
+\index{Main\+Window@{Main\+Window}!on\+\_\+previous\+Button\+\_\+clicked@{on\+\_\+previous\+Button\+\_\+clicked}}
+\index{on\+\_\+previous\+Button\+\_\+clicked@{on\+\_\+previous\+Button\+\_\+clicked}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+previous\+Button\+\_\+clicked}{on_previousButton_clicked}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::on\+\_\+previous\+Button\+\_\+clicked (
+\begin{DoxyParamCaption}
+\item[{bool}]{checked}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classMainWindow_a228228aec016d5f37ef06dc62ad0c42a}{}\label{classMainWindow_a228228aec016d5f37ef06dc62ad0c42a}
+\index{Main\+Window@{Main\+Window}!on\+\_\+quit\+Button\+\_\+clicked@{on\+\_\+quit\+Button\+\_\+clicked}}
+\index{on\+\_\+quit\+Button\+\_\+clicked@{on\+\_\+quit\+Button\+\_\+clicked}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+quit\+Button\+\_\+clicked}{on_quitButton_clicked}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::on\+\_\+quit\+Button\+\_\+clicked (
+\begin{DoxyParamCaption}
+\item[{bool}]{checked}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classMainWindow_aca2f10b04ded003c6da32e81c898d16e}{}\label{classMainWindow_aca2f10b04ded003c6da32e81c898d16e}
+\index{Main\+Window@{Main\+Window}!on\+\_\+year\+Box\+\_\+value\+Changed@{on\+\_\+year\+Box\+\_\+value\+Changed}}
+\index{on\+\_\+year\+Box\+\_\+value\+Changed@{on\+\_\+year\+Box\+\_\+value\+Changed}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{on\+\_\+year\+Box\+\_\+value\+Changed}{on_yearBox_valueChanged}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::on\+\_\+year\+Box\+\_\+value\+Changed (
+\begin{DoxyParamCaption}
+\item[{int}]{arg1}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classMainWindow_a906e1abeb5bda05405106d78779872e3}{}\label{classMainWindow_a906e1abeb5bda05405106d78779872e3}
+\index{Main\+Window@{Main\+Window}!post\+Construct\+Init@{post\+Construct\+Init}}
+\index{post\+Construct\+Init@{post\+Construct\+Init}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{post\+Construct\+Init()}{postConstructInit()}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::post\+Construct\+Init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMainWindow_a8566d13d3417aa595a1533586cc3ada5}{}\label{classMainWindow_a8566d13d3417aa595a1533586cc3ada5}
+
+
+Do some initialization that cannot be put into constructor. 
+
+\index{Main\+Window@{Main\+Window}!prompt\+Task\+Bar@{prompt\+Task\+Bar}}
+\index{prompt\+Task\+Bar@{prompt\+Task\+Bar}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{prompt\+Task\+Bar}{promptTaskBar}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::prompt\+Task\+Bar (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{task, }
+\item[{int}]{task\+Index, }
+\item[{Q\+Date}]{today}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}\hypertarget{classMainWindow_a4c5f8ee24616439a17d368fe95ab6c41}{}\label{classMainWindow_a4c5f8ee24616439a17d368fe95ab6c41}
+\index{Main\+Window@{Main\+Window}!prompt\+Tile\+Bar@{prompt\+Tile\+Bar}}
+\index{prompt\+Tile\+Bar@{prompt\+Tile\+Bar}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{prompt\+Tile\+Bar}{promptTileBar}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::prompt\+Tile\+Bar (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{tile}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classMainWindow_a0b149c5bca3c35a39c919fe9581be2dd}{}\label{classMainWindow_a0b149c5bca3c35a39c919fe9581be2dd}
+\index{Main\+Window@{Main\+Window}!showY@{showY}}
+\index{showY@{showY}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{show\+Y()}{showY()}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::showY (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_ad779c7052af374e51a7f3a2259874df1}{}\label{classMainWindow_ad779c7052af374e51a7f3a2259874df1}
+
+
+year \& month 
+
+\index{Main\+Window@{Main\+Window}!show\+YM@{show\+YM}}
+\index{show\+YM@{show\+YM}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{show\+Y\+M()}{showYM()}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::show\+YM (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_a6c1803c0b3b3299044eb2d33bc9c0e7d}{}\label{classMainWindow_a6c1803c0b3b3299044eb2d33bc9c0e7d}
+
+
+year \& month \& day 
+
+\index{Main\+Window@{Main\+Window}!show\+Y\+MD@{show\+Y\+MD}}
+\index{show\+Y\+MD@{show\+Y\+MD}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{show\+Y\+M\+D()}{showYMD()}}]{\setlength{\rightskip}{0pt plus 5cm}void Main\+Window\+::show\+Y\+MD (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_aa2a16a8bde8f4d34b1f5c333a7c6041f}{}\label{classMainWindow_aa2a16a8bde8f4d34b1f5c333a7c6041f}
+
+
+These 3 functions set the date bar at top. 
+
+
+
+\subsection{Member Data Documentation}
+\index{Main\+Window@{Main\+Window}!calendar\+Data@{calendar\+Data}}
+\index{calendar\+Data@{calendar\+Data}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{calendar\+Data}{calendarData}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Data}$\ast$ Main\+Window\+::calendar\+Data}\hypertarget{classMainWindow_a4344962e43608c8c9f1b03e98eaa9283}{}\label{classMainWindow_a4344962e43608c8c9f1b03e98eaa9283}
+
+
+All data set by user. 
+
+\index{Main\+Window@{Main\+Window}!changing\+Date@{changing\+Date}}
+\index{changing\+Date@{changing\+Date}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{changing\+Date}{changingDate}}]{\setlength{\rightskip}{0pt plus 5cm}bool Main\+Window\+::changing\+Date\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_a4ba1fa11c17bc9919783f8988f0f6e92}{}\label{classMainWindow_a4ba1fa11c17bc9919783f8988f0f6e92}
+
+
+Prevent recursive calling. 
+
+\index{Main\+Window@{Main\+Window}!chinese@{chinese}}
+\index{chinese@{chinese}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{chinese}{chinese}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Translator Main\+Window\+::chinese\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_a2c428c740faa1094e20f658b2db84dc7}{}\label{classMainWindow_a2c428c740faa1094e20f658b2db84dc7}
+\index{Main\+Window@{Main\+Window}!displayed\+Date@{displayed\+Date}}
+\index{displayed\+Date@{displayed\+Date}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{displayed\+Date}{displayedDate}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Date Main\+Window\+::displayed\+Date\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_a3d53fc161132967689d4dde0ad7f8a21}{}\label{classMainWindow_a3d53fc161132967689d4dde0ad7f8a21}
+
+
+date displayed in the main window 
+
+\index{Main\+Window@{Main\+Window}!display\+Mode@{display\+Mode}}
+\index{display\+Mode@{display\+Mode}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{display\+Mode}{displayMode}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Main\+Window\+::\+Display\+Mode}  Main\+Window\+::display\+Mode\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_a3408763a676b4754ed8f3de394d9c70b}{}\label{classMainWindow_a3408763a676b4754ed8f3de394d9c70b}
+\index{Main\+Window@{Main\+Window}!d\+Pos@{d\+Pos}}
+\index{d\+Pos@{d\+Pos}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{d\+Pos}{dPos}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Point Main\+Window\+::d\+Pos\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_a98499e8e85458e2dc2ac349964230983}{}\label{classMainWindow_a98499e8e85458e2dc2ac349964230983}
+
+
+Original pos for moving the window. 
+
+\index{Main\+Window@{Main\+Window}!is\+Dragging@{is\+Dragging}}
+\index{is\+Dragging@{is\+Dragging}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{is\+Dragging}{isDragging}}]{\setlength{\rightskip}{0pt plus 5cm}bool Main\+Window\+::is\+Dragging\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_ab664d23548b84c308cc3809c1e63aaff}{}\label{classMainWindow_ab664d23548b84c308cc3809c1e63aaff}
+
+
+is dragging window 
+
+\index{Main\+Window@{Main\+Window}!my\+Instance@{my\+Instance}}
+\index{my\+Instance@{my\+Instance}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{my\+Instance}{myInstance}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Main\+Window} $\ast$ Main\+Window\+::my\+Instance = 0\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}\hypertarget{classMainWindow_a40d454c031dd2ff6a4813fb298c79905}{}\label{classMainWindow_a40d454c031dd2ff6a4813fb298c79905}
+\index{Main\+Window@{Main\+Window}!pinned@{pinned}}
+\index{pinned@{pinned}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{pinned}{pinned}}]{\setlength{\rightskip}{0pt plus 5cm}bool Main\+Window\+::pinned\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_aac8447a932ef41f544891a8d74d04ab9}{}\label{classMainWindow_aac8447a932ef41f544891a8d74d04ab9}
+
+
+The grid not reveiving mouse event. 
+
+\index{Main\+Window@{Main\+Window}!ui@{ui}}
+\index{ui@{ui}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{ui}{ui}}]{\setlength{\rightskip}{0pt plus 5cm}Ui\+::\+Main\+Window$\ast$ Main\+Window\+::ui\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_a35466a70ed47252a0191168126a352a5}{}\label{classMainWindow_a35466a70ed47252a0191168126a352a5}
+\index{Main\+Window@{Main\+Window}!widget\+To\+Date@{widget\+To\+Date}}
+\index{widget\+To\+Date@{widget\+To\+Date}!Main\+Window@{Main\+Window}}
+\subsubsection[{\texorpdfstring{widget\+To\+Date}{widgetToDate}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Map$<$Q\+Widget$\ast$, Q\+Date$>$ Main\+Window\+::widget\+To\+Date\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classMainWindow_ae81ee3cac7678dba0be2fcc37949daa7}{}\label{classMainWindow_ae81ee3cac7678dba0be2fcc37949daa7}
+
+
+What wiget refers to what date. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{mainwindow_8h}{mainwindow.\+h}\item 
+\hyperlink{mainwindow_8cpp}{mainwindow.\+cpp}\end{DoxyCompactItemize}

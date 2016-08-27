@@ -1,0 +1,225 @@
+\hypertarget{classTile}{}\section{Tile Class Reference}
+\label{classTile}\index{Tile@{Tile}}
+
+
+A grid cell response for a day.  
+
+
+
+
+{\ttfamily \#include $<$tile.\+h$>$}
+
+
+
+Inheritance diagram for Tile\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{classTile__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Tile\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=219pt]{classTile__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classTile_a9df630a2ee5dc988f935f3eec20c71f1}{on\+Selected} ()
+\begin{DoxyCompactList}\small\item\em Emitted when the tile is selected by double clicking. \end{DoxyCompactList}\item 
+void \hyperlink{classTile_a92c6ecc49f98dd80082da0f7ed1bc196}{require\+Refresh} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classTile_ad2905b6c84f17998733d24fff9986603}{Tile} (Q\+Color color, Q\+String title, Q\+List$<$ Q\+Widget $\ast$ $>$ body, bool is\+Day, Q\+Widget $\ast$parent, const Q\+Date \&\+\_\+today=Q\+Date())
+\item 
+\hyperlink{classTile_a98634abbd93fa13d0578d7103202d03d}{$\sim$\+Tile} ()
+\item 
+void \hyperlink{classTile_ab4b0ad186f7db82ddb27dff8aa74267a}{highlight} ()
+\item 
+void \hyperlink{classTile_aaea0c02bda80176ea382ac8751632dc1}{remove\+Highlight} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::\+Tile $\ast$ \hyperlink{classTile_af9b10613aac7f5cbffac5ff7d17937d7}{ui}
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classTile_afe7e8c10c6bc2f5dabdfb26bc5b8f170}{event} (Q\+Event $\ast$event)
+\begin{DoxyCompactList}\small\item\em Eat all event when window is pinned. \end{DoxyCompactList}\item 
+void \hyperlink{classTile_af633e057428b3ed6d70380202906f2da}{drag\+Enter\+Event} (Q\+Drag\+Enter\+Event $\ast$\hyperlink{classTile_afe7e8c10c6bc2f5dabdfb26bc5b8f170}{event})
+\item 
+void \hyperlink{classTile_a5cdcd6c44b1b885731e63767cacc18d9}{drag\+Leave\+Event} (Q\+Drag\+Leave\+Event $\ast$\hyperlink{classTile_afe7e8c10c6bc2f5dabdfb26bc5b8f170}{event})
+\item 
+void \hyperlink{classTile_a4b1d24e35991d2215b72df9203643272}{drop\+Event} (Q\+Drop\+Event $\ast$\hyperlink{classTile_afe7e8c10c6bc2f5dabdfb26bc5b8f170}{event})
+\item 
+void \hyperlink{classTile_a980bff59aaa43eb6d02efc12c2141fd3}{enter\+Event} (Q\+Event $\ast$\hyperlink{classTile_afe7e8c10c6bc2f5dabdfb26bc5b8f170}{event})
+\item 
+void \hyperlink{classTile_a162f26a310fa98772744c54b838b2801}{leave\+Event} (Q\+Event $\ast$\hyperlink{classTile_afe7e8c10c6bc2f5dabdfb26bc5b8f170}{event})
+\item 
+void \hyperlink{classTile_ac60074ff290103f2e26c514e2dbc8a40}{mouse\+Press\+Event} (Q\+Mouse\+Event $\ast$\hyperlink{classTile_afe7e8c10c6bc2f5dabdfb26bc5b8f170}{event})
+\item 
+void \hyperlink{classTile_abdcd52e56f2aa88e1c2580c09a0e35d0}{mouse\+Double\+Click\+Event} (Q\+Mouse\+Event $\ast$\hyperlink{classTile_afe7e8c10c6bc2f5dabdfb26bc5b8f170}{event})
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{classTile_af01de1d335af626b83ebb3c397f7a0c7}{hover\+Effect}
+\item 
+Q\+Date \hyperlink{classTile_a8f78174bdd6633fd6bd32221a7309136}{today}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A grid cell response for a day. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Tile@{Tile}!Tile@{Tile}}
+\index{Tile@{Tile}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{Tile(\+Q\+Color color, Q\+String title, Q\+List$<$ Q\+Widget $\ast$ $>$ body, bool is\+Day, Q\+Widget $\ast$parent, const Q\+Date \&\+\_\+today=\+Q\+Date())}{Tile(QColor color, QString title, QList< QWidget * > body, bool isDay, QWidget *parent, const QDate &_today=QDate())}}]{\setlength{\rightskip}{0pt plus 5cm}Tile\+::\+Tile (
+\begin{DoxyParamCaption}
+\item[{Q\+Color}]{color, }
+\item[{Q\+String}]{title, }
+\item[{Q\+List$<$ Q\+Widget $\ast$ $>$}]{body, }
+\item[{bool}]{is\+Day, }
+\item[{Q\+Widget $\ast$}]{parent, }
+\item[{const Q\+Date \&}]{\+\_\+today = {\ttfamily QDate()}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classTile_ad2905b6c84f17998733d24fff9986603}{}\label{classTile_ad2905b6c84f17998733d24fff9986603}
+
+\begin{DoxyParams}{Parameters}
+{\em color} & \+: background color \\
+\hline
+{\em is\+Day} & \+: this tile repersents a day rather than a title \\
+\hline
+\end{DoxyParams}
+\index{Tile@{Tile}!````~Tile@{$\sim$\+Tile}}
+\index{````~Tile@{$\sim$\+Tile}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{$\sim$\+Tile()}{~Tile()}}]{\setlength{\rightskip}{0pt plus 5cm}Tile\+::$\sim$\+Tile (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTile_a98634abbd93fa13d0578d7103202d03d}{}\label{classTile_a98634abbd93fa13d0578d7103202d03d}
+
+
+\subsection{Member Function Documentation}
+\index{Tile@{Tile}!drag\+Enter\+Event@{drag\+Enter\+Event}}
+\index{drag\+Enter\+Event@{drag\+Enter\+Event}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{drag\+Enter\+Event(\+Q\+Drag\+Enter\+Event $\ast$event)}{dragEnterEvent(QDragEnterEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Tile\+::drag\+Enter\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Drag\+Enter\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTile_af633e057428b3ed6d70380202906f2da}{}\label{classTile_af633e057428b3ed6d70380202906f2da}
+\index{Tile@{Tile}!drag\+Leave\+Event@{drag\+Leave\+Event}}
+\index{drag\+Leave\+Event@{drag\+Leave\+Event}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{drag\+Leave\+Event(\+Q\+Drag\+Leave\+Event $\ast$event)}{dragLeaveEvent(QDragLeaveEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Tile\+::drag\+Leave\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Drag\+Leave\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTile_a5cdcd6c44b1b885731e63767cacc18d9}{}\label{classTile_a5cdcd6c44b1b885731e63767cacc18d9}
+\index{Tile@{Tile}!drop\+Event@{drop\+Event}}
+\index{drop\+Event@{drop\+Event}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{drop\+Event(\+Q\+Drop\+Event $\ast$event)}{dropEvent(QDropEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Tile\+::drop\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Drop\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTile_a4b1d24e35991d2215b72df9203643272}{}\label{classTile_a4b1d24e35991d2215b72df9203643272}
+\index{Tile@{Tile}!enter\+Event@{enter\+Event}}
+\index{enter\+Event@{enter\+Event}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{enter\+Event(\+Q\+Event $\ast$event)}{enterEvent(QEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Tile\+::enter\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTile_a980bff59aaa43eb6d02efc12c2141fd3}{}\label{classTile_a980bff59aaa43eb6d02efc12c2141fd3}
+\index{Tile@{Tile}!event@{event}}
+\index{event@{event}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{event(\+Q\+Event $\ast$event)}{event(QEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Tile\+::event (
+\begin{DoxyParamCaption}
+\item[{Q\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTile_afe7e8c10c6bc2f5dabdfb26bc5b8f170}{}\label{classTile_afe7e8c10c6bc2f5dabdfb26bc5b8f170}
+
+
+Eat all event when window is pinned. 
+
+\index{Tile@{Tile}!highlight@{highlight}}
+\index{highlight@{highlight}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{highlight()}{highlight()}}]{\setlength{\rightskip}{0pt plus 5cm}void Tile\+::highlight (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTile_ab4b0ad186f7db82ddb27dff8aa74267a}{}\label{classTile_ab4b0ad186f7db82ddb27dff8aa74267a}
+\index{Tile@{Tile}!leave\+Event@{leave\+Event}}
+\index{leave\+Event@{leave\+Event}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{leave\+Event(\+Q\+Event $\ast$event)}{leaveEvent(QEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Tile\+::leave\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTile_a162f26a310fa98772744c54b838b2801}{}\label{classTile_a162f26a310fa98772744c54b838b2801}
+\index{Tile@{Tile}!mouse\+Double\+Click\+Event@{mouse\+Double\+Click\+Event}}
+\index{mouse\+Double\+Click\+Event@{mouse\+Double\+Click\+Event}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{mouse\+Double\+Click\+Event(\+Q\+Mouse\+Event $\ast$event)}{mouseDoubleClickEvent(QMouseEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Tile\+::mouse\+Double\+Click\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Mouse\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTile_abdcd52e56f2aa88e1c2580c09a0e35d0}{}\label{classTile_abdcd52e56f2aa88e1c2580c09a0e35d0}
+\index{Tile@{Tile}!mouse\+Press\+Event@{mouse\+Press\+Event}}
+\index{mouse\+Press\+Event@{mouse\+Press\+Event}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{mouse\+Press\+Event(\+Q\+Mouse\+Event $\ast$event)}{mousePressEvent(QMouseEvent *event)}}]{\setlength{\rightskip}{0pt plus 5cm}void Tile\+::mouse\+Press\+Event (
+\begin{DoxyParamCaption}
+\item[{Q\+Mouse\+Event $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{classTile_ac60074ff290103f2e26c514e2dbc8a40}{}\label{classTile_ac60074ff290103f2e26c514e2dbc8a40}
+\index{Tile@{Tile}!on\+Selected@{on\+Selected}}
+\index{on\+Selected@{on\+Selected}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{on\+Selected}{onSelected}}]{\setlength{\rightskip}{0pt plus 5cm}void Tile\+::on\+Selected (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\hypertarget{classTile_a9df630a2ee5dc988f935f3eec20c71f1}{}\label{classTile_a9df630a2ee5dc988f935f3eec20c71f1}
+
+
+Emitted when the tile is selected by double clicking. 
+
+\index{Tile@{Tile}!remove\+Highlight@{remove\+Highlight}}
+\index{remove\+Highlight@{remove\+Highlight}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{remove\+Highlight()}{removeHighlight()}}]{\setlength{\rightskip}{0pt plus 5cm}void Tile\+::remove\+Highlight (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classTile_aaea0c02bda80176ea382ac8751632dc1}{}\label{classTile_aaea0c02bda80176ea382ac8751632dc1}
+\index{Tile@{Tile}!require\+Refresh@{require\+Refresh}}
+\index{require\+Refresh@{require\+Refresh}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{require\+Refresh}{requireRefresh}}]{\setlength{\rightskip}{0pt plus 5cm}void Tile\+::require\+Refresh (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}\hypertarget{classTile_a92c6ecc49f98dd80082da0f7ed1bc196}{}\label{classTile_a92c6ecc49f98dd80082da0f7ed1bc196}
+
+
+\subsection{Member Data Documentation}
+\index{Tile@{Tile}!hover\+Effect@{hover\+Effect}}
+\index{hover\+Effect@{hover\+Effect}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{hover\+Effect}{hoverEffect}}]{\setlength{\rightskip}{0pt plus 5cm}bool Tile\+::hover\+Effect\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTile_af01de1d335af626b83ebb3c397f7a0c7}{}\label{classTile_af01de1d335af626b83ebb3c397f7a0c7}
+\index{Tile@{Tile}!today@{today}}
+\index{today@{today}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{today}{today}}]{\setlength{\rightskip}{0pt plus 5cm}Q\+Date Tile\+::today\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classTile_a8f78174bdd6633fd6bd32221a7309136}{}\label{classTile_a8f78174bdd6633fd6bd32221a7309136}
+\index{Tile@{Tile}!ui@{ui}}
+\index{ui@{ui}!Tile@{Tile}}
+\subsubsection[{\texorpdfstring{ui}{ui}}]{\setlength{\rightskip}{0pt plus 5cm}Ui\+::\+Tile$\ast$ Tile\+::ui}\hypertarget{classTile_af9b10613aac7f5cbffac5ff7d17937d7}{}\label{classTile_af9b10613aac7f5cbffac5ff7d17937d7}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tile_8h}{tile.\+h}\item 
+\hyperlink{tile_8cpp}{tile.\+cpp}\end{DoxyCompactItemize}

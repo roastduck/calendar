@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classFileDisplay.html" title="Display a file dragged in by user. " alt="" coords="131,5,217,32"/>
+<area shape="rect" id="node3" href="$classSideBar.html" title="Base class for side bar besides a day or a task. " alt="" coords="140,56,208,83"/>
+<area shape="rect" id="node6" href="$classTaskDisplay.html" title="Display and edit a task. " alt="" coords="127,107,221,133"/>
+<area shape="rect" id="node7" href="$classTile.html" title="A grid cell response for a day. " alt="" coords="153,157,195,184"/>
+<area shape="rect" id="node4" href="$classTaskBar.html" title="Provide an interface for users to interact with tasks. " alt="" coords="269,31,340,57"/>
+<area shape="rect" id="node5" href="$classTileBar.html" title="The side bar besides a day in the calendar. " alt="" coords="273,81,336,108"/>
+</map>

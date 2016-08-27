@@ -1,0 +1,121 @@
+\hypertarget{classHelp}{}\section{Help Class Reference}
+\label{classHelp}\index{Help@{Help}}
+
+
+{\ttfamily \#include $<$help.\+h$>$}
+
+
+
+Inheritance diagram for Help\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=159pt]{classHelp__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Help\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=159pt]{classHelp__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHelp_a7359f816eb2dab34e4c7017e36c9654d}{Help} (Q\+Widget $\ast$parent=0)
+\item 
+\hyperlink{classHelp_a123b4195136758782058cb78cbd0baf7}{$\sim$\+Help} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classHelp_a22bf8a30b57727d051b07e81cbcf08af}{next} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Ui\+::\+Help $\ast$ \hyperlink{classHelp_a2b64cd3a7d7dc1e6d44c575d4df6dc0d}{ui}
+\item 
+int \hyperlink{classHelp_a0c024355540423400020e10b1b59f8b6}{current\+Movie}
+\item 
+const Q\+List$<$ Q\+Movie $\ast$ $>$ \hyperlink{classHelp_add4de4d4640b971e5e80fac57f027099}{movie\+List}
+\item 
+const Q\+List$<$ Q\+String $>$ \hyperlink{classHelp_a0c53a50be73195a84b7828ff0f576430}{text\+List}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Help@{Help}!Help@{Help}}
+\index{Help@{Help}!Help@{Help}}
+\subsubsection[{\texorpdfstring{Help(\+Q\+Widget $\ast$parent=0)}{Help(QWidget *parent=0)}}]{\setlength{\rightskip}{0pt plus 5cm}Help\+::\+Help (
+\begin{DoxyParamCaption}
+\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [explicit]}}\hypertarget{classHelp_a7359f816eb2dab34e4c7017e36c9654d}{}\label{classHelp_a7359f816eb2dab34e4c7017e36c9654d}
+\index{Help@{Help}!````~Help@{$\sim$\+Help}}
+\index{````~Help@{$\sim$\+Help}!Help@{Help}}
+\subsubsection[{\texorpdfstring{$\sim$\+Help()}{~Help()}}]{\setlength{\rightskip}{0pt plus 5cm}Help\+::$\sim$\+Help (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classHelp_a123b4195136758782058cb78cbd0baf7}{}\label{classHelp_a123b4195136758782058cb78cbd0baf7}
+
+
+\subsection{Member Function Documentation}
+\index{Help@{Help}!next@{next}}
+\index{next@{next}!Help@{Help}}
+\subsubsection[{\texorpdfstring{next}{next}}]{\setlength{\rightskip}{0pt plus 5cm}void Help\+::next (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}\hypertarget{classHelp_a22bf8a30b57727d051b07e81cbcf08af}{}\label{classHelp_a22bf8a30b57727d051b07e81cbcf08af}
+
+
+\subsection{Member Data Documentation}
+\index{Help@{Help}!current\+Movie@{current\+Movie}}
+\index{current\+Movie@{current\+Movie}!Help@{Help}}
+\subsubsection[{\texorpdfstring{current\+Movie}{currentMovie}}]{\setlength{\rightskip}{0pt plus 5cm}int Help\+::current\+Movie\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classHelp_a0c024355540423400020e10b1b59f8b6}{}\label{classHelp_a0c024355540423400020e10b1b59f8b6}
+\index{Help@{Help}!movie\+List@{movie\+List}}
+\index{movie\+List@{movie\+List}!Help@{Help}}
+\subsubsection[{\texorpdfstring{movie\+List}{movieList}}]{\setlength{\rightskip}{0pt plus 5cm}const Q\+List$<$Q\+Movie$\ast$$>$ Help\+::movie\+List\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classHelp_add4de4d4640b971e5e80fac57f027099}{}\label{classHelp_add4de4d4640b971e5e80fac57f027099}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+        \textcolor{keyword}{new} QMovie(\textcolor{stringliteral}{":/video/change-color.gif"}, \textcolor{stringliteral}{"GIF"}, \textcolor{keyword}{this}),
+        \textcolor{keyword}{new} QMovie(\textcolor{stringliteral}{":/video/add-task.gif"}, \textcolor{stringliteral}{"GIF"}, \textcolor{keyword}{this}),
+        \textcolor{keyword}{new} QMovie(\textcolor{stringliteral}{":/video/del-task.gif"}, \textcolor{stringliteral}{"GIF"}, \textcolor{keyword}{this}),
+        \textcolor{keyword}{new} QMovie(\textcolor{stringliteral}{":/video/drag-files.gif"}, \textcolor{stringliteral}{"GIF"}, \textcolor{keyword}{this}),
+        \textcolor{keyword}{new} QMovie(\textcolor{stringliteral}{":/video/export-import.gif"}, \textcolor{stringliteral}{"GIF"}, \textcolor{keyword}{this}),
+        \textcolor{keyword}{new} QMovie(\textcolor{stringliteral}{":/video/pin.gif"}, \textcolor{stringliteral}{"GIF"}, \textcolor{keyword}{this}),
+        \textcolor{keyword}{new} QMovie(\textcolor{stringliteral}{":/video/mode.gif"}, \textcolor{stringliteral}{"GIF"}, \textcolor{keyword}{this})
+    \}
+\end{DoxyCode}
+\index{Help@{Help}!text\+List@{text\+List}}
+\index{text\+List@{text\+List}!Help@{Help}}
+\subsubsection[{\texorpdfstring{text\+List}{textList}}]{\setlength{\rightskip}{0pt plus 5cm}const Q\+List$<$Q\+String$>$ Help\+::text\+List\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classHelp_a0c53a50be73195a84b7828ff0f576430}{}\label{classHelp_a0c53a50be73195a84b7828ff0f576430}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+        tr(\textcolor{stringliteral}{"Double-click on a day to set its color."}),
+        tr(\textcolor{stringliteral}{"Add a task and set it as repeated optionally."}),
+        tr(\textcolor{stringliteral}{"Delete a task just for a day or delete all repeated tasks."}),
+        tr(\textcolor{stringliteral}{"Drag files into or out from a day."}),
+        tr(\textcolor{stringliteral}{"Export or import all configurations."}),
+        tr(\textcolor{stringliteral}{"Drag and pin the calendar."}),
+        tr(\textcolor{stringliteral}{"View the calendar in different mode."})
+    \}
+\end{DoxyCode}
+\index{Help@{Help}!ui@{ui}}
+\index{ui@{ui}!Help@{Help}}
+\subsubsection[{\texorpdfstring{ui}{ui}}]{\setlength{\rightskip}{0pt plus 5cm}Ui\+::\+Help$\ast$ Help\+::ui\hspace{0.3cm}{\ttfamily [private]}}\hypertarget{classHelp_a2b64cd3a7d7dc1e6d44c575d4df6dc0d}{}\label{classHelp_a2b64cd3a7d7dc1e6d44c575d4df6dc0d}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{help_8h}{help.\+h}\item 
+\hyperlink{help_8cpp}{help.\+cpp}\end{DoxyCompactItemize}
