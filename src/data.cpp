@@ -2,7 +2,6 @@
 #include <QPair>
 #include <QDebug>
 #include <QIODevice>
-#include <QFileInfo>
 #include <QJsonDocument>
 #include "data.h"
 #include "task.h"
@@ -10,7 +9,7 @@
 
 Data::Data(QObject *parent) : QObject(parent)
 {
-    QFile file(QFileInfo(saveFile).absoluteFilePath());
+    QFile file(saveFile);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         data = QJsonDocument::fromJson(file.readAll()).object();
@@ -53,7 +52,7 @@ Data::~Data()
     }
     data["files"] = filesObj;
 
-    QFile file(QFileInfo(saveFile).absoluteFilePath());
+    QFile file(saveFile);
     Q_ASSERT(file.open(QIODevice::WriteOnly | QIODevice::Text));
     file.write(QJsonDocument(data).toJson());
     file.close();
