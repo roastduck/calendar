@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     file.cpp \
     filedisplay.cpp \
     dragdata.cpp \
-    labelwithclick.cpp
+    labelwithclick.cpp \
+    help.cpp
 
 HEADERS  += mainwindow.h \
     html.h \
@@ -39,17 +40,20 @@ HEADERS  += mainwindow.h \
     file.h \
     filedisplay.h \
     dragdata.h \
-    labelwithclick.h
+    labelwithclick.h \
+    help.h
 
 FORMS    += mainwindow.ui \
     tilebar.ui \
     taskdisplay.ui \
     tile.ui \
     taskbar.ui \
-    filedisplay.ui
+    filedisplay.ui \
+    help.ui
 
 TRANSLATIONS += zh_cn.ts
 
 RESOURCES += \
     icon.qrc \
-    translation.qrc
+    translation.qrc \
+    video.qrc

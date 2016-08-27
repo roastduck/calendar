@@ -72,6 +72,8 @@ private slots:
     void on_dragSwitchButton_toggled(bool checked);
     void on_modeBox_activated(int index);
 
+    void on_helpButton_clicked(bool checked);
+
 private:
     /// Initialize a month display
     void initMonth();

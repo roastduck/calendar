@@ -64,6 +64,7 @@ bool Tile::event(QEvent *event)
 
 void Tile::dragEnterEvent(QDragEnterEvent *event)
 {
+    qDebug() << "drag enter";
     if (! MainWindow::getMyInstance()->calendarData->dragDisabled())
     {
         highlight();
@@ -74,12 +75,14 @@ void Tile::dragEnterEvent(QDragEnterEvent *event)
 
 void Tile::dragLeaveEvent(QDragLeaveEvent *event)
 {
+    qDebug() << "drag leave";
     removeHighlight();
     QWidget::dragLeaveEvent(event);
 }
 
 void Tile::dropEvent(QDropEvent *event)
 {
+    qDebug() << "drop event";
     if (! MainWindow::getMyInstance()->calendarData->dragDisabled() && event->mimeData()->hasUrls())
     {
         QList<QUrl> urls = event->mimeData()->urls();

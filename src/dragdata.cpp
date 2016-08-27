@@ -29,7 +29,7 @@ QVariant DragData::retrieveData(const QString &mimetype, QVariant::Type) const
         if (! QFileInfo("tmp").isDir())
             Q_ASSERT(QDir().mkdir("tmp"));
 
-        QFile file("tmp/" + filename);
+        QFile file(QFileInfo("tmp/" + filename).absolutePath());
         Q_ASSERT(file.open(QIODevice::WriteOnly));
         file.write(QByteArray::fromBase64(base64.toLatin1()));
         file.close();

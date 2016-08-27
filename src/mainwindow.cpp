@@ -17,6 +17,7 @@
 #include <QSignalMapper>
 #include <QTextCharFormat>
 #include <QCalendarWidget>
+#include "help.h"
 #include "data.h"
 #include "file.h"
 #include "tile.h"
@@ -541,4 +542,10 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
     if (isDragging)
         move(event->globalPos() - dPos);
     QMainWindow::mouseMoveEvent(event);
+}
+
+void MainWindow::on_helpButton_clicked(bool)
+{
+    Help().exec();
+    qDebug() << "help closed";
 }

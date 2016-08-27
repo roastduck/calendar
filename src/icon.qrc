@@ -16,6 +16,7 @@
         <file alias="cross.ico">../resource/cross.ico</file>
         <file alias="file-transfer-cross.ico">../resource/file-transfer-cross.ico</file>
         <file alias="file-transfer-checkmark.ico">../resource/file_transfer_checkmark.ico</file>
+        <file>../resource/question.ico</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

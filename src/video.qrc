@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/video">
+        <file alias="change-color.gif">../resource/change-color.gif</file>
+        <file alias="add-task.gif">../resource/add-task.gif</file>
+        <file alias="del-task.gif">../resource/del-task.gif</file>
+        <file alias="drag-files.gif">../resource/drag-files.gif</file>
+        <file alias="export-import.gif">../resource/export-import.gif</file>
+        <file alias="pin.gif">../resource/pin.gif</file>
+        <file alias="mode.gif">../resource/mode.gif</file>
+    </qresource>
+</RCC>
