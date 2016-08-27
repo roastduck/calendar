@@ -56,6 +56,7 @@ public slots:
 
 private slots:
     void promptTileBar(QWidget *tile);
+    void enterDate(const QDate &date);
 
     void on_comboBox_activated(int index);
     void on_quitButton_clicked(bool checked);
@@ -78,6 +79,8 @@ private:
     void initDay();
     /// Initialize a week display
     void initWeek();
+    /// Initialize a year display
+    void initYear();
 
     /// These 3 functions set the date bar at top
     void showYMD(); /// year & month & day

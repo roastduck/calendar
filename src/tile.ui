@@ -20,7 +20,7 @@
    <string>Form</string>
   </property>
   <property name="toolTip">
-   <string>Drag file here to add it in</string>
+   <string>Double-click to edit. Drag file here to add it in.</string>
   </property>
   <property name="autoFillBackground">
    <bool>true</bool>

@@ -2,6 +2,7 @@
 #include <QList>
 #include <QIcon>
 #include <QRect>
+#include <QBrush>
 #include <QLabel>
 #include <QDebug>
 #include <QPoint>
@@ -13,6 +14,8 @@
 #include <QVBoxLayout>
 #include <QLayoutItem>
 #include <QSignalMapper>
+#include <QTextCharFormat>
+#include <QCalendarWidget>
 #include "data.h"
 #include "file.h"
 #include "tile.h"
@@ -91,6 +94,9 @@ void MainWindow::init()
         break;
     case WEEK:
         initWeek();
+        break;
+    case YEAR:
+        initYear();
         break;
     default:
         qDebug() << "displayMode = " << displayMode;
@@ -246,6 +252,33 @@ void MainWindow::initWeek()
         grid->setColumnStretch(i, 20);
 }
 
+void MainWindow::initYear()
+{
+    clearGrid();
+    showY();
+
+    QGridLayout *grid = dynamic_cast<QGridLayout*>(ui->gridWidget->layout());
+    int year = displayedDate.year();
+
+    for (int i = 1; i <= 12; i++)
+    {
+        QCalendarWidget *w = new QCalendarWidget(ui->gridWidget);
+        w->setCurrentPage(year, i);
+        w->setNavigationBarVisible(false);
+        w->setToolTip(tr("Double-click on a day to edit"));
+        for (QDate j = QDate(year, i, 1); j.month() == i; j = j.addDays(1))
+        {
+            QColor toSet = calendarData->getDayColor(j);
+            if (toSet == calendarData->defaultDayColor) continue;
+            QTextCharFormat f = w->dateTextFormat(j);
+            f.setBackground(toSet);
+            w->setDateTextFormat(j, f);
+        }
+        connect(w, SIGNAL(activated(QDate)), this, SLOT(enterDate(QDate)));
+        grid->addWidget(w, (i - 1) / 4, (i - 1) % 4);
+    }
+}
+
 QWidget *MainWindow::dayInMonth(QDate date, bool monthDisplayed)
 {
     QString title = QString::number(date.day());
@@ -299,6 +332,12 @@ void MainWindow::promptTileBar(QWidget *tile)
 {
     qDebug() << "prmopt tile bar";
     new TileBar(tile, widgetToDate[tile]);
+}
+
+void MainWindow::enterDate(const QDate &date)
+{
+    displayMode = DAY;
+    alterDisplayedDate(date);
 }
 
 void MainWindow::on_comboBox_activated(int index)

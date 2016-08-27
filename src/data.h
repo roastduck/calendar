@@ -61,9 +61,9 @@ public:
     /// File to save data
     static constexpr const char *saveFile = "savedcalendar.json";
 
-private:
-    const QColor defaultDayColor= QColor(0xE0, 0xFF, 0x85, 0xD0);
+    const QColor defaultDayColor = QColor(0xE0, 0xFF, 0x85, 0xD0);
 
+private:
     QJsonObject data;
     QList<Task*> tasks;
     QMap< QDate, QList<File*> > files;
