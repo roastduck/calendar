@@ -17,7 +17,8 @@ File::File(const QUrl &path, QObject *parent) : QObject(parent)
 {
     filename = path.fileName();
     QFile file(path.toLocalFile());
-    Q_ASSERT(file.open(QIODevice::ReadOnly));
+    bool success = file.open(QIODevice::ReadOnly);
+    Q_ASSERT(success);
     base64 = file.readAll().toBase64();
     file.close();
 }

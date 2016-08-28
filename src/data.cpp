@@ -53,7 +53,8 @@ Data::~Data()
     data["files"] = filesObj;
 
     QFile file(saveFile);
-    Q_ASSERT(file.open(QIODevice::WriteOnly | QIODevice::Text));
+    bool success = file.open(QIODevice::WriteOnly | QIODevice::Text);
+    Q_ASSERT(success);
     file.write(QJsonDocument(data).toJson());
     file.close();
 }
